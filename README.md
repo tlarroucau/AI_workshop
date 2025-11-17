@@ -50,7 +50,7 @@ This template demonstrates best practices for:
 1. **Clone this repository:**
    ```bash
    git clone <your-repo-url>
-   cd AI_worshop
+   cd AI_workshop
    ```
 
 2. **Install Python dependencies:**
