@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This repository serves as a **template for reproducible research projects** and accompanies the ASU workshop: *"Git, GitHub, and VS Code: Agentic AI for Project Management and Research Productivity."*
+This repository serves as a **template for reproducible research projects** created by **Tomas Larroucau** and accompanies the workshop: *"Git, GitHub, and VS Code: Agentic AI for Project Management and Research Productivity."*
 
 ## 🎯 Purpose
 
@@ -16,26 +16,44 @@ This template demonstrates best practices for:
 ## 📁 Repository Structure
 
 ```
-.
-├── data/                    # Raw and processed data
-│   ├── raw/                # Original data files (CSV)
-│   └── processed/          # Cleaned/transformed data
-├── scripts/                # Analysis and processing scripts
-│   ├── analysis.py         # Main analysis script
-│   ├── utils.py           # Helper functions
-│   └── requirements.txt   # Python dependencies
-├── output/                 # Generated outputs
-│   ├── figures/           # Plots and visualizations
-│   └── tables/            # LaTeX tables
-├── tex/                    # LaTeX documents
-│   ├── paper/             # Research paper
-│   └── slides/            # Presentation slides
-├── .github/               # GitHub-specific files
-│   └── copilot-instructions.md
-├── AGENTS.md              # Instructions for AI coding agents
-├── Makefile               # Automation workflow
-└── README.md              # This file
+AI_workshop/
+├── AGENTS.md                      # Instructions for AI coding agents
+├── Makefile                       # Automation workflow
+├── README.md                      # This file
+│
+├── .github/                       # GitHub-specific files
+│   └── copilot-instructions.md   # Copilot workspace configuration
+│
+├── data/                          # Raw and processed data
+│   ├── raw/                      # Original data files (never modify!)
+│   │   ├── generate_data.py      # Data generation script
+│   │   └── sample_data.csv       # Sample dataset
+│   └── processed/                # Cleaned/transformed data (gitignored)
+│
+├── scripts/                       # Analysis and processing scripts
+│   ├── analysis.py               # Main analysis pipeline
+│   ├── utils.py                  # Helper functions
+│   └── requirements.txt          # Python dependencies
+│
+├── output/                        # Generated outputs (gitignored, rebuilt via make)
+│   ├── figures/                  # Plots and visualizations
+│   │   ├── distributions.png
+│   │   ├── outcome_by_treatment.png
+│   │   └── scatter_income_outcome.png
+│   └── tables/                   # LaTeX-formatted tables
+│       ├── balance_table.tex
+│       ├── regression_results.tex
+│       └── summary_statistics.tex
+│
+└── tex/                           # LaTeX documents
+    ├── paper/                    # Research paper
+    │   ├── paper.tex
+    │   └── references.bib
+    └── slides/                   # Presentation slides
+        └── workshop_slides.tex
 ```
+
+**Key principle:** Everything in `output/` is regenerated from scripts - never edit manually!
 
 ## 🚀 Quick Start
 
@@ -145,7 +163,7 @@ MIT License - Feel free to use this template for your research projects.
 
 ## 👤 Author
 
-Template created for ASU's AI Strategic Plan workshop series.
+Template created by Tomas Larroucau for ASU's AI Strategic Plan workshop series.
 
 ---
 

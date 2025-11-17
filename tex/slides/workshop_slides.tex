@@ -14,7 +14,7 @@
 % Title information
 \title{Git, GitHub, and VS Code}
 \subtitle{Agentic AI for Project Management and Research Productivity}
-\author{Your Name}
+\author{Tomas Larroucau }
 \institute{Arizona State University}
 \date{\today}
 
@@ -84,7 +84,7 @@
 \end{itemize}
 
 \vspace{0.3cm}
-Repository available at: \url{https://github.com/yourusername/AI_workshop}
+Repository available at: \url{https://github.com/tlarroucau/AI_workshop}
 \end{frame}
 
 % ============================================================
@@ -148,25 +148,64 @@ Repository available at: \url{https://github.com/yourusername/AI_workshop}
 \end{enumerate}
 \end{frame}
 
-\begin{frame}{Key Extensions for Research}
-\begin{table}
-\small
+\begin{frame}{Essential Extensions for Research \& Productivity}
+\begin{columns}
+\begin{column}{0.48\textwidth}
+\scriptsize
 \begin{tabular}{ll}
 \toprule
 \textbf{Extension} & \textbf{Purpose} \\
 \midrule
-Python & Language support, debugging, linting \\
-Pylance & Fast IntelliSense and type checking \\
-LaTeX Workshop & Compile and preview LaTeX documents \\
-GitHub Copilot & AI code completion and chat \\
-GitLens & Enhanced Git visualization \\
-Markdown All in One & Preview and edit markdown files \\
+\multicolumn{2}{l}{\textit{AI \& Productivity}} \\
+GitHub Copilot & AI code assistant \\
+Copilot Chat & AI chat interface \\
+Continue & Local AI assistant \\
+Cline & Autonomous AI agent \\
+Prompt Flow & MCP integration \\
+\midrule
+\multicolumn{2}{l}{\textit{Data Science}} \\
+Python & Language support \\
+Pylance & IntelliSense, type check \\
+Jupyter & Notebook support \\
+R & R language support \\
+Stata Enhanced & Stata syntax \\
+\midrule
+\multicolumn{2}{l}{\textit{Documentation}} \\
+LaTeX Workshop & Compile LaTeX \\
+LTeX & Grammar/spell check \\
+Markdown All in One & Markdown preview \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{column}
 
-\vspace{0.3cm}
-\textbf{Demo:} Installing and configuring extensions
+\begin{column}{0.48\textwidth}
+\scriptsize
+\begin{tabular}{ll}
+\toprule
+\textbf{Extension} & \textbf{Purpose} \\
+\midrule
+\multicolumn{2}{l}{\textit{Project Management}} \\
+GitHub PR \& Issues & Manage PRs/issues \\
+GitLens & Git visualization \\
+Git History & View git log \\
+Project Manager & Organize projects \\
+Todo Tree & Track TODOs \\
+\midrule
+\multicolumn{2}{l}{\textit{Data \& Utilities}} \\
+Rainbow CSV & CSV colorization \\
+Excel Viewer & View Excel files \\
+PDF Viewer & Preview PDFs \\
+Code Snap & Code screenshots \\
+\midrule
+\multicolumn{2}{l}{\textit{Development Tools}} \\
+Remote SSH & Remote development \\
+Docker & Container support \\
+Error Lens & Inline diagnostics \\
+Live Server & Local web server \\
+\bottomrule
+\end{tabular}
+\end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}{VS Code Workspace Setup}
@@ -279,13 +318,9 @@ git status               # Check current state
 git add <file>           # Stage specific file
 git add .                # Stage all changes
 git commit -m "msg"      # Commit with message
+git fetch                # Download remote changes
+git pull                 # Fetch + merge changes
 git push origin main     # Push to remote
-git pull                 # Get latest changes
-\end{verbatim}
-\end{block}
-
-\begin{block}{Inspection}
-\begin{verbatim}
 git log                  # View commit history
 git diff                 # See unstaged changes
 \end{verbatim}
@@ -332,13 +367,13 @@ git diff                 # See unstaged changes
 \end{itemize}
 \end{block}
 
-\begin{block}{Commit Frequency}
-\begin{itemize}
-    \item Commit often (atomic commits)
-    \item Each commit = one logical change
-    \item Makes history easier to understand
-\end{itemize}
-\end{block}
+% \begin{block}{Commit Frequency}
+% \begin{itemize}
+%     \item Commit often (atomic commits)
+%     \item Each commit = one logical change
+%     \item Makes history easier to understand
+% \end{itemize}
+% \end{block}
 \end{frame}
 
 % ============================================================
@@ -453,9 +488,8 @@ git diff                 # See unstaged changes
 \begin{block}{Repository Setup}
 \begin{itemize}
     \item Clear README with setup instructions
-    \item LICENSE file (MIT, GPL, etc.)
+    % \item LICENSE file (MIT, GPL, etc.)
     \item .gitignore for generated files
-    \item CONTRIBUTING guidelines
 \end{itemize}
 \end{block}
 
@@ -464,14 +498,13 @@ git diff                 # See unstaged changes
     \item Never commit directly to main
     \item All changes via pull requests
     \item Require reviews before merging
-    \item Use branch protection rules
 \end{itemize}
 \end{block}
 
 \begin{block}{Communication}
 \begin{itemize}
-    \item Issues for all tasks and discussions
-    \item PR comments for code-specific feedback
+    \item Issues for tasks and discussions
+    \item PR comments for code feedback
     \item Wiki for documentation
 \end{itemize}
 \end{block}
@@ -531,7 +564,6 @@ make clean    # Remove generated files
     \item Store in \texttt{data/raw/}
     \item Never modify original files
     \item Commit to Git (if reasonable size)
-    \item Document data sources
 \end{itemize}
 \end{block}
 
@@ -546,8 +578,8 @@ make clean    # Remove generated files
 \begin{block}{Output Files}
 \begin{itemize}
     \item Figures: PDF + PNG in \texttt{output/figures/}
-    \item Tables: LaTeX format in \texttt{output/tables/}
-    \item Gitignore outputs, rebuild via Makefile
+    \item Tables: LaTeX in \texttt{output/tables/}
+    \item Rebuild via Makefile
 \end{itemize}
 \end{block}
 \end{frame}
@@ -622,7 +654,6 @@ make clean    # Remove generated files
 \begin{itemize}
     \item Autonomous task completion
     \item Multi-step reasoning
-    \item Iterative problem solving
     \item Context-aware assistance
 \end{itemize}
 \end{block}
@@ -633,7 +664,7 @@ make clean    # Remove generated files
 \begin{itemize}
     \item GitHub Copilot (local \& cloud)
     \item VS Code Chat modes
-    \item Cursor, Cline, Windsurf (alternatives)
+    \item Cursor, Cline, Windsurf
 \end{itemize}
 \end{frame}
 
@@ -728,10 +759,11 @@ Apply at: \url{education.github.com}
 \begin{enumerate}
     \item Open repository in VS Code
     \item Use Copilot Chat to understand codebase
-    \item Ask for help with specific tasks
+    \item Ask for help with specific tasks or work on an existing GitHub issue!
     \item Generate code with suggestions
     \item Refactor existing code
     \item Write tests and documentation
+    \item Update GitHub issue with comments and docs!
 \end{enumerate}
 
 \vspace{0.3cm}
@@ -739,7 +771,7 @@ Apply at: \url{education.github.com}
 \textbf{Example Tasks:}
 \begin{itemize}
     \item "Add a function to compute standard errors"
-    \item "Refactor this loop to use pandas"
+    % \item "Refactor this loop to use pandas"
     \item "Write docstrings for all functions in this file"
     \item "Explain what this regression model does"
 \end{itemize}
@@ -749,13 +781,13 @@ Apply at: \url{education.github.com}
 \end{frame}
 
 \begin{frame}{AI-Assisted Workflows: Cloud}
-\textbf{GitHub Copilot Workspace (Cloud):}
+\textbf{GitHub Copilot Workspace / Codex / Jules (Cloud):}
 \begin{itemize}
     \item Work on issues directly in browser
     \item AI proposes implementation plan
     \item Review and refine suggestions
     \item Create PR automatically
-    \item Collaborate asynchronously
+    \item Collaborate asynchronously!
 \end{itemize}
 
 \vspace{0.3cm}
@@ -765,11 +797,10 @@ Apply at: \url{education.github.com}
     \item Quick fixes from mobile/tablet
     \item Delegate tasks to AI agent
     \item Review AI-generated solutions
-    \item Collaborate across timezones
 \end{itemize}
 
 \vspace{0.3cm}
-\textbf{Demo:} Creating issue and using Copilot Workspace
+\textbf{Demo:} Creating issue and using Copilot Workspace and Codex
 \end{frame}
 
 \begin{frame}{Complementary Research Tools}
@@ -784,11 +815,12 @@ Apply at: \url{education.github.com}
 \midrule
 \textbf{NotebookLM} & Structured reading and note-taking \\
 (Google) & Create study guides from papers \\
+         & Create academic podcasts! \\
 \midrule
 \textbf{Elicit} & Literature discovery and synthesis \\
 & Extract data from papers \\
 \midrule
-\textbf{ChatGPT/Claude} & General research assistance \\
+\textbf{GPT/Claude/Gemini} & General research assistance \\
 & Draft writing, brainstorming \\
 \bottomrule
 \end{tabular}
@@ -814,7 +846,7 @@ Apply at: \url{education.github.com}
     \item Blindly accept all suggestions
     \item Share sensitive data with AI
     \item Rely on AI for critical decisions
-    \item Forget to cite AI assistance (if required)
+    % \item Forget to cite AI assistance (if required)
     \item Use AI to write entire papers
 \end{itemize}
 \end{block}
@@ -855,8 +887,7 @@ Apply at: \url{education.github.com}
     
     \item \textbf{Publication}
     \begin{itemize}
-        \item Run \texttt{make all}
-        \item Compile paper and slides
+        \item Run \texttt{make all} and compile paper and slides 
         \item Share repository with paper
     \end{itemize}
 \end{enumerate}
@@ -899,7 +930,7 @@ Reproducibility & Use Makefile, document dependencies \\
 \end{frame}
 
 \begin{frame}{Next Steps}
-\textbf{Immediate Actions:}
+\textbf{First:}
 \begin{enumerate}
     \item Fork/clone workshop template repository
     \item Install VS Code and extensions
@@ -910,7 +941,7 @@ Reproducibility & Use Makefile, document dependencies \\
 
 \vspace{0.3cm}
 
-\textbf{This Week:}
+\textbf{Second:}
 \begin{itemize}
     \item Apply workflow to a small project
     \item Create repository for current research
@@ -918,14 +949,6 @@ Reproducibility & Use Makefile, document dependencies \\
     \item Set up project board
 \end{itemize}
 
-\vspace{0.3cm}
-
-\textbf{This Month:}
-\begin{itemize}
-    \item Fully adopt Git/GitHub for active projects
-    \item Integrate AI tools into daily workflow
-    \item Teach workflow to lab mates
-\end{itemize}
 \end{frame}
 
 \begin{frame}{Resources}
@@ -934,7 +957,6 @@ Reproducibility & Use Makefile, document dependencies \\
     \item Git: \url{git-scm.com/doc}
     \item GitHub: \url{docs.github.com}
     \item VS Code: \url{code.visualstudio.com/docs}
-    \item Copilot: \url{github.com/features/copilot}
 \end{itemize}
 \end{block}
 
@@ -942,16 +964,62 @@ Reproducibility & Use Makefile, document dependencies \\
 \begin{itemize}
     \item GitHub Skills: \url{skills.github.com}
     \item Software Carpentry: \url{software-carpentry.org}
-    \item Missing Semester: \url{missing.csail.mit.edu}
 \end{itemize}
 \end{block}
 
 \begin{block}{Workshop Materials}
 \begin{itemize}
-    \item Template repo: \url{github.com/yourusername/AI_workshop}
-    \item These slides: In \texttt{tex/slides/}
+    \item Template: \url{github.com/tlarroucau/AI_workshop}
+    \item Slides: \texttt{tex/slides/}
 \end{itemize}
 \end{block}
+\end{frame}
+
+\begin{frame}{Behind the Scenes: Meta Moment}
+\begin{center}
+\Large
+    \textbf{This ENTIRE workshop was created with ONE prompt and TWO hours of edits!}
+\end{center}
+
+% \vspace{0.2cm}
+
+% \begin{columns}
+% \begin{column}{0.48\textwidth}
+% \scriptsize
+% \textbf{Tools Used:}
+% \begin{itemize}
+%     \item VS Code + GitHub Copilot
+%     \item Git \& GitHub (version control)
+%     \item LaTeX Workshop (slides)
+%     \item Python + Matplotlib (sample data)
+%     \item Makefile (automation)
+%     \item AI agents (Copilot Chat)
+% \end{itemize}
+% \end{column}
+
+% \begin{column}{0.48\textwidth}
+% \scriptsize
+% \textbf{Initial Prompt to AI:}
+% \begin{quote}
+% \textit{"Create a reproducible research project template for an ASU workshop on Git, GitHub, and VS Code with Agentic AI. Include: Python analysis scripts, LaTeX paper/slides, sample data pipeline, Makefile automation, and comprehensive documentation."}
+% \end{quote}
+% \end{column}
+% \end{columns}
+
+% \vspace{0.3cm}
+
+% \textbf{The Result:}
+% \begin{itemize}
+%     \item Full repository structure generated in minutes
+%     \item AI helped refine slides, code, and documentation
+%     \item Version controlled from day one
+%     \item Reproducible workflow demonstrated live
+% \end{itemize}
+
+% \vspace{0.2cm}
+% \centering
+% \small
+% \textbf{This is the future of research productivity!}
 \end{frame}
 
 \begin{frame}{Questions?}
@@ -962,16 +1030,16 @@ Thank you for attending!
 \vspace{1cm}
 
 \normalsize
-\textbf{Contact:} yourname@asu.edu
+\textbf{Contact:} Tomas.Larroucau@asu.edu
 
 \vspace{0.5cm}
 
 \textbf{Template Repository:} \\
-\url{github.com/yourusername/AI_workshop}
+\url{github.com/tlarroucau/AI_workshop}
 
-\vspace{0.5cm}
+% \vspace{0.5cm}
 
-\textbf{Office Hours:} By appointment
+% \textbf{Office Hours:} By appointment
 \end{center}
 \end{frame}
 
