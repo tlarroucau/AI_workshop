@@ -9,7 +9,7 @@
 \usepackage{booktabs}
 \usepackage{hyperref}
 \usepackage{tikz}
-\usetikzlibrary{shapes,arrows,positioning}
+\usetikzlibrary{shapes,arrows,positioning,shadows}
 
 % Title information
 \title{Git, GitHub, and VS Code}
@@ -94,13 +94,55 @@ Repository available at: \url{https://github.com/tlarroucau/AI_workshop}
 \end{frame}
 
 % ============================================================
+% MODULE I BREAK
+% ============================================================
+\begin{frame}[plain]
+\begin{tikzpicture}[remember picture,overlay]
+    % Simple header bar
+    \fill[blue!70] (current page.north west) rectangle ([yshift=-1.5cm]current page.north east);
+    \node[anchor=north] at ([yshift=-0.75cm]current page.north) 
+        {\textcolor{white}{\Large \textsc{Workshop Section}}};
+\end{tikzpicture}
+
+\vspace{2.5cm}
+
+\begin{center}
+{\Huge \textbf{Module I}}
+
+\vspace{0.3cm}
+\rule{0.6\textwidth}{0.4pt}
+\vspace{0.3cm}
+
+{\LARGE Foundations: VS Code, Git \& GitHub}
+
+\vspace{1.cm}
+
+\begin{minipage}{0.75\textwidth}
+\begin{enumerate}
+    \setlength{\itemsep}{0.4cm}
+    \item VS Code as integrated development environment
+    \item Git fundamentals: commits, branches, merges
+    \item GitHub workflows: issues, pull requests, project boards
+\end{enumerate}
+\end{minipage}
+\end{center}
+
+\vfill
+
+\begin{tikzpicture}[remember picture,overlay]
+    % Simple footer line
+    \draw[blue!70, line width=1pt] ([yshift=0.5cm]current page.south west) -- ([yshift=0.5cm]current page.south east);
+\end{tikzpicture}
+\end{frame}
+
+% ============================================================
 % SECTION 2: VS CODE
 % ============================================================
 \section{VS Code: Your Research Environment}
 
 \begin{frame}{What is VS Code?}
-\begin{columns}
-\begin{column}{0.5\textwidth}
+\begin{columns}[t]
+\begin{column}[t]{0.5\textwidth}
 \textbf{Visual Studio Code}
 \begin{itemize}
     \item Free, open-source editor by Microsoft
@@ -112,7 +154,7 @@ Repository available at: \url{https://github.com/tlarroucau/AI_workshop}
 \end{itemize}
 \end{column}
 
-\begin{column}{0.5\textwidth}
+\begin{column}[t]{0.5\textwidth}
 \textbf{Why VS Code for Research?}
 \begin{itemize}
     \item Write code \textit{and} papers in one place
@@ -126,32 +168,47 @@ Repository available at: \url{https://github.com/tlarroucau/AI_workshop}
 \end{frame}
 
 \begin{frame}{Essential VS Code Features}
-\begin{enumerate}
-    \item \textbf{Command Palette} (Ctrl/Cmd+Shift+P)
-    \begin{itemize}
-        \item Access all commands and features
-        \item Quick navigation and actions
-    \end{itemize}
-    
-    \item \textbf{Integrated Terminal}
-    \begin{itemize}
-        \item Run commands without leaving editor
-        \item Multiple terminals, split views
-    \end{itemize}
-    
-    \item \textbf{Extensions}
-    \begin{itemize}
-        \item Python, LaTeX, Markdown support
-        \item Git integration enhanced
-        \item AI coding assistants
-    \end{itemize}
-    
-    \item \textbf{Source Control Panel}
-    \begin{itemize}
-        \item Visual Git interface
-        \item Stage, commit, push with clicks
-    \end{itemize}
-\end{enumerate}
+\begin{columns}
+\begin{column}{0.48\textwidth}
+\textbf{Navigation \& Interface:}
+\begin{itemize}
+    \item \textbf{Ctrl/Cmd+Shift+P}: Command Palette
+    \item \textbf{Ctrl/Cmd+P}: Quick file open
+    \item \textbf{Ctrl+`}: Toggle terminal
+    \item \textbf{F5}: Start debugger
+\end{itemize}
+
+\vspace{0.4cm}
+
+\textbf{Multi-Cursor Magic:}
+\begin{itemize}
+    \item \textbf{Ctrl/Cmd+D}: Select next occurrence
+    \item \textbf{Alt+Click}: Add cursor anywhere
+    \item \textbf{Ctrl/Cmd+Shift+L}: Select all occurrences
+\end{itemize}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textbf{Code Editing:}
+\begin{itemize}
+    \item \textbf{Alt+↑/↓}: Move line up/down
+    \item \textbf{Ctrl/Cmd+/}: Toggle comment
+    \item \textbf{Ctrl/Cmd+Shift+K}: Delete line
+    \item \textbf{Ctrl/Cmd+Shift+D}: Duplicate line
+\end{itemize}
+
+\vspace{0.4cm}
+
+\textbf{Code Navigation:}
+\begin{itemize}
+    \item \textbf{Ctrl/Cmd+Click}: Go to definition
+    \item \textbf{Alt+←/→}: Navigate back/forward
+\end{itemize}
+\end{column}
+\end{columns}
+
+\vspace{0.3cm}
+\textbf{Pro tip:} Multi-cursor editing (Ctrl+D) is a game changer for renaming variables!
 \end{frame}
 
 \begin{frame}{Essential Extensions for Research \& Productivity}
@@ -233,6 +290,15 @@ Live Server & Local web server \\
     \item Sync extensions and settings across machines
     \item Use GitHub or Microsoft account
     \item Maintain consistency in team environments
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Real-Time Collaboration:}
+\begin{itemize}
+    \item \textbf{Live Share extension}: Co-edit files with co-authors in real-time
+    \item Share terminals, debuggers, and servers
+    \item Great for remote pair programming and debugging sessions
 \end{itemize}
 \end{frame}
 
@@ -385,14 +451,70 @@ git diff                 # See unstaged changes
 % \end{block}
 \end{frame}
 
+\begin{frame}[fragile]{The .gitignore File}
+\textbf{What is .gitignore?}
+\begin{itemize}
+    \item Tells Git which files to ignore (never commit)
+    \item Prevents committing generated files, credentials, or large binaries
+    \item One per repository (in root directory)
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Example .gitignore for Research Projects:}
+\begin{columns}
+\begin{column}{0.48\textwidth}
+\scriptsize
+\begin{verbatim}
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.egg-info/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
+# Stata
+*.dta~
+*.log
+\end{verbatim}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\scriptsize
+\begin{verbatim}
+# LaTeX
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.fls
+*.synctex.gz
+
+# Generated outputs
+output/
+*.pdf
+*.png
+\end{verbatim}
+\end{column}
+\end{columns}
+
+\vspace{0.2cm}
+\textbf{Pro tip:} Use \url{gitignore.io} to generate templates for your language/tools!
+\end{frame}
+
 % ============================================================
 % SECTION 4: GITHUB
 % ============================================================
 \section{GitHub: Collaboration Platform}
 
 \begin{frame}{What is GitHub?}
-\begin{columns}
-\begin{column}{0.5\textwidth}
+\begin{columns}[t]
+\begin{column}[t]{0.5\textwidth}
 \textbf{GitHub is...}
 \begin{itemize}
     \item Web-based Git hosting
@@ -403,7 +525,7 @@ git diff                 # See unstaged changes
 \end{itemize}
 \end{column}
 
-\begin{column}{0.5\textwidth}
+\begin{column}[t]{0.5\textwidth}
 \textbf{Key Features:}
 \begin{itemize}
     \item Remote repository hosting
@@ -646,35 +768,90 @@ make clean    # Remove generated files
 \end{frame}
 
 % ============================================================
+% MODULE II BREAK
+% ============================================================
+\begin{frame}[plain]
+\begin{tikzpicture}[remember picture,overlay]
+    % Simple header bar
+    \fill[blue!70] (current page.north west) rectangle ([yshift=-1.5cm]current page.north east);
+    \node[anchor=north] at ([yshift=-0.75cm]current page.north) 
+        {\textcolor{white}{\Large \textsc{Workshop Section}}};
+\end{tikzpicture}
+
+\vspace{2.0cm}
+
+\begin{center}
+{\Huge \textbf{Module II}}
+
+\vspace{0.3cm}
+\rule{0.6\textwidth}{0.4pt}
+\vspace{0.3cm}
+
+{\LARGE Agentic AI for Research Productivity}
+
+\vspace{0.5cm}
+
+\begin{minipage}{0.75\textwidth}
+\begin{enumerate}
+    \setlength{\itemsep}{0.4cm}
+    \item VS Code Chat: Ask, Edit, and Agent modes
+    \item GitHub Copilot: local and cloud workflows
+    \item AI-assisted code review and refactoring
+    \item MCP: Connecting AI to external tools
+\end{enumerate}
+\end{minipage}
+\end{center}
+
+\vfill
+
+\begin{tikzpicture}[remember picture,overlay]
+    % Simple footer line
+    \draw[blue!70, line width=1pt] ([yshift=0.5cm]current page.south west) -- ([yshift=0.5cm]current page.south east);
+\end{tikzpicture}
+\end{frame}
+
+% ============================================================
 % SECTION 6: AGENTIC AI
 % ============================================================
 \section{Agentic AI for Research}
 
 \begin{frame}{What is Agentic AI?}
+\begin{columns}
+\begin{column}{0.48\textwidth}
 \begin{block}{Traditional AI Assistants}
+\centering
+{\Large $\rightarrow$}
 \begin{itemize}
     \item Respond to queries
     \item Generate code snippets
     \item Provide suggestions
 \end{itemize}
 \end{block}
+\end{column}
 
+\begin{column}{0.48\textwidth}
 \begin{block}{Agentic AI}
+\centering
+{\Large $\star$}
 \begin{itemize}
-    \item Autonomous task completion
-    \item Multi-step reasoning
-    \item Context-aware assistance
+    \item \textbf{Autonomous} task completion
+    \item \textbf{Multi-step} reasoning
+    \item \textbf{Context-aware} assistance
 \end{itemize}
 \end{block}
+\end{column}
+\end{columns}
 
-\vspace{0.3cm}
+\vspace{0.5cm}
 
-\textbf{Key Tools:}
-\begin{itemize}
-    \item GitHub Copilot (local \& cloud)
-    \item VS Code Chat modes, Cline + Continue (can be used offline!)
-    \item Cursor, Windsurf
-\end{itemize}
+\begin{center}
+\colorbox{blue!10}{\parbox{0.85\textwidth}{
+\centering
+\textbf{Key Tools for Agentic AI:} \\[0.2cm]
+GitHub Copilot (local \& cloud) $\bullet$ VS Code Chat modes \\
+Cline + Continue (offline capable!) $\bullet$ Cursor $\bullet$ Windsurf
+}}
+\end{center}
 \end{frame}
 
 \begin{frame}{GitHub Copilot Overview}
@@ -934,34 +1111,74 @@ Apply at: \url{education.github.com}
 \textbf{What is MCP?}
 \begin{itemize}
     \item Protocol that gives AI agents access to external tools and services
-    \item Goes beyond what agents can do natively in VS Code or browser
-    \item Enables \textit{direct interaction} with APIs, not just generating code for you to run
+    \item Enables \textit{direct interaction} with APIs (not just generating code for you)
 \end{itemize}
 
-\vspace{0.2cm}
+\vspace{0.5cm}
 
-\textbf{Key MCP Servers for Research Workflow:}
-
+\begin{columns}
+\begin{column}{0.48\textwidth}
+\textbf{Key MCP Servers:}
 \scriptsize
 \begin{itemize}
-    \item \textbf{GitHub MCP}: Agent creates/updates issues, PRs, project boards directly \\
-    \textit{Without MCP:} Agent suggests commands; you copy-paste into GitHub \\
-    \textit{With MCP:} Agent executes GitHub actions automatically
-    
-    \item \textbf{Filesystem MCP}: Access files outside current VS Code workspace \\
-    \textit{Use case:} Read data from external drives, sync with network folders
-    
-    \item \textbf{Brave Search MCP}: Structured web search with cited sources \\
-    \textit{Use case:} Research literature, find datasets, validate claims
-    
-    \item \textbf{Fetch MCP}: Download and parse web content (papers, documentation) \\
-    \textit{Use case:} Extract data from websites, scrape research repositories
+    \item \textbf{GitHub}: Create issues, PRs, manage boards
+    \item \textbf{Filesystem}: Access external files/folders
+    \item \textbf{Brave Search}: Web search with sources
+    \item \textbf{Fetch}: Download/parse web content
 \end{itemize}
 
-% \vspace{0.2cm}
-
+% \vspace{0.3cm}
 % \normalsize
-% \textbf{Setup:} Install via \texttt{npx}, configure in Cline/Continue/Claude Desktop settings with API tokens
+% \textbf{Without MCP:} Copy-paste \\
+% \textbf{With MCP:} Automatic!
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textbf{Setup (GitHub MCP):}
+\scriptsize
+\begin{enumerate}
+    \item Install MCP server (npx)
+    \item Get GitHub token
+    \item Configure in Copilot settings
+    \item Done!
+\end{enumerate}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{How AI Tools Connect: The Big Picture}
+\begin{center}
+\begin{tikzpicture}[node distance=1.5cm, auto, thick, scale=0.85, every node/.style={scale=0.65}]
+    \tikzstyle{box} = [rectangle, draw, fill=blue!20, text width=5.5em, text centered, rounded corners, minimum height=2.5em]
+    \tikzstyle{agent} = [rectangle, draw, fill=green!20, text width=5.5em, text centered, rounded corners, minimum height=2.5em]
+    \tikzstyle{tool} = [rectangle, draw, fill=orange!20, text width=5.5em, text centered, rounded corners, minimum height=2.5em]
+    \tikzstyle{arrow} = [->, >=stealth, thick]
+    
+    \node [box] (vscode) {VS Code\\Editor};
+    \node [agent, right=of vscode] (copilot) {AI Agent\\(Cline/Copilot)};
+    \node [tool, above right=0.8cm and 1cm of copilot] (mcp) {MCP\\Protocol};
+    \node [box, right=of mcp] (github) {GitHub\\API};
+    \node [box, below=of github] (files) {File System};
+    \node [box, above=of github] (web) {Web/Search};
+    
+    \draw [arrow] (vscode) -- node {prompt} (copilot);
+    \draw [arrow] (copilot) -- node[above] {uses} (mcp);
+    \draw [arrow] (mcp) -- node[above] {} (github);
+    \draw [arrow] (mcp) -- node[right] {} (files);
+    \draw [arrow] (mcp) -- node[right] {} (web);
+    \draw [arrow, dashed] (github) to [bend left=45] node[below] {creates issue/PR} (vscode);
+\end{tikzpicture}
+\end{center}
+
+\vspace{-0.8cm}
+\textbf{Example Flow:}
+\begin{enumerate}
+    \scriptsize
+    \item You: "Create issue for clustered SE analysis and add to project board"
+    \item AI Agent → MCP → GitHub API → Issue created + added to board
+    \item VS Code shows notification with issue link
+    \item Agent can then create branch, write code, commit, create PR automatically!
+\end{enumerate}
 \end{frame}
 
 % ============================================================
@@ -1114,7 +1331,7 @@ Reproducibility & Use Makefile, document dependencies \\
 \begin{frame}{Behind the Scenes: Meta Moment}
 \begin{center}
 \Large
-    \textbf{This ENTIRE workshop was created with ONE prompt and TWO hours of edits!}
+    \textbf{This ENTIRE workshop was created with ONE prompt and FOUR hours of edits!}
 \end{center}
 
 % \vspace{0.2cm}
