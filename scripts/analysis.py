@@ -51,22 +51,20 @@ def main():
     print("\nSummary Statistics:")
     print(summary)
     
-    # Save summary statistics as LaTeX table
-    latex_summary = summary.to_latex(
-        caption='Summary Statistics',
-        label='tab:summary',
-        escape=False
-    )
+    # Rename index for LaTeX (escape underscores)
+    summary_latex = summary.copy()
+    summary_latex.index = summary_latex.index.str.replace('_', '\\_')
     
+    # Save summary statistics as LaTeX table
     with open('../output/tables/summary_statistics.tex', 'w') as f:
         f.write("\\begin{table}[htbp]\n")
         f.write("\\centering\n")
         f.write("\\caption{Summary Statistics}\n")
         f.write("\\label{tab:summary}\n")
-        f.write(summary.to_latex(escape=False, column_format='lrrrrr'))
+        f.write(summary_latex.to_latex(escape=False, column_format='lrrrrr'))
         f.write("\\begin{tablenotes}\n")
         f.write("\\small\n")
-        f.write("\\item Notes: Sample includes 500 observations.\n")
+        f.write("\\item Notes: Sample includes 50 observations.\n")
         f.write("\\end{tablenotes}\n")
         f.write("\\end{table}\n")
     
@@ -78,13 +76,17 @@ def main():
     print("\nBalance Table:")
     print(balance)
     
+    # Rename index for LaTeX (escape underscores)
+    balance_latex = balance.copy()
+    balance_latex.index = balance_latex.index.str.replace('_', '\\_')
+    
     # Save balance table
     with open('../output/tables/balance_table.tex', 'w') as f:
         f.write("\\begin{table}[htbp]\n")
         f.write("\\centering\n")
         f.write("\\caption{Balance Table: Treatment vs Control}\n")
         f.write("\\label{tab:balance}\n")
-        f.write(balance.to_latex(escape=False))
+        f.write(balance_latex.to_latex(escape=False))
         f.write("\\begin{tablenotes}\n")
         f.write("\\small\n")
         f.write("\\item Notes: Standard errors in parentheses.\n")
