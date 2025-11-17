@@ -186,6 +186,6 @@ def save_plot(filename: str, formats: List[str] = ['pdf', 'png']):
         List of formats to save ('pdf', 'png', etc.)
     """
     for fmt in formats:
-        output_path = f'output/figures/{filename}.{fmt}'
+        output_path = f'../output/figures/{filename}.{fmt}'
         plt.savefig(output_path, bbox_inches='tight')
         print(f"Saved figure to {output_path}")

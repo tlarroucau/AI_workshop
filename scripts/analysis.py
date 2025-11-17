@@ -37,12 +37,12 @@ def main():
     print("=" * 60)
     
     # Create output directories if they don't exist
-    os.makedirs('output/figures', exist_ok=True)
-    os.makedirs('output/tables', exist_ok=True)
+    os.makedirs('../output/figures', exist_ok=True)
+    os.makedirs('../output/tables', exist_ok=True)
     
     # Step 1: Load data
     print("\n[1/5] Loading data...")
-    df = load_data('data/raw/sample_data.csv')
+    df = load_data('../data/raw/sample_data.csv')
     
     # Step 2: Summary statistics
     print("\n[2/5] Generating summary statistics...")
@@ -58,7 +58,7 @@ def main():
         escape=False
     )
     
-    with open('output/tables/summary_statistics.tex', 'w') as f:
+    with open('../output/tables/summary_statistics.tex', 'w') as f:
         f.write("\\begin{table}[htbp]\n")
         f.write("\\centering\n")
         f.write("\\caption{Summary Statistics}\n")
@@ -79,7 +79,7 @@ def main():
     print(balance)
     
     # Save balance table
-    with open('output/tables/balance_table.tex', 'w') as f:
+    with open('../output/tables/balance_table.tex', 'w') as f:
         f.write("\\begin{table}[htbp]\n")
         f.write("\\centering\n")
         f.write("\\caption{Balance Table: Treatment vs Control}\n")
@@ -201,7 +201,7 @@ def main():
     })
     
     # Save regression table
-    with open('output/tables/regression_results.tex', 'w') as f:
+    with open('../output/tables/regression_results.tex', 'w') as f:
         f.write("\\begin{table}[htbp]\n")
         f.write("\\centering\n")
         f.write("\\caption{Regression Results: Treatment Effects}\n")
