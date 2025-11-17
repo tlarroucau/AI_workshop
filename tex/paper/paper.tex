@@ -1,0 +1,167 @@
+\documentclass[11pt,letterpaper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{float}
+\usepackage{threeparttable}
+
+% Title information
+\title{Sample Research Paper: Treatment Effects Analysis\thanks{This is a template paper for the ASU workshop on Git, GitHub, and Agentic AI.}}
+\author{Your Name\\
+Arizona State University\\
+\texttt{yourname@asu.edu}}
+\date{\today}
+
+% Document
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\noindent This paper presents a template for reproducible research using Git, GitHub, and modern AI coding assistants. We demonstrate a complete workflow from data analysis to document compilation, including treatment effect estimation, visualization, and automated table generation. The analysis reveals significant treatment effects even after controlling for observable characteristics. This template serves as a foundation for graduate students learning best practices in computational research.
+
+\vspace{0.2cm}
+\noindent \textbf{Keywords:} reproducible research, treatment effects, data analysis, Git workflow
+
+\vspace{0.2cm}
+\noindent \textbf{JEL Codes:} C01, C18, C87
+\end{abstract}
+
+\onehalfspacing
+
+\section{Introduction}
+
+Modern research increasingly relies on computational workflows that integrate data analysis, version control, and document preparation. This paper demonstrates a reproducible research template that combines Python for data analysis, LaTeX for document preparation, and Git/GitHub for version control and collaboration.
+
+The primary research question examines the effect of a binary treatment on an outcome of interest, controlling for demographic and socioeconomic characteristics. While the data are synthetic, the workflow represents best practices applicable to real research projects.
+
+This template serves three purposes: (1) demonstrate end-to-end reproducible workflows, (2) provide a foundation for collaborative research using Git and GitHub, and (3) showcase integration with AI coding assistants for enhanced productivity.
+
+The remainder of the paper is organized as follows. Section \ref{sec:data} describes the data and summary statistics. Section \ref{sec:methods} outlines the empirical methodology. Section \ref{sec:results} presents the main findings. Section \ref{sec:conclusion} concludes.
+
+\section{Data and Summary Statistics}
+\label{sec:data}
+
+\subsection{Data Description}
+
+The analysis uses a synthetic dataset of 500 observations containing information on treatment status, demographic characteristics, and outcomes. Variables include:
+
+\begin{itemize}
+    \item \textbf{Treatment}: Binary indicator for treatment group membership
+    \item \textbf{Age}: Individual age in years
+    \item \textbf{Income}: Annual income in dollars
+    \item \textbf{Education Years}: Completed years of education
+    \item \textbf{Outcome}: Primary outcome variable of interest
+\end{itemize}
+
+The data generation process ensures realistic distributions and includes a true treatment effect for validation purposes.
+
+\subsection{Summary Statistics}
+
+Table \ref{tab:summary} presents summary statistics for the main variables. The sample shows considerable variation in income and education levels, with ages ranging from young adults to seniors.
+
+\input{../../output/tables/summary_statistics.tex}
+
+\subsection{Balance Assessment}
+
+Before estimating treatment effects, we assess covariate balance between treatment and control groups. Table \ref{tab:balance} compares mean characteristics across groups. The lack of significant differences suggests random assignment was successful, reducing concerns about selection bias.
+
+\input{../../output/tables/balance_table.tex}
+
+\section{Empirical Methodology}
+\label{sec:methods}
+
+\subsection{Estimation Strategy}
+
+We estimate treatment effects using ordinary least squares (OLS) regression. The baseline specification is:
+
+\begin{equation}
+Y_i = \alpha + \beta \cdot \text{Treatment}_i + \epsilon_i
+\label{eq:model1}
+\end{equation}
+
+where $Y_i$ is the outcome for individual $i$, $\text{Treatment}_i$ is the binary treatment indicator, and $\epsilon_i$ is an error term. The parameter of interest is $\beta$, which captures the average treatment effect.
+
+To account for potential confounding, we also estimate a specification with control variables:
+
+\begin{equation}
+Y_i = \alpha + \beta \cdot \text{Treatment}_i + \gamma' X_i + \epsilon_i
+\label{eq:model2}
+\end{equation}
+
+where $X_i$ is a vector of covariates including age, income, and education years.
+
+\subsection{Identification}
+
+The treatment effect $\beta$ is identified under the assumption of conditional independence: treatment assignment is independent of potential outcomes conditional on observed covariates. This assumption is plausible given the experimental design and balanced covariates shown in Table \ref{tab:balance}.
+
+\section{Results}
+\label{sec:results}
+
+\subsection{Main Findings}
+
+Table \ref{tab:regression} presents the main regression results. Model 1 estimates the unconditional treatment effect, while Model 2 includes control variables.
+
+\input{../../output/tables/regression_results.tex}
+
+The unconditional treatment effect (Model 1) is large and statistically significant at the 1\% level. Adding controls (Model 2) reduces the coefficient magnitude slightly but the effect remains highly significant, suggesting the treatment has a robust positive impact on outcomes.
+
+The control variables show expected patterns: education is positively associated with outcomes, while age and income show smaller effects after controlling for other factors.
+
+\subsection{Graphical Analysis}
+
+Figure \ref{fig:boxplot} displays the distribution of outcomes by treatment status. The treatment group shows both higher median values and greater dispersion, consistent with the regression findings.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../../output/figures/outcome_by_treatment.pdf}
+    \caption{Distribution of Outcomes by Treatment Status}
+    \label{fig:boxplot}
+\end{figure}
+
+Figure \ref{fig:scatter} examines the relationship between income and outcomes, stratified by treatment group. The parallel regression lines suggest treatment effects are relatively constant across income levels, supporting the linear specification.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../../output/figures/scatter_income_outcome.pdf}
+    \caption{Outcome vs Income by Treatment Status}
+    \label{fig:scatter}
+\end{figure}
+
+\subsection{Robustness}
+
+The consistency of results across specifications and the graphical evidence support the robustness of our findings. Additional sensitivity analyses (not shown) confirm results are not driven by outliers or functional form assumptions.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+This paper demonstrates a complete reproducible research workflow, from data analysis through document compilation. The empirical analysis reveals significant treatment effects robust to the inclusion of control variables.
+
+Beyond the substantive findings, this template showcases best practices for modern computational research:
+
+\begin{itemize}
+    \item \textbf{Reproducibility}: All analysis is scripted and automated via Makefile
+    \item \textbf{Version Control}: Git tracks all changes with full history
+    \item \textbf{Collaboration}: GitHub enables team workflows through issues and pull requests
+    \item \textbf{Documentation}: Code is well-commented and follows consistent style
+    \item \textbf{AI Integration}: Tools like GitHub Copilot enhance productivity
+\end{itemize}
+
+Graduate students can use this template as a foundation for their own research projects, adapting the structure to their specific needs while maintaining the core principles of reproducibility and transparency.
+
+\section*{Acknowledgments}
+
+This template was created for the ASU workshop "Git, GitHub, and VS Code: Agentic AI for Project Management and Research Productivity." Thanks to workshop participants for valuable feedback.
+
+% Bibliography
+\bibliographystyle{apalike}
+\bibliography{references}
+
+\end{document}

@@ -1,0 +1,978 @@
+\documentclass[11pt,aspectratio=169]{beamer}
+
+% Theme
+\usetheme{Madrid}
+\usecolortheme{default}
+
+% Packages
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning}
+
+% Title information
+\title{Git, GitHub, and VS Code}
+\subtitle{Agentic AI for Project Management and Research Productivity}
+\author{Your Name}
+\institute{Arizona State University}
+\date{\today}
+
+% Remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% Footer
+\setbeamertemplate{footline}[frame number]
+
+\begin{document}
+
+% Title slide
+\begin{frame}
+\titlepage
+\end{frame}
+
+% Table of contents
+\begin{frame}{Workshop Overview}
+\tableofcontents
+\end{frame}
+
+% ============================================================
+% SECTION 1: INTRODUCTION
+% ============================================================
+\section{Introduction}
+
+\begin{frame}{Why This Workshop?}
+\begin{itemize}
+    \item Modern research requires computational reproducibility
+    \item Collaboration demands version control and project management
+    \item AI tools are transforming how we write code and documents
+    \item Integration of these tools creates powerful workflows
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{Goal:} Learn to combine VS Code, Git/GitHub, and AI assistants for efficient, reproducible research.
+\end{frame}
+
+\begin{frame}{What You'll Learn}
+\begin{block}{Module I: Foundations}
+\begin{itemize}
+    \item VS Code as integrated development environment
+    \item Git fundamentals: commits, branches, merges
+    \item GitHub workflows: issues, pull requests, project boards
+\end{itemize}
+\end{block}
+
+\begin{block}{Module II: Agentic AI}
+\begin{itemize}
+    \item VS Code Chat: Ask, Edit, and Agent modes
+    \item GitHub Copilot: local and cloud workflows
+    \item AI-assisted code review and refactoring
+    \item Complementary tools: Refine, NotebookLM, Elicit
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Workshop Materials}
+\begin{itemize}
+    \item \textbf{Template Repository}: Complete research project structure
+    \item \textbf{Sample Data}: CSV files for demonstration
+    \item \textbf{Python Scripts}: Analysis, plotting, table generation
+    \item \textbf{LaTeX Templates}: Paper and slides
+    \item \textbf{Makefile}: Automated workflow
+    \item \textbf{Documentation}: README, agent instructions
+\end{itemize}
+
+\vspace{0.3cm}
+Repository available at: \url{https://github.com/yourusername/AI_workshop}
+\end{frame}
+
+% ============================================================
+% SECTION 2: VS CODE
+% ============================================================
+\section{VS Code: Your Research Environment}
+
+\begin{frame}{What is VS Code?}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\textbf{Visual Studio Code}
+\begin{itemize}
+    \item Free, open-source editor by Microsoft
+    \item Cross-platform (Windows, Mac, Linux)
+    \item Extensible via marketplace
+    \item Integrated terminal
+    \item Built-in Git support
+    \item AI assistant integration
+\end{itemize}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\textbf{Why VS Code for Research?}
+\begin{itemize}
+    \item Write code \textit{and} papers in one place
+    \item Manage entire project lifecycle
+    \item Collaborate seamlessly
+    \item Automate repetitive tasks
+    \item Leverage AI for productivity
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Essential VS Code Features}
+\begin{enumerate}
+    \item \textbf{Command Palette} (Ctrl/Cmd+Shift+P)
+    \begin{itemize}
+        \item Access all commands and features
+        \item Quick navigation and actions
+    \end{itemize}
+    
+    \item \textbf{Integrated Terminal}
+    \begin{itemize}
+        \item Run commands without leaving editor
+        \item Multiple terminals, split views
+    \end{itemize}
+    
+    \item \textbf{Extensions}
+    \begin{itemize}
+        \item Python, LaTeX, Markdown support
+        \item Git integration enhanced
+        \item AI coding assistants
+    \end{itemize}
+    
+    \item \textbf{Source Control Panel}
+    \begin{itemize}
+        \item Visual Git interface
+        \item Stage, commit, push with clicks
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Key Extensions for Research}
+\begin{table}
+\small
+\begin{tabular}{ll}
+\toprule
+\textbf{Extension} & \textbf{Purpose} \\
+\midrule
+Python & Language support, debugging, linting \\
+Pylance & Fast IntelliSense and type checking \\
+LaTeX Workshop & Compile and preview LaTeX documents \\
+GitHub Copilot & AI code completion and chat \\
+GitLens & Enhanced Git visualization \\
+Markdown All in One & Preview and edit markdown files \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.3cm}
+\textbf{Demo:} Installing and configuring extensions
+\end{frame}
+
+\begin{frame}{VS Code Workspace Setup}
+\textbf{Recommended Workspace Structure:}
+\begin{itemize}
+    \item Open entire project folder as workspace
+    \item Use multi-root workspaces for complex projects
+    \item Configure settings per workspace (Python path, linters, etc.)
+    \item Save workspace file (.code-workspace) for team sharing
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Settings Sync:}
+\begin{itemize}
+    \item Sync extensions and settings across machines
+    \item Use GitHub or Microsoft account
+    \item Maintain consistency in team environments
+\end{itemize}
+\end{frame}
+
+% ============================================================
+% SECTION 3: GIT
+% ============================================================
+\section{Git: Version Control Fundamentals}
+
+\begin{frame}{What is Git?}
+\begin{itemize}
+    \item \textbf{Distributed version control system}
+    \item Tracks changes to files over time
+    \item Enables collaboration without conflicts
+    \item Essential for reproducible research
+\end{itemize}
+
+\vspace{0.5cm}
+
+\begin{block}{Why Git for Research?}
+\begin{itemize}
+    \item Complete history of your work
+    \item Experiment safely with branches
+    \item Collaborate with co-authors
+    \item Publish code alongside papers
+    \item Recover from mistakes
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Git Core Concepts}
+\begin{enumerate}
+    \item \textbf{Repository (repo)}: Project folder tracked by Git
+    
+    \item \textbf{Commit}: Snapshot of your project at a point in time
+    
+    \item \textbf{Branch}: Parallel version of your repository
+    
+    \item \textbf{Merge}: Combine changes from different branches
+    
+    \item \textbf{Remote}: Repository hosted online (e.g., GitHub)
+\end{enumerate}
+
+\vspace{0.3cm}
+
+\begin{block}{Basic Workflow}
+\begin{verbatim}
+git add file.py          # Stage changes
+git commit -m "message"  # Save snapshot
+git push                 # Upload to remote
+\end{verbatim}
+\end{block}
+\end{frame}
+
+\begin{frame}{The Git Workflow}
+\begin{center}
+\begin{tikzpicture}[node distance=2cm, auto, thick]
+    \tikzstyle{box} = [rectangle, draw, fill=blue!20, text width=4em, text centered, rounded corners, minimum height=2em]
+    \tikzstyle{arrow} = [->, >=stealth]
+    
+    \node [box] (working) {Working\\Directory};
+    \node [box, right=of working] (staging) {Staging\\Area};
+    \node [box, right=of staging] (local) {Local\\Repo};
+    \node [box, right=of local] (remote) {Remote\\Repo};
+    
+    \draw [arrow] (working) -- node {git add} (staging);
+    \draw [arrow] (staging) -- node {git commit} (local);
+    \draw [arrow] (local) -- node {git push} (remote);
+    \draw [arrow] (remote) to [bend left=45] node[above] {git pull} (working);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.3cm}
+\begin{itemize}
+    \item Edit files in working directory
+    \item Stage changes you want to commit
+    \item Commit creates permanent snapshot
+    \item Push shares with collaborators
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Essential Git Commands}
+\begin{block}{Repository Setup}
+\begin{verbatim}
+git init                 # Initialize new repo
+git clone <url>          # Copy remote repo
+\end{verbatim}
+\end{block}
+
+\begin{block}{Daily Workflow}
+\begin{verbatim}
+git status               # Check current state
+git add <file>           # Stage specific file
+git add .                # Stage all changes
+git commit -m "msg"      # Commit with message
+git push origin main     # Push to remote
+git pull                 # Get latest changes
+\end{verbatim}
+\end{block}
+
+\begin{block}{Inspection}
+\begin{verbatim}
+git log                  # View commit history
+git diff                 # See unstaged changes
+\end{verbatim}
+\end{block}
+\end{frame}
+
+\begin{frame}{Branching Strategy}
+\textbf{Why branches?}
+\begin{itemize}
+    \item Isolate experimental work
+    \item Develop features independently
+    \item Keep main branch stable
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Common workflow:}
+\begin{enumerate}
+    \item Create branch for new feature: \texttt{git checkout -b feature-name}
+    \item Make changes and commit
+    \item Push branch: \texttt{git push -u origin feature-name}
+    \item Create pull request on GitHub
+    \item Review and merge
+    \item Delete branch after merge
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Git Best Practices}
+\begin{block}{Commit Messages}
+\begin{itemize}
+    \item Be descriptive: "Add regression analysis for Model 2"
+    \item Use imperative mood: "Fix data loading bug"
+    \item Reference issues: "Closes \#42"
+\end{itemize}
+\end{block}
+
+\begin{block}{What to Commit}
+\begin{itemize}
+    \item \textcolor{green}{DO}: Source code, scripts, documentation
+    \item \textcolor{green}{DO}: Raw data (if reasonable size)
+    \item \textcolor{red}{DON'T}: Generated outputs (rebuild from scripts)
+    \item \textcolor{red}{DON'T}: Large binary files (use Git LFS if needed)
+    \item \textcolor{red}{DON'T}: Passwords or API keys
+\end{itemize}
+\end{block}
+
+\begin{block}{Commit Frequency}
+\begin{itemize}
+    \item Commit often (atomic commits)
+    \item Each commit = one logical change
+    \item Makes history easier to understand
+\end{itemize}
+\end{block}
+\end{frame}
+
+% ============================================================
+% SECTION 4: GITHUB
+% ============================================================
+\section{GitHub: Collaboration Platform}
+
+\begin{frame}{What is GitHub?}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\textbf{GitHub is...}
+\begin{itemize}
+    \item Web-based Git hosting
+    \item Social coding platform
+    \item Project management tools
+    \item Collaboration infrastructure
+    \item Portfolio for researchers
+\end{itemize}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\textbf{Key Features:}
+\begin{itemize}
+    \item Remote repository hosting
+    \item Pull requests
+    \item Issues and project boards
+    \item Actions (CI/CD)
+    \item Pages (documentation)
+    \item Copilot (AI assistant)
+\end{itemize}
+\end{column}
+\end{columns}
+
+\vspace{0.5cm}
+\textbf{Free for academic use!} (github.com/education)
+\end{frame}
+
+\begin{frame}{GitHub Workflow: Issues}
+\textbf{What are Issues?}
+\begin{itemize}
+    \item Track tasks, bugs, feature requests
+    \item Organize work with labels and milestones
+    \item Assign to team members
+    \item Reference in commits and PRs
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Issue-Driven Development:}
+\begin{enumerate}
+    \item Create issue: "Add robustness checks"
+    \item Create branch: \texttt{git checkout -b issue-42-robustness}
+    \item Work on feature, commit with "Addresses \#42"
+    \item Create pull request
+    \item Merge and close: "Closes \#42"
+\end{enumerate}
+
+\vspace{0.3cm}
+\textbf{Demo:} Creating and managing issues
+\end{frame}
+
+\begin{frame}{GitHub Workflow: Pull Requests}
+\textbf{What are Pull Requests (PRs)?}
+\begin{itemize}
+    \item Propose changes to repository
+    \item Enable code review before merging
+    \item Discuss implementation details
+    \item Run automated tests
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{PR Workflow:}
+\begin{enumerate}
+    \item Create feature branch locally
+    \item Push to GitHub
+    \item Open pull request
+    \item Request reviews from collaborators
+    \item Address feedback, push updates
+    \item Merge when approved
+\end{enumerate}
+
+\vspace{0.3cm}
+\textbf{Demo:} Creating and reviewing pull requests
+\end{frame}
+
+\begin{frame}{GitHub Project Boards}
+\textbf{Organize Research Projects:}
+\begin{itemize}
+    \item Kanban-style boards
+    \item Columns: To Do, In Progress, Done
+    \item Link to issues and PRs
+    \item Automate card movement
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Example Workflow:}
+\begin{enumerate}
+    \item Create project board for paper
+    \item Add columns for analysis, writing, revisions
+    \item Create issues for each task
+    \item Move cards as work progresses
+    \item Track progress visually
+\end{enumerate}
+
+\vspace{0.3cm}
+\textbf{Demo:} Setting up a project board
+\end{frame}
+
+\begin{frame}{Collaboration Best Practices}
+\begin{block}{Repository Setup}
+\begin{itemize}
+    \item Clear README with setup instructions
+    \item LICENSE file (MIT, GPL, etc.)
+    \item .gitignore for generated files
+    \item CONTRIBUTING guidelines
+\end{itemize}
+\end{block}
+
+\begin{block}{Team Workflow}
+\begin{itemize}
+    \item Never commit directly to main
+    \item All changes via pull requests
+    \item Require reviews before merging
+    \item Use branch protection rules
+\end{itemize}
+\end{block}
+
+\begin{block}{Communication}
+\begin{itemize}
+    \item Issues for all tasks and discussions
+    \item PR comments for code-specific feedback
+    \item Wiki for documentation
+\end{itemize}
+\end{block}
+\end{frame}
+
+% ============================================================
+% SECTION 5: PROJECT MANAGEMENT
+% ============================================================
+\section{Project Structure and Management}
+
+\begin{frame}{Reproducible Research Template}
+\textbf{Repository Structure:}
+\begin{itemize}
+    \item \texttt{data/}: Raw and processed data
+    \item \texttt{scripts/}: Analysis code
+    \item \texttt{output/}: Generated figures and tables
+    \item \texttt{tex/}: LaTeX documents (paper, slides)
+    \item \texttt{Makefile}: Automation workflow
+    \item \texttt{README.md}: Project documentation
+    \item \texttt{.gitignore}: Excluded files
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Key Principle:} Everything generated from scripts, nothing manual!
+\end{frame}
+
+\begin{frame}[fragile]{The Makefile Approach}
+\textbf{Why Makefile?}
+\begin{itemize}
+    \item Automate entire workflow
+    \item Document dependencies
+    \item One command rebuilds everything
+    \item Reproducibility guarantee
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{block}{Example Targets}
+\begin{verbatim}
+make all      # Run complete pipeline
+make data     # Generate/process data
+make analysis # Run statistical analysis
+make figures  # Create plots
+make tables   # Generate LaTeX tables
+make paper    # Compile PDF
+make clean    # Remove generated files
+\end{verbatim}
+\end{block}
+
+\textbf{Demo:} Running the complete workflow
+\end{frame}
+
+\begin{frame}{Data Management}
+\begin{block}{Raw Data}
+\begin{itemize}
+    \item Store in \texttt{data/raw/}
+    \item Never modify original files
+    \item Commit to Git (if reasonable size)
+    \item Document data sources
+\end{itemize}
+\end{block}
+
+\begin{block}{Processed Data}
+\begin{itemize}
+    \item Save to \texttt{data/processed/}
+    \item Generate from scripts
+    \item Add to .gitignore (reproducible)
+\end{itemize}
+\end{block}
+
+\begin{block}{Output Files}
+\begin{itemize}
+    \item Figures: PDF + PNG in \texttt{output/figures/}
+    \item Tables: LaTeX format in \texttt{output/tables/}
+    \item Gitignore outputs, rebuild via Makefile
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Code Organization}
+\textbf{Python Scripts Best Practices:}
+\begin{itemize}
+    \item \textbf{Modular}: Separate utility functions from main analysis
+    \item \textbf{Documented}: Docstrings for all functions
+    \item \textbf{Typed}: Use type hints for clarity
+    \item \textbf{Styled}: Follow PEP 8 conventions
+    \item \textbf{Tested}: Include basic validation
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Example Structure:}
+\begin{itemize}
+    \item \texttt{utils.py}: Helper functions, plotting utilities
+    \item \texttt{analysis.py}: Main analysis script
+    \item \texttt{requirements.txt}: Python dependencies
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{Demo:} Code structure in template repository
+\end{frame}
+
+\begin{frame}{LaTeX Integration}
+\textbf{Automated Table Generation:}
+\begin{itemize}
+    \item Python scripts create .tex files
+    \item Use \texttt{pandas.DataFrame.to\_latex()}
+    \item Format with booktabs package
+    \item Include via \texttt{\textbackslash input\{\}} in main document
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Figure Inclusion:}
+\begin{itemize}
+    \item Save plots as PDF (vector) and PNG (preview)
+    \item Use \texttt{\textbackslash includegraphics\{\}}
+    \item Relative paths from tex directory
+    \item Captions and labels for cross-reference
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Benefits:}
+\begin{itemize}
+    \item No manual copy-paste errors
+    \item Update data → regenerate everything
+    \item Always in sync with analysis
+\end{itemize}
+\end{frame}
+
+% ============================================================
+% SECTION 6: AGENTIC AI
+% ============================================================
+\section{Agentic AI for Research}
+
+\begin{frame}{What is Agentic AI?}
+\begin{block}{Traditional AI Assistants}
+\begin{itemize}
+    \item Respond to queries
+    \item Generate code snippets
+    \item Provide suggestions
+\end{itemize}
+\end{block}
+
+\begin{block}{Agentic AI}
+\begin{itemize}
+    \item Autonomous task completion
+    \item Multi-step reasoning
+    \item Iterative problem solving
+    \item Context-aware assistance
+\end{itemize}
+\end{block}
+
+\vspace{0.3cm}
+
+\textbf{Key Tools:}
+\begin{itemize}
+    \item GitHub Copilot (local \& cloud)
+    \item VS Code Chat modes
+    \item Cursor, Cline, Windsurf (alternatives)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{GitHub Copilot Overview}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\textbf{Copilot Features:}
+\begin{itemize}
+    \item Code completion
+    \item Chat interface
+    \item Inline suggestions
+    \item Whole function generation
+    \item Documentation writing
+    \item Code explanation
+\end{itemize}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\textbf{Use Cases:}
+\begin{itemize}
+    \item Write boilerplate code
+    \item Debug errors
+    \item Refactor functions
+    \item Generate tests
+    \item Write docstrings
+    \item Translate code
+\end{itemize}
+\end{column}
+\end{columns}
+
+\vspace{0.5cm}
+
+\textbf{Free for students and educators!} \\
+Apply at: \url{education.github.com}
+\end{frame}
+
+\begin{frame}{VS Code Chat Modes}
+\begin{enumerate}
+    \item \textbf{Ask Mode (Ctrl/Cmd+I in chat)}
+    \begin{itemize}
+        \item Answer questions about code
+        \item Explain complex functions
+        \item Suggest best practices
+    \end{itemize}
+    
+    \item \textbf{Edit Mode (Inline)}
+    \begin{itemize}
+        \item Modify existing code
+        \item Refactor functions
+        \item Apply changes directly
+    \end{itemize}
+    
+    \item \textbf{Agent Mode (@ mentions)}
+    \begin{itemize}
+        \item Multi-file operations
+        \item Complex refactoring
+        \item Workspace-wide changes
+        \item Project scaffolding
+    \end{itemize}
+\end{enumerate}
+
+\vspace{0.3cm}
+\textbf{Demo:} Using different chat modes
+\end{frame}
+
+\begin{frame}{Copilot Workspace Instructions}
+\textbf{What are workspace instructions?}
+\begin{itemize}
+    \item File: \texttt{.github/copilot-instructions.md}
+    \item Guide Copilot about your project
+    \item Define coding standards and patterns
+    \item Explain project structure
+    \item Specify workflows and conventions
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Benefits:}
+\begin{itemize}
+    \item Consistent AI suggestions
+    \item Project-specific context
+    \item Reduced need for prompting
+    \item Better code generation
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{Demo:} Copilot instructions in template repo
+\end{frame}
+
+\begin{frame}{AI-Assisted Workflows: Local}
+\textbf{Local AI Agent Workflow:}
+\begin{enumerate}
+    \item Open repository in VS Code
+    \item Use Copilot Chat to understand codebase
+    \item Ask for help with specific tasks
+    \item Generate code with suggestions
+    \item Refactor existing code
+    \item Write tests and documentation
+\end{enumerate}
+
+\vspace{0.3cm}
+
+\textbf{Example Tasks:}
+\begin{itemize}
+    \item "Add a function to compute standard errors"
+    \item "Refactor this loop to use pandas"
+    \item "Write docstrings for all functions in this file"
+    \item "Explain what this regression model does"
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{Demo:} Live coding with Copilot
+\end{frame}
+
+\begin{frame}{AI-Assisted Workflows: Cloud}
+\textbf{GitHub Copilot Workspace (Cloud):}
+\begin{itemize}
+    \item Work on issues directly in browser
+    \item AI proposes implementation plan
+    \item Review and refine suggestions
+    \item Create PR automatically
+    \item Collaborate asynchronously
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Use Cases:}
+\begin{itemize}
+    \item Quick fixes from mobile/tablet
+    \item Delegate tasks to AI agent
+    \item Review AI-generated solutions
+    \item Collaborate across timezones
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{Demo:} Creating issue and using Copilot Workspace
+\end{frame}
+
+\begin{frame}{Complementary Research Tools}
+\begin{table}
+\small
+\begin{tabular}{lp{6cm}}
+\toprule
+\textbf{Tool} & \textbf{Purpose} \\
+\midrule
+\textbf{Refine} & AI-powered writing revision and style improvement \\
+(refine.ink) & Interactive editing with suggestions \\
+\midrule
+\textbf{NotebookLM} & Structured reading and note-taking \\
+(Google) & Create study guides from papers \\
+\midrule
+\textbf{Elicit} & Literature discovery and synthesis \\
+& Extract data from papers \\
+\midrule
+\textbf{ChatGPT/Claude} & General research assistance \\
+& Draft writing, brainstorming \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.2cm}
+\textbf{Integration:} Use alongside Git/GitHub workflow for complete research pipeline
+\end{frame}
+
+\begin{frame}{AI Best Practices}
+\begin{block}{DO:}
+\begin{itemize}
+    \item Review all AI-generated code
+    \item Test suggestions before committing
+    \item Understand what the code does
+    \item Use AI to learn new techniques
+    \item Iterate on prompts for better results
+\end{itemize}
+\end{block}
+
+\begin{block}{DON'T:}
+\begin{itemize}
+    \item Blindly accept all suggestions
+    \item Share sensitive data with AI
+    \item Rely on AI for critical decisions
+    \item Forget to cite AI assistance (if required)
+    \item Use AI to write entire papers
+\end{itemize}
+\end{block}
+
+\vspace{0.2cm}
+\textbf{Remember:} AI is a tool, not a replacement for thinking!
+\end{frame}
+
+% ============================================================
+% SECTION 7: PUTTING IT ALL TOGETHER
+% ============================================================
+\section{Putting It All Together}
+
+\begin{frame}{Complete Research Workflow}
+\begin{enumerate}
+    \item \textbf{Setup}
+    \begin{itemize}
+        \item Clone template repository
+        \item Set up Python environment
+        \item Configure VS Code
+    \end{itemize}
+    
+    \item \textbf{Development}
+    \begin{itemize}
+        \item Create issues for tasks
+        \item Work in feature branches
+        \item Use AI for code generation
+        \item Commit regularly
+    \end{itemize}
+    
+    \item \textbf{Collaboration}
+    \begin{itemize}
+        \item Push branches to GitHub
+        \item Create pull requests
+        \item Review code
+        \item Merge to main
+    \end{itemize}
+    
+    \item \textbf{Publication}
+    \begin{itemize}
+        \item Run \texttt{make all}
+        \item Compile paper and slides
+        \item Share repository with paper
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Live Demo: End-to-End Example}
+\textbf{Scenario:} Add a new robustness check
+
+\begin{enumerate}
+    \item Create GitHub issue: "Add robustness check with clustered SE"
+    \item Create branch: \texttt{feature/clustered-se}
+    \item Use Copilot to generate code
+    \item Update analysis script
+    \item Run Makefile to regenerate outputs
+    \item Commit changes
+    \item Push and create PR
+    \item Review and merge
+\end{enumerate}
+
+\vspace{0.3cm}
+\textbf{We'll work through this together!}
+\end{frame}
+
+\begin{frame}{Common Challenges \& Solutions}
+\begin{table}
+\small
+\begin{tabular}{lp{5.5cm}}
+\toprule
+\textbf{Challenge} & \textbf{Solution} \\
+\midrule
+Merge conflicts & Communicate with team, pull often \\
+Large files & Use .gitignore, Git LFS if needed \\
+Slow Git operations & Use .gitignore for generated files \\
+Lost work & Commit often, use branches \\
+Unclear AI output & Refine prompts, add context \\
+Reproducibility & Use Makefile, document dependencies \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}{Next Steps}
+\textbf{Immediate Actions:}
+\begin{enumerate}
+    \item Fork/clone workshop template repository
+    \item Install VS Code and extensions
+    \item Set up GitHub account (education benefits)
+    \item Practice basic Git commands
+    \item Run \texttt{make all} to build template
+\end{enumerate}
+
+\vspace{0.3cm}
+
+\textbf{This Week:}
+\begin{itemize}
+    \item Apply workflow to a small project
+    \item Create repository for current research
+    \item Experiment with Copilot
+    \item Set up project board
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{This Month:}
+\begin{itemize}
+    \item Fully adopt Git/GitHub for active projects
+    \item Integrate AI tools into daily workflow
+    \item Teach workflow to lab mates
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Resources}
+\begin{block}{Documentation}
+\begin{itemize}
+    \item Git: \url{git-scm.com/doc}
+    \item GitHub: \url{docs.github.com}
+    \item VS Code: \url{code.visualstudio.com/docs}
+    \item Copilot: \url{github.com/features/copilot}
+\end{itemize}
+\end{block}
+
+\begin{block}{Learning}
+\begin{itemize}
+    \item GitHub Skills: \url{skills.github.com}
+    \item Software Carpentry: \url{software-carpentry.org}
+    \item Missing Semester: \url{missing.csail.mit.edu}
+\end{itemize}
+\end{block}
+
+\begin{block}{Workshop Materials}
+\begin{itemize}
+    \item Template repo: \url{github.com/yourusername/AI_workshop}
+    \item These slides: In \texttt{tex/slides/}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Questions?}
+\begin{center}
+\Large
+Thank you for attending!
+
+\vspace{1cm}
+
+\normalsize
+\textbf{Contact:} yourname@asu.edu
+
+\vspace{0.5cm}
+
+\textbf{Template Repository:} \\
+\url{github.com/yourusername/AI_workshop}
+
+\vspace{0.5cm}
+
+\textbf{Office Hours:} By appointment
+\end{center}
+\end{frame}
+
+\end{document}
