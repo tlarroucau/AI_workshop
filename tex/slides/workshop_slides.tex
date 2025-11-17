@@ -52,6 +52,12 @@
 \vspace{0.5cm}
 
 \textbf{Goal:} Learn to combine VS Code, Git/GitHub, and AI assistants for efficient, reproducible research.
+
+\vspace{0.5cm}
+\begin{center}
+\textit{\textbf{``We'll let the AI roam free... but set up proper guardrails.''}}
+\end{center}
+
 \end{frame}
 
 \begin{frame}{What You'll Learn}
@@ -159,9 +165,11 @@ Repository available at: \url{https://github.com/tlarroucau/AI_workshop}
 \multicolumn{2}{l}{\textit{AI \& Productivity}} \\
 GitHub Copilot & AI code assistant \\
 Copilot Chat & AI chat interface \\
+Codex & Cloud AI coding agent \\
 Continue & Local AI assistant \\
 Cline & Autonomous AI agent \\
 Prompt Flow & MCP integration \\
+VS Code Speech & Speech-to-text input \\
 \midrule
 \multicolumn{2}{l}{\textit{Data Science}} \\
 Python & Language support \\
@@ -196,6 +204,7 @@ Rainbow CSV & CSV colorization \\
 Excel Viewer & View Excel files \\
 PDF Viewer & Preview PDFs \\
 Code Snap & Code screenshots \\
+Auto Align & Align code formatting \\
 \midrule
 \multicolumn{2}{l}{\textit{Development Tools}} \\
 Remote SSH & Remote development \\
@@ -663,8 +672,8 @@ make clean    # Remove generated files
 \textbf{Key Tools:}
 \begin{itemize}
     \item GitHub Copilot (local \& cloud)
-    \item VS Code Chat modes
-    \item Cursor, Cline, Windsurf
+    \item VS Code Chat modes, Cline + Continue (can be used offline!)
+    \item Cursor, Windsurf
 \end{itemize}
 \end{frame}
 
@@ -855,70 +864,196 @@ Apply at: \url{education.github.com}
 \textbf{Remember:} AI is a tool, not a replacement for thinking!
 \end{frame}
 
+\begin{frame}{Data Privacy \& Security Considerations}
+\textbf{Follow Your Institution's Guidelines:}
+\begin{itemize}
+    \item Always comply with ASU (or your institution's) data security policies
+    \item Review AI tool terms of service for data retention policies!
+    \item Be cautious with sensitive, proprietary, or confidential data
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{When Cloud AI is Not an Option:}
+\begin{itemize}
+    \item If data privacy or code confidentiality is a major concern
+    \item If institutional policies prohibit cloud-based AI tools
+    \item If working with regulated data (HIPAA, FERPA, etc.)
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Fully Local AI Solutions:}
+\begin{itemize}
+    \item \textbf{Continue} + \textbf{Ollama}: Run local LLMs (Llama, CodeLlama, etc.)
+    \item \textbf{Cline} + local models: Autonomous agent without cloud
+    \item Complete offline workflow: No data leaves your machine
+    \item Trade-off: Lower performance than cloud models, but complete privacy
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Using AI APIs in Your Code}
+\textbf{When to Use AI APIs Directly:}
+\begin{itemize}
+    \item Automate repetitive data processing tasks (classify text, extract entities)
+    \item Generate synthetic data for testing or augmentation
+    \item Create automated reports or summaries from analysis results
+    % \item Build custom research tools with AI capabilities
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{columns}
+\begin{column}{0.48\textwidth}
+\textbf{Example: OpenAI API}
+\begin{itemize}
+    \item Text generation/completion
+    \item Code generation
+    \item Data classification
+    \item Embeddings for similarity
+\end{itemize}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textbf{Example: Anthropic Claude}
+\begin{itemize}
+    \item Long document analysis
+    \item Complex reasoning tasks
+    \item JSON mode for structured output
+    \item Vision for image analysis
+\end{itemize}
+\end{column}
+\end{columns}
+
+\vspace{0.3cm}
+
+\textbf{Best Practice:} Store API keys in environment variables, never commit them to Git!
+\end{frame}
+
+\begin{frame}{MCP: Model Context Protocol}
+\textbf{What is MCP?}
+\begin{itemize}
+    \item Protocol that gives AI agents access to external tools and services
+    \item Goes beyond what agents can do natively in VS Code or browser
+    \item Enables \textit{direct interaction} with APIs, not just generating code for you to run
+\end{itemize}
+
+\vspace{0.2cm}
+
+\textbf{Key MCP Servers for Research Workflow:}
+
+\scriptsize
+\begin{itemize}
+    \item \textbf{GitHub MCP}: Agent creates/updates issues, PRs, project boards directly \\
+    \textit{Without MCP:} Agent suggests commands; you copy-paste into GitHub \\
+    \textit{With MCP:} Agent executes GitHub actions automatically
+    
+    \item \textbf{Filesystem MCP}: Access files outside current VS Code workspace \\
+    \textit{Use case:} Read data from external drives, sync with network folders
+    
+    \item \textbf{Brave Search MCP}: Structured web search with cited sources \\
+    \textit{Use case:} Research literature, find datasets, validate claims
+    
+    \item \textbf{Fetch MCP}: Download and parse web content (papers, documentation) \\
+    \textit{Use case:} Extract data from websites, scrape research repositories
+\end{itemize}
+
+% \vspace{0.2cm}
+
+% \normalsize
+% \textbf{Setup:} Install via \texttt{npx}, configure in Cline/Continue/Claude Desktop settings with API tokens
+\end{frame}
+
 % ============================================================
 % SECTION 7: PUTTING IT ALL TOGETHER
 % ============================================================
 \section{Putting It All Together}
 
 \begin{frame}{Complete Research Workflow}
-\begin{enumerate}
-    \item \textbf{Setup}
-    \begin{itemize}
-        \item Clone template repository
-        \item Set up Python environment
-        \item Configure VS Code
-    \end{itemize}
-    
-    \item \textbf{Development}
-    \begin{itemize}
-        \item Create issues for tasks
-        \item Work in feature branches
-        \item Use AI for code generation
-        \item Commit regularly
-    \end{itemize}
-    
-    \item \textbf{Collaboration}
-    \begin{itemize}
-        \item Push branches to GitHub
-        \item Create pull requests
-        \item Review code
-        \item Merge to main
-    \end{itemize}
-    
-    \item \textbf{Publication}
-    \begin{itemize}
-        \item Run \texttt{make all} and compile paper and slides 
-        \item Share repository with paper
-    \end{itemize}
-\end{enumerate}
+\begin{columns}
+\begin{column}{0.48\textwidth}
+\textbf{1. Setup}
+\begin{itemize}
+    \item Clone template repository
+    \item Set up Python environment
+    \item Configure VS Code
+\end{itemize}
+
+\textbf{2. Development}
+\begin{itemize}
+    \item Create issues for tasks
+    \item Work in feature branches
+    \item Use AI for code generation
+    \item Commit regularly
+\end{itemize}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textbf{3. Collaboration}
+\begin{itemize}
+    \item Push branches to GitHub
+    \item Create pull requests
+    \item Review code
+    \item Merge to main
+\end{itemize}
+
+\textbf{4. Publication}
+\begin{itemize}
+    \item Run \texttt{make all}
+    \item Compile paper and slides 
+    \item Share repository with paper
+\end{itemize}
+\end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}{Live Demo: End-to-End Example}
-\textbf{Scenario:} Add a new robustness check
+\textbf{Scenario:} Add a new robustness check using MCP-enabled AI agent
 
 \begin{enumerate}
-    \item Create GitHub issue: "Add robustness check with clustered SE"
-    \item Create branch: \texttt{feature/clustered-se}
-    \item Use Copilot to generate code
-    \item Update analysis script
-    \item Run Makefile to regenerate outputs
-    \item Commit changes
-    \item Push and create PR
-    \item Review and merge
+    \item Ask AI agent: ``Create issue for adding clustered SE robustness check"
+    \item Agent uses GitHub MCP to create issue and add to project board
+    \item Agent creates branch: \texttt{feature/clustered-se}
+    \item Agent uses Copilot to generate implementation code
+    \item Update analysis script with AI assistance
+    \item Run \texttt{make all} to regenerate outputs
+    \item Agent commits changes with descriptive message
+    \item Agent creates PR linking to original issue
+    \item Review PR and merge to main
 \end{enumerate}
 
 \vspace{0.3cm}
-\textbf{We'll work through this together!}
+\textbf{We'll work through this together - from idea to merged code in minutes!}
 \end{frame}
 
 \begin{frame}{Common Challenges \& Solutions}
+
+\textbf{Understanding Merge Conflicts:}
+\begin{itemize}
+    \item Occur when Git cannot automatically determine which version to keep
+    \item Happen when the same lines of code/text are edited in different branches
+    \item VS Code highlights conflicts and lets you choose which version to keep
+    \item AI agents can suggest the best resolution strategy!
+\end{itemize}
+
+\vspace{0.2cm}
+
+\textbf{Backing Up Your Work:}
+\begin{itemize}
+    \item You can keep your local repo in Dropbox for automatic backup
+    \item \textbf{WARNING:} Do not share that Dropbox folder with co-authors!
+    % \item Use GitHub for collaboration, Dropbox only for personal backup
+\end{itemize}
+
+\vspace{0.2cm}
+
 \begin{table}
-\small
+\scriptsize
 \begin{tabular}{lp{5.5cm}}
 \toprule
 \textbf{Challenge} & \textbf{Solution} \\
 \midrule
-Merge conflicts & Communicate with team, pull often \\
+Merge conflicts & Use VS Code conflict resolver, ask AI agent for help \\
 Large files & Use .gitignore, Git LFS if needed \\
 Slow Git operations & Use .gitignore for generated files \\
 Lost work & Commit often, use branches \\
@@ -937,6 +1072,7 @@ Reproducibility & Use Makefile, document dependencies \\
     \item Set up GitHub account (education benefits)
     \item Practice basic Git commands
     \item Run \texttt{make all} to build template
+    \item Ask your favorite AI agent to explain any concepts from the slides you don't understand
 \end{enumerate}
 
 \vspace{0.3cm}
