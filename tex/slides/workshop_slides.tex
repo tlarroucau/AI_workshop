@@ -9,6 +9,7 @@
 \usepackage{booktabs}
 \usepackage{hyperref}
 \usepackage{tikz}
+\usepackage{twemojis}
 \usetikzlibrary{shapes,arrows,positioning,shadows}
 
 % Title information
@@ -58,6 +59,69 @@
 \textit{\textbf{``We'll let the AI roam free... but set up proper guardrails.''}}
 \end{center}
 
+\end{frame}
+
+\begin{frame}{The ``Jur-AI-ssic Park" Approach to Research}
+    \centering
+    \vspace{0.2cm}
+    
+    \begin{columns}[t]
+        \begin{column}{0.33\textwidth}
+            \centering
+            \onslide<1->{
+                \textbf{\large The Park}\\
+                \vspace{0.1cm}
+                \textit{(VS Code)}\\
+                \vspace{0.3cm}
+                % TODO: Replace with AI image: A lush digital jungle island
+                \begin{tikzpicture}
+                    \node[circle, draw=green!60!black, fill=green!10, very thick, minimum size=2.5cm, align=center] {The\\Environment};
+                \end{tikzpicture}\\
+                \vspace{0.3cm}
+                \small{The island where everything lives}
+            }
+        \end{column}
+        
+        \begin{column}{0.33\textwidth}
+            \centering
+            \onslide<2->{
+                \textbf{\large The Dinosaurs}\\
+                \vspace{0.1cm}
+                \textit{(AI Agents)}\\
+                \vspace{0.3cm}
+                % TODO: Replace with AI image: A T-Rex writing code or robot dinosaur
+                \begin{tikzpicture}
+                    \node[star, star points=5, draw=red!60!black, fill=red!10, very thick, minimum size=2.5cm, align=center] {Raw\\Power};
+                \end{tikzpicture}\\
+                \vspace{0.3cm}
+                \small{Powerful, fast, but chaotic}
+            }
+        \end{column}
+        
+        \begin{column}{0.33\textwidth}
+            \centering
+            \onslide<3->{
+                \textbf{\large The Guardrails}\\
+                \vspace{0.1cm}
+                \textit{(Git \& GitHub)}\\
+                \vspace{0.3cm}
+                % TODO: Replace with AI image: High-voltage electric fences
+                \begin{tikzpicture}
+                    \node[rectangle, draw=blue!60!black, fill=blue!10, very thick, minimum size=2.5cm, minimum width=2.5cm, align=center] {Safety\\System};
+                \end{tikzpicture}\\
+                \vspace{0.3cm}
+                \small{Keeps the chaos contained}
+            }
+        \end{column}
+    \end{columns}
+    
+    \vspace{0.8cm}
+    \centering
+    \onslide<4->{
+        \begin{quote}
+        \textit{"Your scientists were so preoccupied with whether or not they could, they didn't stop to think if they should... \textbf{Git lets you undo if they shouldn't.}"}
+        \end{quote}
+    }
 \end{frame}
 
 \begin{frame}{What You'll Learn}
@@ -329,6 +393,229 @@ Live Server & Local web server \\
 
 \vspace{0.1cm}
 \textbf{Bottom line:} Not perfect, but workable with some adjustments!
+\end{frame}
+
+% ============================================================
+% SUBSECTION: PROJECT STRUCTURE
+% ============================================================
+\subsection{Project Structure}
+
+\begin{frame}{Reproducible Research Template}
+\textbf{Repository Structure:}
+\begin{itemize}
+    \item \texttt{data/}: Raw and processed data
+    \item \texttt{scripts/}: Analysis code
+    \item \texttt{output/}: Generated figures and tables
+    \item \texttt{tex/}: LaTeX documents (paper, slides)
+    \item \texttt{Makefile}: Automation workflow
+    \item \texttt{README.md}: Project documentation
+    \item \texttt{.gitignore}: Excluded files
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Key Principle:} Everything generated from scripts, nothing manual!
+\end{frame}
+
+\begin{frame}[fragile]{The Makefile Approach}
+\textbf{Why Makefile?}
+\begin{itemize}
+    \item Automate entire workflow
+    \item Document dependencies
+    \item One command rebuilds everything
+    \item Reproducibility guarantee
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{block}{Example Targets}
+\begin{verbatim}
+make all      # Run complete pipeline
+make data     # Generate/process data
+make analysis # Run statistical analysis
+make figures  # Create plots
+make tables   # Generate LaTeX tables
+make paper    # Compile PDF
+make clean    # Remove generated files
+\end{verbatim}
+\end{block}
+
+\textbf{Demo:} Running the complete workflow
+\end{frame}
+
+\begin{frame}{Data Management}
+\begin{block}{Raw Data}
+\begin{itemize}
+    \item Store in \texttt{data/raw/}
+    \item Never modify original files
+    \item Commit to Git (if reasonable size)
+\end{itemize}
+\end{block}
+
+\begin{block}{Processed Data}
+\begin{itemize}
+    \item Save to \texttt{data/processed/}
+    \item Generate from scripts
+    \item Add to .gitignore (reproducible)
+\end{itemize}
+\end{block}
+
+\begin{block}{Output Files}
+\begin{itemize}
+    \item Figures: PDF + PNG in \texttt{output/figures/}
+    \item Tables: LaTeX in \texttt{output/tables/}
+    \item Rebuild via Makefile
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Code Organization}
+\textbf{Python Scripts Best Practices:}
+\begin{itemize}
+    \item \textbf{Modular}: Separate utility functions from main analysis
+    \item \textbf{Documented}: Docstrings for all functions
+    \item \textbf{Typed}: Use type hints for clarity
+    \item \textbf{Styled}: Follow PEP 8 conventions
+    \item \textbf{Tested}: Include basic validation
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Example Structure:}
+\begin{itemize}
+    \item \texttt{utils.py}: Helper functions, plotting utilities
+    \item \texttt{analysis.py}: Main analysis script
+    \item \texttt{requirements.txt}: Python dependencies
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{Demo:} Code structure in template repository
+\end{frame}
+
+\begin{frame}{LaTeX Integration}
+\textbf{Automated Table Generation:}
+\begin{itemize}
+    \item Python scripts create .tex files
+    \item Use \texttt{pandas.DataFrame.to\_latex()}
+    \item Format with booktabs package
+    \item Include via \texttt{\textbackslash input\{\}} in main document
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Figure Inclusion:}
+\begin{itemize}
+    \item Save plots as PDF (vector) and PNG (preview)
+    \item Use \texttt{\textbackslash includegraphics\{\}}
+    \item Relative paths from tex directory
+    \item Captions and labels for cross-reference
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Benefits:}
+\begin{itemize}
+    \item No manual copy-paste errors
+    \item Update data → regenerate everything
+    \item Always in sync with analysis
+\end{itemize}
+\end{frame}
+
+\begin{frame}{VS Code Chat Modes}
+\begin{columns}[t]
+\begin{column}{0.5\textwidth}
+\begin{enumerate}
+    \item \textbf{Ask Mode (Chat Panel)} \twemoji{t-rex}
+    \begin{itemize}
+        \item Answer questions about code
+        \item Explain complex functions
+        \item Suggest best practices
+    \end{itemize}
+    
+    \item \textbf{Edit Mode (Inline)} \scalebox{1.5}{\twemoji{t-rex}}
+    \begin{itemize}
+        \item Modify existing code
+        \item Refactor functions
+        \item Apply changes directly
+    \end{itemize}
+\end{enumerate}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\begin{enumerate}
+    \setcounter{enumi}{2}
+    \item \textbf{Agent Mode (@workspace)} \scalebox{2.5}{\twemoji{t-rex}}
+    \begin{itemize}
+        \item Multi-file operations
+        \item Workspace-wide changes
+        \item Project scaffolding
+    \end{itemize}
+
+    \item \textbf{Plan Mode (New!)} \twemoji{t-rex}
+    \begin{itemize}
+        \item High-level reasoning
+        \item Break down complex tasks
+        \item Create implementation plans
+    \end{itemize}
+\end{enumerate}
+\end{column}
+\end{columns}
+
+\vspace{0.5cm}
+\textbf{Advanced Feature:} \textit{Agent Sessions} maintain context across multiple interactions, allowing for iterative refinement of complex tasks without losing history.
+
+\vspace{0.5cm}
+\textbf{Demo:} Using different chat modes
+\end{frame}
+
+\begin{frame}{Copilot Workspace Instructions}
+\textbf{What are workspace instructions?}
+\begin{itemize}
+    \item File: \texttt{.github/copilot-instructions.md}
+    \item Guide Copilot about your project
+    \item Define coding standards and patterns
+    \item Explain project structure
+    \item Specify workflows and conventions
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Benefits:}
+\begin{itemize}
+    \item Consistent AI suggestions
+    \item Project-specific context
+    \item Reduced need for prompting
+    \item Better code generation
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{Demo:} Copilot instructions in template repo
+\end{frame}
+
+\begin{frame}{AI-Assisted Workflows: Local}
+\textbf{Local AI Agent Workflow:}
+\begin{enumerate}
+    \item Open repository in VS Code
+    \item Use Copilot Chat to understand codebase
+    \item Ask for help with specific tasks or work on an existing GitHub issue!
+    \item Generate code with suggestions
+    \item Refactor existing code
+    \item Write tests and documentation
+    \item Update GitHub issue with comments and docs!
+\end{enumerate}
+
+\vspace{0.3cm}
+
+\textbf{Example Tasks:}
+\begin{itemize}
+    \item "Add a function to compute standard errors"
+    % \item "Refactor this loop to use pandas"
+    \item "Write docstrings for all functions in this file"
+    \item "Explain what this regression model does"
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{Demo:} Live coding with Copilot
 \end{frame}
 
 % ============================================================
@@ -670,131 +957,7 @@ output/
 \end{block}
 \end{frame}
 
-% ============================================================
-% SECTION 5: PROJECT MANAGEMENT
-% ============================================================
-\section{Project Structure and Management}
 
-\begin{frame}{Reproducible Research Template}
-\textbf{Repository Structure:}
-\begin{itemize}
-    \item \texttt{data/}: Raw and processed data
-    \item \texttt{scripts/}: Analysis code
-    \item \texttt{output/}: Generated figures and tables
-    \item \texttt{tex/}: LaTeX documents (paper, slides)
-    \item \texttt{Makefile}: Automation workflow
-    \item \texttt{README.md}: Project documentation
-    \item \texttt{.gitignore}: Excluded files
-\end{itemize}
-
-\vspace{0.3cm}
-
-\textbf{Key Principle:} Everything generated from scripts, nothing manual!
-\end{frame}
-
-\begin{frame}[fragile]{The Makefile Approach}
-\textbf{Why Makefile?}
-\begin{itemize}
-    \item Automate entire workflow
-    \item Document dependencies
-    \item One command rebuilds everything
-    \item Reproducibility guarantee
-\end{itemize}
-
-\vspace{0.3cm}
-
-\begin{block}{Example Targets}
-\begin{verbatim}
-make all      # Run complete pipeline
-make data     # Generate/process data
-make analysis # Run statistical analysis
-make figures  # Create plots
-make tables   # Generate LaTeX tables
-make paper    # Compile PDF
-make clean    # Remove generated files
-\end{verbatim}
-\end{block}
-
-\textbf{Demo:} Running the complete workflow
-\end{frame}
-
-\begin{frame}{Data Management}
-\begin{block}{Raw Data}
-\begin{itemize}
-    \item Store in \texttt{data/raw/}
-    \item Never modify original files
-    \item Commit to Git (if reasonable size)
-\end{itemize}
-\end{block}
-
-\begin{block}{Processed Data}
-\begin{itemize}
-    \item Save to \texttt{data/processed/}
-    \item Generate from scripts
-    \item Add to .gitignore (reproducible)
-\end{itemize}
-\end{block}
-
-\begin{block}{Output Files}
-\begin{itemize}
-    \item Figures: PDF + PNG in \texttt{output/figures/}
-    \item Tables: LaTeX in \texttt{output/tables/}
-    \item Rebuild via Makefile
-\end{itemize}
-\end{block}
-\end{frame}
-
-\begin{frame}{Code Organization}
-\textbf{Python Scripts Best Practices:}
-\begin{itemize}
-    \item \textbf{Modular}: Separate utility functions from main analysis
-    \item \textbf{Documented}: Docstrings for all functions
-    \item \textbf{Typed}: Use type hints for clarity
-    \item \textbf{Styled}: Follow PEP 8 conventions
-    \item \textbf{Tested}: Include basic validation
-\end{itemize}
-
-\vspace{0.3cm}
-
-\textbf{Example Structure:}
-\begin{itemize}
-    \item \texttt{utils.py}: Helper functions, plotting utilities
-    \item \texttt{analysis.py}: Main analysis script
-    \item \texttt{requirements.txt}: Python dependencies
-\end{itemize}
-
-\vspace{0.3cm}
-\textbf{Demo:} Code structure in template repository
-\end{frame}
-
-\begin{frame}{LaTeX Integration}
-\textbf{Automated Table Generation:}
-\begin{itemize}
-    \item Python scripts create .tex files
-    \item Use \texttt{pandas.DataFrame.to\_latex()}
-    \item Format with booktabs package
-    \item Include via \texttt{\textbackslash input\{\}} in main document
-\end{itemize}
-
-\vspace{0.3cm}
-
-\textbf{Figure Inclusion:}
-\begin{itemize}
-    \item Save plots as PDF (vector) and PNG (preview)
-    \item Use \texttt{\textbackslash includegraphics\{\}}
-    \item Relative paths from tex directory
-    \item Captions and labels for cross-reference
-\end{itemize}
-
-\vspace{0.3cm}
-
-\textbf{Benefits:}
-\begin{itemize}
-    \item No manual copy-paste errors
-    \item Update data → regenerate everything
-    \item Always in sync with analysis
-\end{itemize}
-\end{frame}
 
 % ============================================================
 % MODULE II BREAK
@@ -911,84 +1074,7 @@ make clean    # Remove generated files
 Apply at: \url{education.github.com}
 \end{frame}
 
-\begin{frame}{VS Code Chat Modes}
-\begin{enumerate}
-    \item \textbf{Ask Mode (Ctrl/Cmd+I in chat)}
-    \begin{itemize}
-        \item Answer questions about code
-        \item Explain complex functions
-        \item Suggest best practices
-    \end{itemize}
-    
-    \item \textbf{Edit Mode (Inline)}
-    \begin{itemize}
-        \item Modify existing code
-        \item Refactor functions
-        \item Apply changes directly
-    \end{itemize}
-    
-    \item \textbf{Agent Mode (@ mentions)}
-    \begin{itemize}
-        \item Multi-file operations
-        \item Complex refactoring
-        \item Workspace-wide changes
-        \item Project scaffolding
-    \end{itemize}
-\end{enumerate}
 
-\vspace{0.3cm}
-\textbf{Demo:} Using different chat modes
-\end{frame}
-
-\begin{frame}{Copilot Workspace Instructions}
-\textbf{What are workspace instructions?}
-\begin{itemize}
-    \item File: \texttt{.github/copilot-instructions.md}
-    \item Guide Copilot about your project
-    \item Define coding standards and patterns
-    \item Explain project structure
-    \item Specify workflows and conventions
-\end{itemize}
-
-\vspace{0.3cm}
-
-\textbf{Benefits:}
-\begin{itemize}
-    \item Consistent AI suggestions
-    \item Project-specific context
-    \item Reduced need for prompting
-    \item Better code generation
-\end{itemize}
-
-\vspace{0.3cm}
-\textbf{Demo:} Copilot instructions in template repo
-\end{frame}
-
-\begin{frame}{AI-Assisted Workflows: Local}
-\textbf{Local AI Agent Workflow:}
-\begin{enumerate}
-    \item Open repository in VS Code
-    \item Use Copilot Chat to understand codebase
-    \item Ask for help with specific tasks or work on an existing GitHub issue!
-    \item Generate code with suggestions
-    \item Refactor existing code
-    \item Write tests and documentation
-    \item Update GitHub issue with comments and docs!
-\end{enumerate}
-
-\vspace{0.3cm}
-
-\textbf{Example Tasks:}
-\begin{itemize}
-    \item "Add a function to compute standard errors"
-    % \item "Refactor this loop to use pandas"
-    \item "Write docstrings for all functions in this file"
-    \item "Explain what this regression model does"
-\end{itemize}
-
-\vspace{0.3cm}
-\textbf{Demo:} Live coding with Copilot
-\end{frame}
 
 \begin{frame}{AI-Assisted Workflows: Cloud}
 \textbf{GitHub Copilot Workspace / Codex / Jules (Cloud):}
