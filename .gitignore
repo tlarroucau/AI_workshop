@@ -57,6 +57,7 @@ output/tables/*.tex
 # Keep final PDFs but ignore intermediate files
 tex/paper/*.pdf
 tex/slides/*.pdf
+!tex/slides/workshop_slides.pdf
 
 # OS specific
 .DS_Store
