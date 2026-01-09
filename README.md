@@ -57,11 +57,34 @@ AI_workshop/
 
 ## 🚀 Quick Start
 
-### Prerequisites
+### Workshop Prerequisites
 
-- Python 3.8+
-- LaTeX distribution (TeXLive, MiKTeX, or MacTeX)
-- Make utility
+To fully participate in the workshop and follow the hands-on exercises, you will need:
+
+**1. Accounts**
+- **GitHub Account:** Create a free account at [github.com](https://github.com).
+- **GitHub Education (Recommended):** Students and faculty should apply for the [GitHub Student Developer Pack](https://education.github.com/pack) to upgrade to Copilot Pro features. *Note: Copilot is now free, but the Education pack unlocks advanced models and higher limits.*
+
+**2. Software**
+- **Visual Studio Code:** Download and install from [code.visualstudio.com](https://code.visualstudio.com).
+- **Git:** Download and install from [git-scm.com](https://git-scm.com/downloads).
+  - *Windows Users:* We recommend installing "Git for Windows" which includes Git Bash.
+  - *Mac Users:* Git often comes pre-installed, or can be installed via Xcode command line tools (`xcode-select --install`).
+
+**3. VS Code Extensions**
+- **GitHub Copilot:** Search for "GitHub Copilot" in the VS Code Extensions view (Ctrl+Shift+X) and install. *Required for Module I & II.*
+- Sign in to your GitHub account within VS Code to activate.
+
+**4. Module II: Agentic AI Setup**
+- **MCP GitHub Server:** We will configure the Model Context Protocol (MCP) to connect AI agents with your GitHub repository. Ensure you have your GitHub credentials ready.
+
+### Project Requirements (For Code Execution)
+
+To run the analysis scripts and compile the documents locally:
+
+- **Python 3.8+** (Anaconda distribution recommended)
+- **LaTeX Distribution** (TeXLive, MikTeX, or MacTeX)
+- **Make Utility** (Optional, for automation)
 
 ### Installation
 

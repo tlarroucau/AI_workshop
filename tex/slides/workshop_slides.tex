@@ -157,6 +157,42 @@
 Repository available at: \url{https://github.com/tlarroucau/AI_workshop}
 \end{frame}
 
+\begin{frame}{Workshop Prerequisites}
+\begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+        \textbf{1. Accounts}
+        \begin{itemize}
+            \item \textbf{GitHub Account}: Create at \url{github.com}
+            \item \textbf{Education Benefits}: Apply for student/educator pack at \url{education.github.com} (Upgrade to Pro!)
+        \end{itemize}
+        
+        \vspace{0.2cm}
+        
+        \textbf{2. Software}
+        \begin{itemize}
+            \item \textbf{VS Code}: Download from \url{code.visualstudio.com}
+            \item \textbf{Git}: Install from \url{git-scm.com}
+            \item \textit{Optional}: Python \& LaTeX distribution
+        \end{itemize}
+    \end{column}
+
+    \begin{column}{0.48\textwidth}
+        \textbf{3. Extensions \& Setup}
+        \begin{itemize}
+            \item \textbf{Link GitHub}: Sign in to GitHub within VS Code (Accounts menu)
+            \item \textbf{Copilot}: Install "GitHub Copilot" extension (Required for Module I \& II)
+            \item \textbf{MCP Server}: Will be configured in Module II (Agentic AI)
+        \end{itemize}
+        
+        \vspace{0.2cm}
+        
+        \begin{block}{Note on Access}
+        GitHub Copilot is now free! However, upgrading to Copilot Pro (via Education pack) offers better models and limits. Verification can take a few days.
+        \end{block}
+    \end{column}
+\end{columns}
+\end{frame}
+
 % ============================================================
 % MODULE I BREAK
 % ============================================================
@@ -597,11 +633,11 @@ make clean    # Remove generated files
 \begin{enumerate}
     \item Open repository in VS Code
     \item Use Copilot Chat to understand codebase
-    \item Ask for help with specific tasks or work on an existing GitHub issue!
+    % \item Ask for help with specific tasks or work on an existing GitHub issue!
     \item Generate code with suggestions
     \item Refactor existing code
     \item Write tests and documentation
-    \item Update GitHub issue with comments and docs!
+    % \item Update GitHub issue with comments and docs!
 \end{enumerate}
 
 \vspace{0.3cm}
@@ -737,6 +773,55 @@ git diff                 # See unstaged changes
     \item Review and merge
     \item Delete branch after merge
 \end{enumerate}
+\end{frame}
+
+\begin{frame}{Visualizing Branches}
+\begin{center}
+\begin{tikzpicture}[node distance=1.5cm, auto, thick]
+    % Styles
+    \tikzstyle{commit} = [circle, draw, fill=blue!20, minimum size=0.8cm, font=\footnotesize]
+    \tikzstyle{commit_feature} = [circle, draw, fill=green!20, minimum size=0.8cm, font=\footnotesize]
+    \tikzstyle{arrow} = [->, >=stealth, line width=1.5pt]
+    \tikzstyle{label_box} = [rectangle, draw, fill=yellow!20, rounded corners, font=\scriptsize]
+
+    % Main timeline
+    \node [commit] (c1) {C1};
+    \node [commit, right=of c1] (c2) {C2};
+    \node [commit, right=of c2] (c3) {C3};
+    \node [commit, right=of c3] (m1) {M1};
+    
+    % Feature branch
+    \node [commit_feature, above right=1cm and 0.5cm of c2] (f1) {F1};
+    \node [commit_feature, right=of f1] (f2) {F2};
+    
+    % Connections
+    \draw [arrow] (c1) -- (c2);
+    \draw [arrow] (c2) -- (c3);
+    \draw [arrow] (c3) -- (m1);
+    
+    \draw [arrow] (f1) -- (f2);
+    
+    % Branching and Merging
+    \draw [arrow] (c2) to [bend left=45] node[near start, above left, font=\scriptsize] {Branch} (f1);
+    \draw [arrow] (f2) to [bend left=45] node[near end, above right, font=\scriptsize] {Merge} (m1);
+    
+    % Branch continues (open)
+    \draw [arrow, dashed] (f2) -- ++(1.5, 0);
+    
+    % Labels
+    \node [label_box, below=0.2cm of c2] {main};
+    \node [label_box, above=0.2cm of f1] {feature-branch};
+    
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.2cm}
+\begin{itemize}
+    \item \textbf{Branch}: Create a parallel timeline (\texttt{git checkout -b})
+    \item \textbf{Commit}: Work on the feature branch (F1, F2)
+    \item \textbf{Merge}: Combine feature history back into main (\texttt{git merge})
+    \item \textit{Note: The branch remains open after merging unless deleted}
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Git Best Practices}
@@ -891,17 +976,69 @@ output/
     \item Run automated tests
 \end{itemize}
 
-\vspace{0.3cm}
+\vspace{0.1cm}
 
 \textbf{PR Workflow:}
-\begin{enumerate}
-    \item Create feature branch locally
-    \item Push to GitHub
-    \item Open pull request
-    \item Request reviews from collaborators
-    \item Address feedback, push updates
-    \item Merge when approved
-\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.6, transform shape, node distance=2.5cm, auto, thick]
+    % Styles
+    \tikzstyle{commit} = [circle, draw, fill=blue!20, minimum size=0.8cm, font=\footnotesize]
+    \tikzstyle{commit_feature} = [circle, draw, fill=green!20, minimum size=0.8cm, font=\footnotesize]
+    \tikzstyle{arrow} = [->, >=stealth, line width=1.5pt]
+    \tikzstyle{label_box} = [rectangle, draw, fill=yellow!20, rounded corners, font=\scriptsize]
+    \tikzstyle{pr_box} = [rectangle, draw, fill=red!10, rounded corners, font=\scriptsize, align=center]
+
+    % Main timeline
+    \node [commit] (c1) {C1};
+    \node [commit, right=of c1] (c2) {C2};
+    \node [commit, right=of c2] (c3) {C3};
+    \node [commit, right=of c3] (m1) {M1};
+    
+    % Feature branch
+    \node [commit_feature, above right=0.8cm and 2cm of c2] (f1) {F1};
+    \node [commit_feature, right=of f1] (f2) {F2};
+    
+    % Connections
+    \draw [arrow] (c1) -- (c2);
+    \draw [arrow] (c2) -- (c3);
+    \draw [arrow] (c3) -- (m1);
+    
+    \draw [arrow] (f1) -- (f2);
+    
+    % Branching
+    \draw [arrow] (c2) to [bend left=20] node[near start, above left, font=\scriptsize] {Branch} (f1);
+    
+    % PR Step
+    \node [pr_box, right=1.5cm of f2] (pr) {Pull Request\\(Review)};
+    \draw [arrow, dashed] (f2) -- (pr);
+    \draw [arrow] (pr) to [bend left=20] node[near end, above right, font=\scriptsize] {Merge} (m1);
+    
+    % Labels
+    \node [label_box, below=0.2cm of c2] {main};
+    \node [label_box, above=0.2cm of f1] {feature};
+    
+\end{tikzpicture}
+\end{center}
+
+\vspace{-0.3cm}
+\begin{columns}[t]
+    \begin{column}{0.5\textwidth}
+        \footnotesize
+        \begin{enumerate}
+            \item Create and push feature branch
+            \item Open Pull Request on GitHub
+        \end{enumerate}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+        \footnotesize
+        \begin{enumerate}
+            \setcounter{enumi}{2}
+            \item Review, discuss, and fix
+            \item Merge when approved
+        \end{enumerate}
+    \end{column}
+\end{columns}
 
 \vspace{0.3cm}
 \textbf{Demo:} Creating and reviewing pull requests
@@ -1077,7 +1214,7 @@ Apply at: \url{education.github.com}
 
 
 \begin{frame}{AI-Assisted Workflows: Cloud}
-\textbf{GitHub Copilot Workspace / Codex / Jules (Cloud):}
+\textbf{GitHub Copilot Workspace / Claude Code / Codex / Jules (Cloud):}
 \begin{itemize}
     \item Work on issues directly in browser
     \item AI proposes implementation plan
