@@ -22,7 +22,9 @@ AI_workshop/
 ├── README.md                      # This file
 │
 ├── .github/                       # GitHub-specific files
-│   └── copilot-instructions.md   # Copilot workspace configuration
+│   ├── copilot-instructions.md   # Copilot workspace configuration
+│   ├── prompts/                  # Reusable prompt files
+│   └── skills/                   # Agent skills (e.g., YouTube transcript fetcher)
 │
 ├── data/                          # Raw and processed data
 │   ├── raw/                      # Original data files (never modify!)

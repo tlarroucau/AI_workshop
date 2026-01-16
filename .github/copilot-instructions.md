@@ -40,6 +40,12 @@ data/raw/*.csv → scripts/analysis.py → output/ → tex/
 - `output/`: Generated figures and tables (gitignored, rebuilt)
 - `tex/paper/`: Research paper LaTeX source
 - `tex/slides/`: Beamer presentation source
+- `.github/prompts/`: Reusable prompt files (e.g., summarization)
+- `.github/skills/`: Agent skills (e.g., YouTube transcript fetcher)
+
+## Agent Capabilities
+- **Skills**: This repo includes a `youtube-transcript` skill. You can ask "Fetch the transcript for [video_id]" to retrieve content from YouTube videos.
+- **Prompts**: Use prompt files in `.github/prompts/` for common tasks like "Summarize Text".
 
 ## Important Notes
 - This is a **teaching template** - prioritize clarity over brevity

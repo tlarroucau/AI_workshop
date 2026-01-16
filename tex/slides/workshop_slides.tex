@@ -604,29 +604,46 @@ make clean    # Remove generated files
 \textbf{Demo:} Using different chat modes
 \end{frame}
 
-\begin{frame}{Copilot Workspace Instructions}
-\textbf{What are workspace instructions?}
-\begin{itemize}
-    \item File: \texttt{.github/copilot-instructions.md}
-    \item Guide Copilot about your project
-    \item Define coding standards and patterns
-    \item Explain project structure
-    \item Specify workflows and conventions
-\end{itemize}
-
-\vspace{0.3cm}
-
-\textbf{Benefits:}
-\begin{itemize}
-    \item Consistent AI suggestions
-    \item Project-specific context
-    \item Reduced need for prompting
-    \item Better code generation
-\end{itemize}
-
-\vspace{0.3cm}
-\textbf{Demo:} Copilot instructions in template repo
-\end{frame}
+\begin{frame}{VS Code Custom Context}
+    \textbf{Tailoring Copilot to your Project:}
+    \vspace{0.2cm}
+    \begin{itemize}
+        \item \textbf{Custom Instructions} (\texttt{.github/copilot-instructions.md}): 
+        \begin{itemize}
+            \item High-level context: project architecture, coding patterns, tech stack.
+            \item Always appended to the system prompt.
+        \end{itemize}
+        \item \textbf{Prompt Files} (\texttt{.github/prompts/*.prompt.md}):
+        \begin{itemize}
+            \item Reusable, pre-defined prompts for specific tasks (e.g., "Summarize", "Refactor").
+            \item Can specify a particular model (e.g., GPT-4o, Claude 3.5 Sonnet).
+            \item Added to the user prompt when invoked.
+        \end{itemize}
+        \item \textbf{Custom Agents} (Configured in settings):
+        \begin{itemize}
+            \item Define specific personas or workflows (e.g., "Planner", "Implementer").
+            \item Augment or override default agent behavior.
+        \end{itemize}
+    \end{itemize}
+    \end{frame}
+    
+    \begin{frame}{Advanced Agent Capabilities: Skills}
+    \textbf{Agent Skills (\texttt{.github/skills/})}
+    \begin{itemize}
+        \item Bundle scripts, templates, and instructions into a modular "skill".
+        \item Enables the agent to perform complex actions (e.g., fetching data, running analysis).
+        \item \textbf{Progressively loaded:} Only loaded into context when the agent decides to use them.
+    \end{itemize}
+    
+    \vspace{0.5cm}
+    
+    \textbf{Demo: Custom Context in Action}
+    \begin{enumerate}
+        \item Reviewing \texttt{.github/copilot-instructions.md} (Project Standards)
+        \item Using \texttt{.github/prompts/summarize.prompt.md} (Reusable Prompt)
+        \item Triggering \texttt{.github/skills/youtube-transcript/} (fetching a video transcript)
+    \end{enumerate}
+    \end{frame}
 
 \begin{frame}{AI-Assisted Workflows: Local}
 \textbf{Local AI Agent Workflow:}
