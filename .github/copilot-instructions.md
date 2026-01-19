@@ -15,18 +15,19 @@ This is a **reproducible research project template** for the ASU workshop on Git
 ### LaTeX
 - Use `booktabs` for tables (no vertical lines)
 - Beamer slides use `\frametitle` and bullet points
-- Include figures via `\includegraphics{output/figures/filename.pdf}`
-- Input tables via `\input{output/tables/filename.tex}`
+- Include figures via `\includegraphics{figures/filename.pdf}`
+- Input tables via `\input{tables/filename.tex}`
+- Note: figures and tables are copied to `tex/{paper,slides}/{figures,tables}` by `make update-outputs`
 
 ## Key Workflows
 
 ### Data Pipeline
 ```
-data/raw/*.csv → scripts/analysis.py → output/ → tex/
+data/raw/*.csv → scripts/analysis.py → output/ → tex/{paper,slides}/
 ```
 - Raw data is immutable
 - All transformations in Python scripts
-- Outputs regenerated via `make all`
+- Outputs regenerated and copied via `make update-outputs` or `make all`
 
 ### Common Tasks
 - **New analysis**: Add to `scripts/analysis.py`, update Makefile target

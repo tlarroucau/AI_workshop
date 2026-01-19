@@ -67,13 +67,13 @@ The data generation process ensures realistic distributions and includes a true 
 
 Table \ref{tab:summary} presents summary statistics for the main variables. The sample shows considerable variation in income and education levels, with ages ranging from young adults to seniors.
 
-\input{../../output/tables/summary_statistics.tex}
+\input{tables/summary_statistics.tex}
 
 \subsection{Balance Assessment}
 
 Before estimating treatment effects, we assess covariate balance between treatment and control groups. Table \ref{tab:balance} compares mean characteristics across groups. The lack of significant differences suggests random assignment was successful, reducing concerns about selection bias.
 
-\input{../../output/tables/balance_table.tex}
+\input{tables/balance_table.tex}
 
 \section{Empirical Methodology}
 \label{sec:methods}
@@ -109,7 +109,7 @@ The treatment effect $\beta$ is identified under the assumption of conditional i
 
 Table \ref{tab:regression} presents the main regression results. Model 1 estimates the unconditional treatment effect, while Model 2 includes control variables.
 
-\input{../../output/tables/regression_results.tex}
+\input{tables/regression_results.tex}
 
 The unconditional treatment effect (Model 1) is large and statistically significant at the 1\% level. Adding controls (Model 2) reduces the coefficient magnitude slightly but the effect remains highly significant, suggesting the treatment has a robust positive impact on outcomes.
 
@@ -121,7 +121,7 @@ Figure \ref{fig:boxplot} displays the distribution of outcomes by treatment stat
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{../../output/figures/outcome_by_treatment.pdf}
+    \includegraphics[width=0.8\textwidth]{figures/outcome_by_treatment.pdf}
     \caption{Distribution of Outcomes by Treatment Status}
     \label{fig:boxplot}
 \end{figure}
@@ -130,7 +130,7 @@ Figure \ref{fig:scatter} examines the relationship between income and outcomes, 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{../../output/figures/scatter_income_outcome.pdf}
+    \includegraphics[width=0.8\textwidth]{figures/scatter_income_outcome.pdf}
     \caption{Outcome vs Income by Treatment Status}
     \label{fig:scatter}
 \end{figure}

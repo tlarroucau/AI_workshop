@@ -1,7 +1,7 @@
 # Makefile for Research Project Template
 # This automates the complete workflow from data analysis to document compilation
 
-.PHONY: all clean data analysis figures tables paper slides help
+.PHONY: all clean data analysis figures tables paper slides help update-outputs
 
 # Python interpreter
 PYTHON := python3
@@ -14,6 +14,10 @@ FIGURES_DIR := $(OUTPUT_DIR)/figures
 TABLES_DIR := $(OUTPUT_DIR)/tables
 TEX_PAPER_DIR := tex/paper
 TEX_SLIDES_DIR := tex/slides
+PAPER_FIGURES_DIR := $(TEX_PAPER_DIR)/figures
+PAPER_TABLES_DIR := $(TEX_PAPER_DIR)/tables
+SLIDES_FIGURES_DIR := $(TEX_SLIDES_DIR)/figures
+SLIDES_TABLES_DIR := $(TEX_SLIDES_DIR)/tables
 
 # Scripts
 ANALYSIS_SCRIPT := $(SCRIPTS_DIR)/analysis.py
@@ -52,8 +56,7 @@ help:
 	@echo "  make read-data - Read and process data (new script)"
 	@echo "  make analysis  - Run statistical analysis"
 	@echo "  make figures   - Generate figures only"
-	@echo "  make tables    - Generate tables only"
-	@echo "  make paper     - Compile research paper"
+	@echo "  make tables    - Generate tables only"	@echo "  make update-outputs - Copy outputs to paper/slides folders"	@echo "  make paper     - Compile research paper"
 	@echo "  make slides    - Compile presentation slides"
 	@echo "  make clean     - Remove all generated files"
 	@echo "  make help      - Show this help message"
@@ -96,8 +99,19 @@ tables: data
 	@mkdir -p $(TABLES_DIR)
 	@cd $(SCRIPTS_DIR) && $(PYTHON) analysis.py
 
+# Copy figures and tables to document directories
+update-outputs: analysis
+	@echo "Updating figures and tables in paper and slides directories..."
+	@mkdir -p $(PAPER_FIGURES_DIR) $(PAPER_TABLES_DIR)
+	@mkdir -p $(SLIDES_FIGURES_DIR) $(SLIDES_TABLES_DIR)
+	@cp -r $(FIGURES_DIR)/* $(PAPER_FIGURES_DIR)/
+	@cp -r $(TABLES_DIR)/* $(PAPER_TABLES_DIR)/
+	@cp -r $(FIGURES_DIR)/* $(SLIDES_FIGURES_DIR)/
+	@cp -r $(TABLES_DIR)/* $(SLIDES_TABLES_DIR)/
+	@echo "Update complete!"
+
 # Compile research paper
-paper: analysis
+paper: update-outputs
 	@echo "======================================"
 	@echo "Compiling research paper..."
 	@echo "======================================"
@@ -109,7 +123,7 @@ paper: analysis
 	@echo "Paper compiled: $(PAPER_PDF)"
 
 # Compile presentation slides
-slides: analysis
+slides: update-outputs
 	@echo "======================================"
 	@echo "Compiling presentation slides..."
 	@echo "======================================"
