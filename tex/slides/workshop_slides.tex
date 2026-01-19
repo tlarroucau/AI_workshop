@@ -422,14 +422,57 @@ Live Server & Local web server \\
 \begin{itemize}
     \item \textbf{Via Dropbox}: Sync local folder with Overleaf project (some lag)
     \item \textbf{Via Git}: Clone Overleaf project, push/pull changes (more control)
+    \item \textbf{Via GitHub}: Sync Overleaf project with GitHub repository (requires Premium)
     \item \textbf{Alternative}: Use LaTeX Workshop extension in VS Code directly and Copy/Paste files
-    \item Trade-off: Real-time collaboration vs. local control
+    % \item Trade-off: Real-time collaboration vs. local control
 \end{itemize}
 \end{block}
 
 \vspace{0.1cm}
 \textbf{Bottom line:} Not perfect, but workable with some adjustments!
 \end{frame}
+
+\begin{frame}{Optimum Workflow: Overleaf + VS Code}
+    \centering
+    \begin{tikzpicture}[node distance=4cm, auto, >=stealth, thick]
+        % Nodes
+        \node[rectangle, draw=blue!60!black, fill=blue!5, very thick, minimum width=3cm, minimum height=1.5cm, rounded corners, align=center] (overleaf) {\textbf{Overleaf}\\\textit{(Editor-in-Chief)}};
+        
+        \node[rectangle, draw=black!70, fill=black!5, very thick, minimum width=2.5cm, minimum height=1.5cm, rounded corners, align=center, right of=overleaf, node distance=6cm] (github) {\textbf{GitHub}\\\textit{(The Bridge)}};
+        
+        \node[rectangle, draw=green!60!black, fill=green!5, very thick, minimum width=3cm, minimum height=1.5cm, rounded corners, align=center, below of=github, node distance=3.5cm] (local) {\textbf{VS Code}\\\textit{(Integrator)}};
+
+        % Arrows
+        % 1. Overleaf -> GitHub
+        \draw[->, red!70!black] (overleaf.north east) to [bend left=20] node[above, font=\footnotesize] {1. Push \texttt{main}} (github.north west);
+        
+        % 5. GitHub -> Overleaf
+        \draw[->, blue!70!black] (github.south west) to [bend left=20] node[below, font=\footnotesize] {5. Pull changes} (overleaf.south east);
+        
+        % 2. GitHub -> Local
+        \draw[->, orange!70!black] (github.south) -- node[right, font=\footnotesize] {2. Pull \texttt{main}} (local.north);
+        
+        % 4. Local -> GitHub
+        \draw[->, purple!70!black] (local.east) to [bend right=60] node[right, font=\footnotesize] {4. Merge \& Push} (github.east);
+
+        % 3. Local work
+        \node[below of=local, node distance=2cm, align=center, font=\footnotesize] (work) {\textbf{3. Create Feature Branch}\\\textit{(Do local work)}};
+        \draw[dashed, ->] (local) -- (work);
+    \end{tikzpicture}
+
+    \vspace{0.3cm}
+    \small
+    \begin{block}{Workflow Rules}
+    \begin{itemize}
+        \item \textbf{Overleaf} owns \texttt{main} (authoritative draft)
+        \item \textbf{Local work} happens exclusively on \texttt{feature/*} branches
+        \item \textbf{Sync} often: Pull \texttt{main} before branching
+    \end{itemize}
+    \end{block}
+\end{frame}
+
+
+
 
 % ============================================================
 % SUBSECTION: PROJECT STRUCTURE
