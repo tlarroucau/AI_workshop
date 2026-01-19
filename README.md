@@ -114,6 +114,7 @@ To run the analysis scripts and compile the documents locally:
 | `make analysis` | Run statistical analysis |
 | `make figures` | Generate plots and visualizations |
 | `make tables` | Create LaTeX tables |
+| `make update-outputs` | Copy analysis outputs to paper/slides directories |
 | `make paper` | Compile research paper PDF |
 | `make slides` | Compile presentation slides |
 | `make all` | Run complete pipeline |
@@ -125,8 +126,8 @@ To run the analysis scripts and compile the documents locally:
 # 1. Process data
 make data
 
-# 2. Run analysis and generate outputs
-make analysis
+# 2. Run analysis and update outputs
+make update-outputs
 
 # 3. Compile paper and slides
 make paper slides

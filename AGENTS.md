@@ -14,7 +14,7 @@ This is a **reproducible research project template** that demonstrates:
 
 ### Data Flow
 ```
-data/raw/*.csv → scripts/analysis.py → output/{figures,tables}/ → tex/{paper,slides}/
+data/raw/*.csv → scripts/analysis.py → output/{figures,tables}/ → tex/{paper,slides}/{figures,tables}/
 ```
 
 ### Key Components
@@ -33,6 +33,7 @@ data/raw/*.csv → scripts/analysis.py → output/{figures,tables}/ → tex/{pap
    - `figures/`: PNG/PDF plots for inclusion in papers
    - `tables/`: LaTeX-formatted tables (.tex files)
    - Gitignored (regenerated via `make`)
+   - **Note:** Outputs are copied to `tex/paper/` and `tex/slides/` by the `update-outputs` Makefile target.
 
 4. **Document Layer** (`tex/`)
    - `paper/`: Research paper source
@@ -82,8 +83,8 @@ def analyze_data(df: pd.DataFrame, column: str) -> Dict[str, float]:
 - **Issues first**: Create issue before starting work, reference in commits
 
 ### LaTeX Conventions
-- **Tables**: Use `booktabs` package (no vertical lines)
-- **Figures**: Include via `\includegraphics`, store in `output/figures/`
+- **Tables**: Use `booktabs` package. Include via `\input{tables/filename.tex}`, store in `tex/{paper,slides}/tables/`
+- **Figures**: Include via `\includegraphics{figures/filename.pdf}`, store in `tex/{paper,slides}/figures/`
 - **Bibliography**: BibTeX format in `references.bib`
 - **Slides**: Beamer with `metropolis` or `madrid` theme
 
@@ -94,7 +95,7 @@ def analyze_data(df: pd.DataFrame, column: str) -> Dict[str, float]:
 2. Update `scripts/analysis.py` or create new script
 3. Test manually: `python scripts/analysis.py`
 4. Update Makefile if needed
-5. Run full pipeline: `make all`
+5. Run full pipeline: `make update-outputs` (to analyze and copy outputs) or `make all`
 6. Commit and push, create PR
 
 ### Generating Tables for LaTeX
