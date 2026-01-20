@@ -124,6 +124,56 @@
     }
 \end{frame}
 
+\begin{frame}{The Symbiosis: Agents as Builders}
+    \centering
+    \begin{columns}[c]
+        \begin{column}{0.4\textwidth}
+            \centering
+            % "The Picture" - Dinosaur building the fence
+            \begin{tikzpicture}
+                % The Dinosaur
+                \node [scale=4] (dino) at (0,0) {\twemoji{t-rex}};
+                \node [scale=1.5] at (0.8, 0.8) {\twemoji{construction}};
+                
+                % The Electric Fence (Grid)
+                \draw[gray!70, ultra thick] (2,-1.5) -- (2,1.5);
+                \draw[gray!70, ultra thick] (3.5,-1.5) -- (3.5,1.5);
+                \foreach \y in {-1, 0, 1}
+                    \draw[gray, thick] (1.8,\y) -- (3.7,\y);
+                
+                % Post-its on the fence (Memory/Docs)
+                \node[fill=yellow!80, draw=yellow!50!black, rotate=5, minimum width=0.6cm, minimum height=0.5cm, drop shadow] at (2, 0.5) {\tiny\texttt{\#42}};
+                \node[fill=pink!80, draw=pink!50!black, rotate=-10, minimum width=0.6cm, minimum height=0.5cm, drop shadow] at (3.5, -0.5) {\tiny\texttt{PR}};
+                
+                % Action
+                \draw[->, ultra thick, blue!60!black, dashed] (0.8,0) -- (1.8,0);
+            \end{tikzpicture}
+            
+            \vspace{0.4cm}
+            \small\textit{"The dinosaurs help build the park."}
+        \end{column}
+        
+        \begin{column}{0.6\textwidth}
+            \textbf{From Safety to Superpowers:}
+            
+            \vspace{0.3cm}
+            
+            \begin{itemize}
+                \itemsep1em
+                \item \textbf{VS Code $\rightarrow$ Capability} \\
+                \small Agents gain \textit{hands}. They can execute tests, debug, and browse the web.
+                
+                \item \textbf{GitHub $\rightarrow$ Memory} \\
+                \small Issues \& PRs provide persistent context ("Pseudo-Memory") and documentation.
+                
+                \item \textbf{Agents $\rightarrow$ Mastery} \\
+                \small They lower the cost of learning the tools. \\
+                \textit{"How do I cherry-pick this commit?"}
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
 \begin{frame}{What You'll Learn}
 \begin{block}{Module I: Foundations}
 \begin{itemize}
