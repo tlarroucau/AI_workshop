@@ -234,6 +234,8 @@ Select code → "Refactor this to use pandas groupby"
 "@workspace add type hints to all functions in analysis.py"
 ```
 
+**Note:** We can use Local, Background, and Cloud agents in parallel.
+
 ### Using MCP
 
 If MCP is configured:
