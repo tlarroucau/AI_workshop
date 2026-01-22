@@ -211,7 +211,7 @@ Repository available at: \url{https://github.com/tlarroucau/AI_workshop}
         \begin{itemize}
             \item \textbf{Link GitHub}: Sign in to GitHub within VS Code (Accounts menu)
             \item \textbf{Copilot}: Install "GitHub Copilot" extension (Required for Module I \& II)
-            \item \textbf{MCP Server}: Will be configured in Module II (Agentic AI)
+            \item \textbf{MCP Servers}: Will be configured in Module II (Agentic AI)
         \end{itemize}
         
         \vspace{0.2cm}
@@ -677,10 +677,54 @@ make clean    # Remove generated files
 \textbf{Demo:} Using different chat modes
 \end{frame}
 
+\begin{frame}{Chat Context: Special Symbols}
+\begin{columns}[t]
+\begin{column}{0.32\textwidth}
+\textbf{\texttt{\#} — Add Context:}
+\begin{itemize}
+    \item \texttt{\#file:analysis.py}
+    \item \texttt{\#selection}
+    \item \texttt{\#problems}
+    \item \texttt{\#fetch}
+\end{itemize}
+\end{column}
+
+\begin{column}{0.32\textwidth}
+\textbf{\texttt{@} — Invoke Agents:}
+\begin{itemize}
+    \item \texttt{@workspace}
+    \item \texttt{@terminal}
+    \item \texttt{@github}
+\end{itemize}
+\end{column}
+
+\begin{column}{0.32\textwidth}
+\textbf{\texttt{/} — Quick Commands:}
+\begin{itemize}
+    \item \texttt{/fix} — Fix errors
+    \item \texttt{/explain} — Explain code
+    \item \texttt{/tests} — Generate tests
+    \item \texttt{/doc} — Add docs
+\end{itemize}
+\end{column}
+\end{columns}
+
+\vspace{0.3cm}
+
+\textbf{Example:} ``\texttt{@workspace /fix} the import errors in \texttt{\#file:utils.py}''
+
+\vspace{0.2cm}
+
+\begin{block}{Are These Still Necessary?}
+\textbf{In Agent mode, usually no!} Copilot auto-detects intent and invokes tools. Use symbols to \textit{force} specific behavior—think of them as \textbf{guardrails}, not requirements.
+\end{block}
+\end{frame}
+
 \begin{frame}{VS Code Custom Context}
     \textbf{Tailoring Copilot to your Project:}
     \vspace{0.2cm}
     \begin{itemize}
+        \setlength{\itemsep}{0.3cm}
         \item \textbf{Custom Instructions} (\texttt{.github/copilot-instructions.md}): 
         \begin{itemize}
             \item High-level context: project architecture, coding patterns, tech stack.
@@ -1459,9 +1503,8 @@ Apply at: \url{education.github.com}
 \scriptsize
 \begin{itemize}
     \item \textbf{GitHub}: Create issues, PRs, manage boards
-    \item \textbf{Filesystem}: Access external files/folders
-    \item \textbf{Brave Search}: Web search with sources
-    \item \textbf{Fetch}: Download/parse web content
+    \item \textbf{Playwright}: Browser automation and interaction
+    \item \textbf{Filesystem} \& \textbf{Fetch}: Built-in VS Code tools
 \end{itemize}
 
 % \vspace{0.3cm}
@@ -1595,7 +1638,7 @@ Apply at: \url{education.github.com}
 \textbf{Backing Up Your Work:}
 \begin{itemize}
     \item You can keep your local repo in Dropbox for automatic backup
-    \item \textbf{WARNING:} Do not share that Dropbox folder with co-authors!
+    \item Avoid sharing that Dropbox folder with co-authors unless you can really coordinate well
     % \item Use GitHub for collaboration, Dropbox only for personal backup
 \end{itemize}
 

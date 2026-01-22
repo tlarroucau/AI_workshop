@@ -1,6 +1,6 @@
 name: Summarize Text
 description: Summarize the provided text or code.
-model: gpt-4o
+model: Gemini 2.5 Pro
 
 ---
 
