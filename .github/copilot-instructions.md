@@ -48,6 +48,22 @@ data/raw/*.csv → scripts/analysis.py → output/ → tex/{paper,slides}/
 - **Skills**: This repo includes a `youtube-transcript` skill. You can ask "Fetch the transcript for [video_id]" to retrieve content from YouTube videos.
 - **Prompts**: Use prompt files in `.github/prompts/` for common tasks like "Summarize Text".
 
+## Mandatory Document & Artifact Skills
+
+When generating or modifying structured document artifacts, you MUST follow the relevant skill specification vendored in this repository:
+
+- **PDF outputs** → `skills/anthropics/pdf/skill.md`
+- **Word documents (DOCX)** → `skills/anthropics/docx/skill.md`
+- **Spreadsheets (XLSX)** → `skills/anthropics/xlsx/skill.md`
+- **Slide decks (PPTX)** → `skills/anthropics/pptx/skill.md`
+
+### Skill application rules
+- Apply **only** the skill(s) relevant to the current task.
+- If multiple outputs are requested (e.g., XLSX + PDF), ensure **consistency across artifacts**.
+- If a skill conflicts with instructions in this file, **this file takes precedence**.
+- Before final output, perform a **self-check for compliance** with the applicable skill(s).
+
+
 ## Important Notes
 - This is a **teaching template** - prioritize clarity over brevity
 - Code should be **well-commented** for students new to these tools
