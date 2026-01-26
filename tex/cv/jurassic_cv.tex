@@ -1,0 +1,107 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Jurassic Park Theme Colors
+\definecolor{JPRED}{HTML}{BE1E2D}      % JP Red
+\definecolor{JPYELLOW}{HTML}{FFD100}   % JP Yellow
+\definecolor{JPGREEN}{HTML}{2B7F36}    % JP Green
+\definecolor{JPBLACK}{HTML}{1A1A1A}    % Dark text
+\definecolor{BONE}{HTML}{FDF6E3}       % Background bone color
+
+\pagecolor{BONE}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=JPRED,
+    urlcolor=JPRED
+}
+
+% Section styling for headers
+\titleformat{\section}
+    {\color{JPGREEN}\Large\bfseries}
+    {}{0em}
+    {}[\color{JPYELLOW}\titlerule]
+
+\titleformat{\subsection}
+    {\color{JPRED}\normalsize\bfseries}
+    {}{0em}
+    {}
+
+% Bullet points customization
+\setlist[itemize]{noitemsep, topsep=0pt, label=\textcolor{JPRED}{\textbullet}}
+\setlist[description]{style=nextline, font=\color{JPGREEN}\bfseries}
+
+\begin{document}
+
+\begin{center}
+    {\fontsize{36}{44}\selectfont \color{JPRED}\textbf{REX TYRANNOSAUR}}\\
+    \vspace{8pt}
+    \textbf{ISLA NUBLAR, COSTA RICA} \textbar{} \href{mailto:rex@jurassic.park}{rex@jurassic.park} \\
+    \href{https://github.com/rex-tyrannus}{github.com/rex-tyrannus} \textbar{} \textbf{\color{JPGREEN}ASSET CONTAINMENT UNIT}
+\end{center}
+
+\section*{Profile}
+Apex predator and applied research-oriented candidate with a taste for rigorous, reproducible workflows. Recently escaped the ASU AI Workshop on Git, GitHub, and Agentic AI, and now seeking to dominate frontier AI organizations. Known for disciplined engineering, unusually high compute appetite, and a formal approach to wild ideas.
+
+\section*{Education}
+\textbf{Cretaceous Institute of Technology} \hfill 66--65 Mya\\
+B.Sc. in Computational Paleontology (Honors)\\
+Thesis: \emph{Temporal Pattern Mining in Fossil Record Lattices}
+
+\section*{AI Workshop Training (ASU)}
+\textbf{Workshop: Git, GitHub, and Agentic AI} \hfill January 2026
+\begin{itemize}
+    \item Built reproducible analysis pipelines: data \(\rightarrow\) scripts \(\rightarrow\) outputs \(\rightarrow\) LaTeX artifacts.
+    \item Practiced issue-driven development and structured branching strategies.
+    \item Implemented automated reporting in LaTeX with figures/tables and Makefile orchestration.
+\end{itemize}
+
+\section*{Skills and Tools}
+\begin{description}
+    \item[Version Control \& Collaboration] Git, GitHub, pull request workflow, issue tracking, code review etiquette.
+    \item[Agentic AI Workflow] Plan-mode decomposition, tool-assisted execution, task tracking, reproducible outputs.
+    \item[Data \& Analysis] Python, pandas, NumPy, statsmodels, reproducible scripts, data validation.
+    \item[Visualization] matplotlib, seaborn, publication-quality plots (PNG/PDF).
+    \item[Docs \& Publishing] LaTeX (booktabs, figures/tables), Beamer slides, Makefile automation.
+\end{description}
+
+\section*{Selected Projects}
+\textbf{Reproducible Research Template (Workshop Capstone)}
+\begin{itemize}
+    \item Engineered a full analysis pipeline with deterministic outputs and automated PDF generation.
+    \item Produced LaTeX-ready tables and figures, wired into paper and slide builds.
+    \item Demonstrated end-to-end reproducibility with scripted data generation and reporting.
+\end{itemize}
+
+\textbf{Jurassic Resume Builder (This CV)}
+\begin{itemize}
+    \item Refactored legacy genetic code into a modern LaTeX artifact.
+    \item Applied thematic styling to enhance visual impact and terror.
+\end{itemize}
+
+\section*{Experience}
+\textbf{Research Assistant, Temporal Ecology Lab} \hfill 66--65 Mya
+\begin{itemize}
+    \item Modeled ecosystem transitions using statistical tools and reproducible scripts.
+    \item Coordinated cross-team documentation for mixed human and dinosaur collaborators.
+\end{itemize}
+
+\section*{Awards \& Recognition}
+\begin{itemize}
+    \item \textbf{Best Large-Model Behavior} -- Cretaceous Innovation Forum, 65 Mya.
+    \item \textbf{Workshop Excellence} -- ASU AI Workshop, 2026.
+\end{itemize}
+
+\section*{Interests}
+Frontier model safety, tool-using agents, responsible AI, and goat-based nutrition strategies.
+
+\end{document}
