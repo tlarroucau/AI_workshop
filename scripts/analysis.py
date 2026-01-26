@@ -111,8 +111,12 @@ def main():
     
     # Figure 2: Scatter plot with regression line
     plt.figure(figsize=(10, 6))
+    
+    # Define explicit colors for Control (0) and Treatment (1)
+    colors = {0: 'tab:blue', 1: 'tab:orange'}
+    
     sns.scatterplot(data=df, x='income', y='outcome', hue='treatment', 
-                    palette='Set1', alpha=0.6)
+                    palette=colors, alpha=0.6)
     
     # Add regression lines
     for treatment in [0, 1]:
@@ -120,7 +124,7 @@ def main():
         z = np.polyfit(subset['income'], subset['outcome'], 1)
         p = np.poly1d(z)
         x_line = np.linspace(subset['income'].min(), subset['income'].max(), 100)
-        plt.plot(x_line, p(x_line), linestyle='--', linewidth=2)
+        plt.plot(x_line, p(x_line), linestyle='--', linewidth=2, color=colors[treatment])
     
     plt.xlabel('Income ($)')
     plt.ylabel('Outcome')

@@ -1,7 +1,7 @@
 # Makefile for Research Project Template
 # This automates the complete workflow from data analysis to document compilation
 
-.PHONY: all clean data analysis figures tables paper slides help update-outputs
+.PHONY: all clean data analysis figures tables paper slides cv help update-outputs
 
 # Python interpreter
 PYTHON := python3
@@ -14,6 +14,7 @@ FIGURES_DIR := $(OUTPUT_DIR)/figures
 TABLES_DIR := $(OUTPUT_DIR)/tables
 TEX_PAPER_DIR := tex/paper
 TEX_SLIDES_DIR := tex/slides
+TEX_CV_DIR := tex/cv
 PAPER_FIGURES_DIR := $(TEX_PAPER_DIR)/figures
 PAPER_TABLES_DIR := $(TEX_PAPER_DIR)/tables
 SLIDES_FIGURES_DIR := $(TEX_SLIDES_DIR)/figures
@@ -35,8 +36,10 @@ TABLES := $(TABLES_DIR)/summary_statistics.tex \
 # LaTeX files
 PAPER_TEX := $(TEX_PAPER_DIR)/paper.tex
 SLIDES_TEX := $(TEX_SLIDES_DIR)/workshop_slides.tex
+CV_TEX := $(TEX_CV_DIR)/rex_cv.tex
 PAPER_PDF := $(TEX_PAPER_DIR)/paper.pdf
 SLIDES_PDF := $(TEX_SLIDES_DIR)/workshop_slides.pdf
+CV_PDF := $(TEX_CV_DIR)/rex_cv.pdf
 
 # Default target
 all: analysis paper slides
@@ -56,8 +59,11 @@ help:
 	@echo "  make read-data - Read and process data (new script)"
 	@echo "  make analysis  - Run statistical analysis"
 	@echo "  make figures   - Generate figures only"
-	@echo "  make tables    - Generate tables only"	@echo "  make update-outputs - Copy outputs to paper/slides folders"	@echo "  make paper     - Compile research paper"
+	@echo "  make tables    - Generate tables only"
+	@echo "  make update-outputs - Copy outputs to paper/slides folders"
+	@echo "  make paper     - Compile research paper"
 	@echo "  make slides    - Compile presentation slides"
+	@echo "  make cv        - Compile CV"
 	@echo "  make clean     - Remove all generated files"
 	@echo "  make help      - Show this help message"
 
@@ -132,6 +138,16 @@ slides: update-outputs
 		pdflatex -interaction=nonstopmode workshop_slides.tex > /dev/null
 	@echo "Slides compiled: $(SLIDES_PDF)"
 
+# Compile CV
+cv:
+	@echo "======================================"
+	@echo "Compiling CV..."
+	@echo "======================================"
+	@cd $(TEX_CV_DIR) && \
+		pdflatex -interaction=nonstopmode rex_cv.tex > /dev/null && \
+		pdflatex -interaction=nonstopmode rex_cv.tex > /dev/null
+	@echo "CV compiled: $(CV_PDF)"
+
 # Clean generated files
 clean:
 	@echo "Cleaning generated files..."
@@ -140,6 +156,7 @@ clean:
 	@rm -f $(DATA_DIR)/processed/*
 	@cd $(TEX_PAPER_DIR) && rm -f *.aux *.bbl *.blg *.log *.out *.pdf *.synctex.gz *.fls *.fdb_latexmk
 	@cd $(TEX_SLIDES_DIR) && rm -f *.aux *.log *.nav *.out *.pdf *.snm *.toc *.vrb *.synctex.gz *.fls *.fdb_latexmk
+	@cd $(TEX_CV_DIR) && rm -f *.aux *.log *.out *.pdf *.synctex.gz *.fls *.fdb_latexmk
 	@echo "Clean complete!"
 
 # Install Python dependencies
