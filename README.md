@@ -183,6 +183,12 @@ This is a teaching template. Contributions welcome via:
 - [VS Code Documentation](https://code.visualstudio.com/docs)
 - [GitHub Copilot Docs](https://docs.github.com/en/copilot)
 
+## 🧪 Issue-Driven Development Demo
+
+This project demonstrates the use of GitHub issues for managing development tasks. Issue #12 was used to test the workflow during class.
+
+This section was added as part of resolving issue #12.
+
 ## 📄 License
 
 MIT License - Feel free to use this template for your research projects.
