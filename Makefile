@@ -86,7 +86,7 @@ read-data: data
 	@$(PYTHON) $(READ_DATA_SCRIPT)
 
 # Run complete analysis (generates figures and tables)
-analysis: data
+analysis: read-data
 	@echo "======================================"
 	@echo "Running analysis pipeline..."
 	@echo "======================================"

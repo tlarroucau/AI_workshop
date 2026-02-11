@@ -181,6 +181,10 @@ Before committing analysis changes:
 3. **Compile documents**: Ensure LaTeX compiles without errors
 4. **Review diffs**: `git diff` to check unintended changes
 
+## Project Management
+
+Project status and tasks are tracked on the [GitHub Project Board](https://github.com/users/tlarroucau/projects/11).
+
 ## Working with Issues
 
 Use GitHub Issues for:
