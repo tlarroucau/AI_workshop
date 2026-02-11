@@ -36,6 +36,15 @@ output/figures/*.png
 output/figures/*.pdf
 output/tables/*.tex
 
+# Stray card/thumbnail images (not part of the project)
+**/card_*.png
+
+# Document-level generated figures/tables (copied by make update-outputs)
+tex/paper/figures/
+tex/paper/tables/
+tex/slides/figures/
+tex/slides/tables/
+
 # LaTeX
 *.aux
 *.bbl
@@ -80,3 +89,9 @@ output/papers/
 # External Skills (Proprietary)
 .github/skills/anthropics/
 tex/cv/jurassic_cv.pdf
+tex/paper/figures/distributions.pdf
+tex/paper/figures/outcome_by_treatment.pdf
+tex/paper/figures/scatter_income_outcome.pdf
+tex/slides/figures/distributions.pdf
+tex/slides/figures/outcome_by_treatment.pdf
+tex/slides/figures/scatter_income_outcome.pdf

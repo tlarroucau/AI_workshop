@@ -20,6 +20,7 @@ AI_workshop/
 ├── AGENTS.md                      # Instructions for AI coding agents
 ├── Makefile                       # Automation workflow
 ├── README.md                      # This file
+├── mindmap.html                   # Interactive project visualization (Open in browser)
 │
 ├── .github/                       # GitHub-specific files
 │   ├── copilot-instructions.md   # Copilot workspace configuration
