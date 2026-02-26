@@ -10,20 +10,58 @@
 \usepackage{hyperref}
 \usepackage{tikz}
 \usepackage{twemojis}
+\usepackage{xcolor}
 \usetikzlibrary{shapes,arrows,positioning,shadows}
+
+% ASU + W. P. Carey Brand Colors
+% Primary Maroon: #8C1D40   Primary Gold: #FFC627
+\definecolor{ASUMaroon}{HTML}{8C1D40}
+\definecolor{ASUGold}{HTML}{FFC627}
+\definecolor{ASUDarkGray}{HTML}{484848}
+\definecolor{ASULightGray}{HTML}{F5F5F5}
+
+% Apply ASU color palette to Beamer theme
+\setbeamercolor{palette primary}{bg=ASUMaroon, fg=white}
+\setbeamercolor{palette secondary}{bg=ASUMaroon!80, fg=white}
+\setbeamercolor{palette tertiary}{bg=ASUMaroon!60, fg=white}
+\setbeamercolor{palette quaternary}{bg=ASUMaroon, fg=white}
+\setbeamercolor{structure}{fg=ASUMaroon}
+\setbeamercolor{frametitle}{bg=ASUMaroon, fg=white}
+\setbeamercolor{title}{bg=ASUMaroon, fg=white}
+\setbeamercolor{subtitle}{fg=ASUGold}
+\setbeamercolor{section in head/foot}{bg=ASUMaroon, fg=white}
+\setbeamercolor{subsection in head/foot}{bg=ASUMaroon!80, fg=white}
+\setbeamercolor{block title}{bg=ASUMaroon, fg=white}
+\setbeamercolor{block body}{bg=ASULightGray, fg=ASUDarkGray}
+\setbeamercolor{alerted text}{fg=ASUGold}
+\setbeamercolor{item}{fg=ASUMaroon}
 
 % Title information
 \title{Git, GitHub, and VS Code}
 \subtitle{Agentic AI for Project Management and Research Productivity}
 \author{Tomas Larroucau }
-\institute{Arizona State University}
+\institute{W. P. Carey School of Business \\ Arizona State University}
 \date{\today}
 
 % Remove navigation symbols
 \setbeamertemplate{navigation symbols}{}
 
-% Footer
-\setbeamertemplate{footline}[frame number]
+% Footer with ASU branding
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.333\paperwidth,ht=2.25ex,dp=1ex,center]{palette secondary}%
+      \usebeamerfont{author in head/foot}\insertshortauthor
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.334\paperwidth,ht=2.25ex,dp=1ex,center]{palette primary}%
+      \usebeamerfont{title in head/foot}\color{ASUGold}\textbf{W. P. Carey $|$ ASU}
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.333\paperwidth,ht=2.25ex,dp=1ex,right]{palette secondary}%
+      \usebeamerfont{date in head/foot}\insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
 
 \begin{document}
 

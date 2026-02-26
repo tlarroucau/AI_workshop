@@ -11,11 +11,29 @@
 \usepackage{setspace}
 \usepackage{float}
 \usepackage{threeparttable}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+
+% ASU + W. P. Carey Brand Colors
+\definecolor{ASUMaroon}{HTML}{8C1D40}
+\definecolor{ASUGold}{HTML}{FFC627}
+
+% Page style with ASU colored rule
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{3pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{ASUMaroon}\leaders\hrule height \headrulewidth\hfill}}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+
+% Hyperlink colors using ASU palette
+\hypersetup{colorlinks=true, linkcolor=ASUMaroon, citecolor=ASUMaroon, urlcolor=ASUMaroon}
 
 % Title information
 \title{Sample Research Paper: Treatment Effects Analysis\thanks{This is a template paper demonstrating reproducible research workflows with Git, GitHub, and Agentic AI.}}
 \author{Your Name\\
-Your Institution\\
+W. P. Carey School of Business\\
+Arizona State University\\
 \texttt{yourname@email.edu}}
 \date{\today}
 
@@ -135,7 +153,7 @@ Figure \ref{fig:scatter} examines the relationship between income and outcomes, 
     \label{fig:scatter}
     \vspace{0.1cm}
     \footnotesize
-    \emph{Note:} Blue points and lines represent the control group, while orange points and lines represent the treatment group.
+    \emph{Note:} Maroon points and lines represent the control group, while gold points and lines represent the treatment group.
 \end{figure}
 
 \subsection{Robustness}
