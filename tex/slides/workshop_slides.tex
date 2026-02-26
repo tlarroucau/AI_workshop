@@ -131,7 +131,7 @@
                 \vspace{0.3cm}
                 % TODO: Replace with AI image: A lush digital jungle island
                 \begin{tikzpicture}
-                    \node[circle, draw=green!60!black, fill=green!10, very thick, minimum size=2.5cm, align=center] {The\\Environment};
+                    \node[circle, draw=ASUGold!80!black, fill=ASUGold!15, very thick, minimum size=2.5cm, align=center] {The\\Environment};
                 \end{tikzpicture}\\
                 \vspace{0.3cm}
                 \small{The island where everything lives}
@@ -147,7 +147,7 @@
                 \vspace{0.3cm}
                 % TODO: Replace with AI image: A T-Rex writing code or robot dinosaur
                 \begin{tikzpicture}
-                    \node[star, star points=5, draw=red!60!black, fill=red!10, very thick, minimum size=2.5cm, align=center] {Raw\\Power};
+                    \node[star, star points=5, draw=ASUMaroon!80!black, fill=ASUMaroon!15, very thick, minimum size=2.5cm, align=center] {Raw\\Power};
                 \end{tikzpicture}\\
                 \vspace{0.3cm}
                 \small{Powerful, fast, but chaotic}
@@ -163,7 +163,7 @@
                 \vspace{0.3cm}
                 % TODO: Replace with AI image: High-voltage electric fences
                 \begin{tikzpicture}
-                    \node[rectangle, draw=blue!60!black, fill=blue!10, very thick, minimum size=2.5cm, minimum width=2.5cm, align=center] {Safety\\System};
+                    \node[rectangle, draw=ASUDarkGray, fill=ASULightGray, very thick, minimum size=2.5cm, minimum width=2.5cm, align=center] {Safety\\System};
                 \end{tikzpicture}\\
                 \vspace{0.3cm}
                 \small{Keeps the chaos contained}
@@ -314,7 +314,7 @@ Repository available at: \url{https://github.com/tlarroucau/AI_workshop}
     
     \vspace{1.5cm}
     \begin{tikzpicture}
-        \node[circle, draw=green!60!black, fill=green!10, very thick, minimum size=3cm, align=center] {\Large The\\Park};
+        \node[circle, draw=ASUGold!80!black, fill=ASUGold!15, very thick, minimum size=3cm, align=center] {\Large The\\Park};
     \end{tikzpicture}
 \end{frame}
 
@@ -579,7 +579,7 @@ Makefile Tools & Makefile support \\
     
     \vspace{1.5cm}
     \begin{tikzpicture}
-        \node[star, star points=5, draw=red!60!black, fill=red!10, very thick, minimum size=3cm, align=center] {\Large Power};
+        \node[star, star points=5, draw=ASUMaroon!80!black, fill=ASUMaroon!15, very thick, minimum size=3cm, align=center] {\Large Power};
     \end{tikzpicture}
 \end{frame}
 
@@ -925,7 +925,7 @@ Makefile Tools & Makefile support \\
     
     \vspace{1.5cm}
     \begin{tikzpicture}
-        \node[rectangle, draw=blue!60!black, fill=blue!10, very thick, minimum size=3cm, minimum width=3cm, align=center] {\Large Local\\Safety};
+        \node[rectangle, draw=ASUDarkGray, fill=ASULightGray, very thick, minimum size=3cm, minimum width=3cm, align=center] {\Large Local\\Safety};
     \end{tikzpicture}
 \end{frame}
 
@@ -979,7 +979,7 @@ git push                 # Upload to remote
 \begin{frame}{The Git Workflow}
 \begin{center}
 \begin{tikzpicture}[node distance=2cm, auto, thick]
-    \tikzstyle{box} = [rectangle, draw, fill=blue!20, text width=4em, text centered, rounded corners, minimum height=2em]
+    \tikzstyle{box} = [rectangle, draw, fill=ASUMaroon!15, text width=4em, text centered, rounded corners, minimum height=2em]
     \tikzstyle{arrow} = [->, >=stealth]
     
     \node [box] (working) {Working\\Directory};
@@ -1051,10 +1051,10 @@ git diff                 # See unstaged changes
 \begin{center}
 \begin{tikzpicture}[node distance=1.5cm, auto, thick]
     % Styles
-    \tikzstyle{commit} = [circle, draw, fill=blue!20, minimum size=0.8cm, font=\footnotesize]
-    \tikzstyle{commit_feature} = [circle, draw, fill=green!20, minimum size=0.8cm, font=\footnotesize]
+    \tikzstyle{commit} = [circle, draw, fill=ASUMaroon!20, minimum size=0.8cm, font=\footnotesize]
+    \tikzstyle{commit_feature} = [circle, draw, fill=ASUGold!30, minimum size=0.8cm, font=\footnotesize]
     \tikzstyle{arrow} = [->, >=stealth, line width=1.5pt]
-    \tikzstyle{label_box} = [rectangle, draw, fill=yellow!20, rounded corners, font=\scriptsize]
+    \tikzstyle{label_box} = [rectangle, draw, fill=ASUGold!20, rounded corners, font=\scriptsize]
 
     % Main timeline
     \node [commit] (c1) {C1};
@@ -1107,11 +1107,11 @@ git diff                 # See unstaged changes
 
 \begin{block}{What to Commit}
 \begin{itemize}
-    \item \textcolor{green}{DO}: Source code, scripts, documentation
-    \item \textcolor{green}{DO}: Raw sample data (if reasonable size)
-    \item \textcolor{red}{DON'T}: Generated outputs (rebuild from scripts)
-    \item \textcolor{red}{DON'T}: Large binary files (use Git LFS if needed)
-    \item \textcolor{red}{DON'T}: Passwords or API keys
+    \item \textcolor{ASUGold!70!black}{DO}: Source code, scripts, documentation
+    \item \textcolor{ASUGold!70!black}{DO}: Raw sample data (if reasonable size)
+    \item \textcolor{ASUMaroon}{DON'T}: Generated outputs (rebuild from scripts)
+    \item \textcolor{ASUMaroon}{DON'T}: Large binary files (use Git LFS if needed)
+    \item \textcolor{ASUMaroon}{DON'T}: Passwords or API keys
 \end{itemize}
 \end{block}
 
@@ -1242,7 +1242,7 @@ Reproducibility & Use Makefile, document dependencies \\
     
     \vspace{1.5cm}
     \begin{tikzpicture}
-        \node[rectangle, draw=blue!60!black, fill=blue!10, very thick, minimum size=3cm, minimum width=3cm, align=center] {\Large Cloud\\Memory};
+        \node[rectangle, draw=ASUDarkGray, fill=ASULightGray, very thick, minimum size=3cm, minimum width=3cm, align=center] {\Large Cloud\\Memory};
     \end{tikzpicture}
 \end{frame}
 
@@ -1346,11 +1346,11 @@ Reproducibility & Use Makefile, document dependencies \\
 \begin{center}
 \begin{tikzpicture}[scale=0.6, transform shape, node distance=2.5cm, auto, thick]
     % Styles
-    \tikzstyle{commit} = [circle, draw, fill=blue!20, minimum size=0.8cm, font=\footnotesize]
-    \tikzstyle{commit_feature} = [circle, draw, fill=green!20, minimum size=0.8cm, font=\footnotesize]
+    \tikzstyle{commit} = [circle, draw, fill=ASUMaroon!20, minimum size=0.8cm, font=\footnotesize]
+    \tikzstyle{commit_feature} = [circle, draw, fill=ASUGold!30, minimum size=0.8cm, font=\footnotesize]
     \tikzstyle{arrow} = [->, >=stealth, line width=1.5pt]
-    \tikzstyle{label_box} = [rectangle, draw, fill=yellow!20, rounded corners, font=\scriptsize]
-    \tikzstyle{pr_box} = [rectangle, draw, fill=red!10, rounded corners, font=\scriptsize, align=center]
+    \tikzstyle{label_box} = [rectangle, draw, fill=ASUGold!20, rounded corners, font=\scriptsize]
+    \tikzstyle{pr_box} = [rectangle, draw, fill=ASUGold!15, rounded corners, font=\scriptsize, align=center]
 
     % Main timeline
     \node [commit] (c1) {C1};
@@ -1422,7 +1422,7 @@ Reproducibility & Use Makefile, document dependencies \\
     
     \vspace{1.5cm}
     \begin{tikzpicture}
-        \node[rectangle, draw=orange!60!black, fill=orange!10, very thick, minimum size=3cm, minimum width=3cm, align=center] {\Large MCP};
+        \node[rectangle, draw=ASUGold!80!black, fill=ASUGold!15, very thick, minimum size=3cm, minimum width=3cm, align=center] {\Large MCP};
     \end{tikzpicture}
 \end{frame}
 
@@ -1469,9 +1469,9 @@ Reproducibility & Use Makefile, document dependencies \\
 \begin{frame}{How AI Tools Connect: The Big Picture}
 \begin{center}
 \begin{tikzpicture}[node distance=1.5cm, auto, thick, scale=0.85, every node/.style={scale=0.65}]
-    \tikzstyle{box} = [rectangle, draw, fill=blue!20, text width=5.5em, text centered, rounded corners, minimum height=2.5em]
-    \tikzstyle{agent} = [rectangle, draw, fill=green!20, text width=5.5em, text centered, rounded corners, minimum height=2.5em]
-    \tikzstyle{tool} = [rectangle, draw, fill=orange!20, text width=5.5em, text centered, rounded corners, minimum height=2.5em]
+    \tikzstyle{box} = [rectangle, draw, fill=ASUMaroon!15, text width=5.5em, text centered, rounded corners, minimum height=2.5em]
+    \tikzstyle{agent} = [rectangle, draw, fill=ASUGold!20, text width=5.5em, text centered, rounded corners, minimum height=2.5em]
+    \tikzstyle{tool} = [rectangle, draw, fill=ASUDarkGray!15, text width=5.5em, text centered, rounded corners, minimum height=2.5em]
     \tikzstyle{arrow} = [->, >=stealth, thick]
     
     \node [box] (vscode) {VS Code\\Editor};
@@ -1581,21 +1581,21 @@ Reproducibility & Use Makefile, document dependencies \\
     \centering
     \begin{tikzpicture}[node distance=4cm, auto, >=stealth, thick]
         % Nodes
-        \node[rectangle, draw=blue!60!black, fill=blue!5, very thick, minimum width=3cm, minimum height=1.5cm, rounded corners, align=center] (overleaf) {\textbf{Overleaf}\\\textit{(Editor-in-Chief)}};
+        \node[rectangle, draw=ASUMaroon!80!black, fill=ASUMaroon!8, very thick, minimum width=3cm, minimum height=1.5cm, rounded corners, align=center] (overleaf) {\textbf{Overleaf}\\\textit{(Editor-in-Chief)}};
         
         \node[rectangle, draw=black!70, fill=black!5, very thick, minimum width=2.5cm, minimum height=1.5cm, rounded corners, align=center, right of=overleaf, node distance=6cm] (github) {\textbf{GitHub}\\\textit{(The Bridge)}};
         
-        \node[rectangle, draw=green!60!black, fill=green!5, very thick, minimum width=3cm, minimum height=1.5cm, rounded corners, align=center, below of=github, node distance=3.5cm] (local) {\textbf{VS Code}\\\textit{(Integrator)}};
+        \node[rectangle, draw=ASUGold!80!black, fill=ASUGold!10, very thick, minimum width=3cm, minimum height=1.5cm, rounded corners, align=center, below of=github, node distance=3.5cm] (local) {\textbf{VS Code}\\\textit{(Integrator)}};
 
         % Arrows
         % 1. Overleaf -> GitHub
-        \draw[->, red!70!black] (overleaf.north east) to [bend left=20] node[above, font=\footnotesize] {1. Push \texttt{main}} (github.north west);
+        \draw[->, ASUMaroon!70!black] (overleaf.north east) to [bend left=20] node[above, font=\footnotesize] {1. Push \texttt{main}} (github.north west);
         
         % 5. GitHub -> Overleaf
-        \draw[->, blue!70!black] (github.south west) to [bend left=20] node[below, font=\footnotesize] {5. Pull changes} (overleaf.south east);
+        \draw[->, ASUGold!70!black] (github.south west) to [bend left=20] node[below, font=\footnotesize] {5. Pull changes} (overleaf.south east);
         
         % 2. GitHub -> Local
-        \draw[->, orange!70!black] (github.south) -- node[right, font=\footnotesize] {2. Pull \texttt{main}} (local.north);
+        \draw[->, ASUDarkGray] (github.south) -- node[right, font=\footnotesize] {2. Pull \texttt{main}} (local.north);
         
         % 4. Local -> GitHub
         \draw[->, purple!70!black] (local.east) to [bend right=60] node[right, font=\footnotesize] {4. Merge \& Push} (github.east);
