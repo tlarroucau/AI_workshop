@@ -172,19 +172,19 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{What You'll Learn}
-    \vspace{0.3cm}
-    \begin{itemize}
-        \setlength{\itemsep}{0.4cm}
-        \item \textbf{VS Code} as integrated development environment
-        \item \textbf{Git fundamentals}: commits, branches, merges
-        \item \textbf{GitHub workflows}: issues, pull requests, project boards
-        \item \textbf{VS Code Chat}: Ask, Edit, and Agent modes
-        \item \textbf{GitHub Copilot}: local and cloud workflows
-        \item \textbf{AI-assisted} code review and refactoring
-        \item \textbf{Complementary tools}: Refine, NotebookLM, Notion
-    \end{itemize}
-\end{frame}
+% \begin{frame}{What You'll Learn}
+%     \vspace{0.3cm}
+%     \begin{itemize}
+%         \setlength{\itemsep}{0.4cm}
+%         \item \textbf{VS Code} as integrated development environment
+%         \item \textbf{Git fundamentals}: commits, branches, merges
+%         \item \textbf{GitHub workflows}: issues, pull requests, project boards
+%         \item \textbf{VS Code Chat}: Ask, Edit, and Agent modes
+%         \item \textbf{GitHub Copilot}: local and cloud workflows
+%         \item \textbf{AI-assisted} code review and refactoring
+%         \item \textbf{Complementary tools}: Refine, NotebookLM, Notion
+%     \end{itemize}
+% \end{frame}
 
 \begin{frame}{Workshop Materials}
     \vspace{0.3cm}
@@ -316,7 +316,67 @@ Repository available at: \url{https://github.com/tlarroucau/AI_workshop}
 \textbf{Similar AI Editors:} VsCode $\rightarrow$ Cursor $\rightarrow$ Windsurf $\rightarrow$ Antigravity
 \end{frame}
 
-    
+
+\begin{frame}{Useful Extensions for Research \& Productivity}
+\begin{columns}
+\begin{column}{0.48\textwidth}
+\scriptsize
+\begin{tabular}{ll}
+\toprule
+\textbf{Extension} & \textbf{Purpose} \\
+\midrule
+\multicolumn{2}{l}{\textit{AI \& Productivity}} \\
+GitHub Copilot & AI code assistant \\
+Claude Code & AI coding agent \\
+Codex & OpenAI assistant \\
+Web Search & Copilot web search \\
+VS Code Speech & Speech-to-text input \\
+\midrule
+\multicolumn{2}{l}{\textit{Data Science}} \\
+Python & Language support \\
+Pylance & IntelliSense, type check \\
+Jupyter & Notebook support \\
+R & R language support \\
+Stata Enhanced & Stata syntax + run \\
+\midrule
+\multicolumn{2}{l}{\textit{Documentation}} \\
+LaTeX Workshop & Compile LaTeX \\
+LaTeX Language & Syntax \& snippets \\
+LTeX & Grammar/spell check \\
+Markdown All in One & Markdown preview \\
+\bottomrule
+\end{tabular}
+\end{column}
+
+
+\begin{column}{0.48\textwidth}
+\scriptsize
+\begin{tabular}{ll}
+\toprule
+\textbf{Extension} & \textbf{Purpose} \\
+\midrule
+\multicolumn{2}{l}{\textit{Version Control \& GitHub}} \\
+GitHub PR \& Issues & Manage PRs/issues \\
+% GitLens & Git visualization \\
+Git History & View git log \\
+GitHub Actions & CI/CD workflows \\
+\midrule
+\multicolumn{2}{l}{\textit{Data \& Utilities}} \\
+Rainbow CSV & CSV colorization \\
+Excel Viewer & View Excel files \\
+Code Snap & Code screenshots \\
+Auto Align & Align code formatting \\
+\midrule
+\multicolumn{2}{l}{\textit{Development Tools}} \\
+Remote SSH & Remote development \\
+Live Server & Local web server \\
+Makefile Tools & Makefile support \\
+\bottomrule
+\end{tabular}
+\end{column}
+\end{columns}
+\end{frame}
+
 
 \begin{frame}{Essential VS Code Features}
 \begin{columns}[t]
@@ -358,71 +418,9 @@ Repository available at: \url{https://github.com/tlarroucau/AI_workshop}
 \end{column}
 \end{columns}
 
-
 \end{frame}
 
-\begin{frame}{Useful Extensions for Research \& Productivity}
-\begin{columns}
-\begin{column}{0.48\textwidth}
-\scriptsize
-\begin{tabular}{ll}
-\toprule
-\textbf{Extension} & \textbf{Purpose} \\
-\midrule
-\multicolumn{2}{l}{\textit{AI \& Productivity}} \\
-GitHub Copilot & AI code assistant \\
-% Copilot Chat & AI chat interface \\
-Codex & Cloud AI coding agent \\
-Continue & Local AI assistant \\
-Cline & Autonomous AI agent \\
-% Prompt Flow & MCP integration \\
-VS Code Speech & Speech-to-text input \\
-\midrule
-\multicolumn{2}{l}{\textit{Data Science}} \\
-Python & Language support \\
-Pylance & IntelliSense, type check \\
-Jupyter & Notebook support \\
-R & R language support \\
-Stata Enhanced & Stata syntax \\
-\midrule
-\multicolumn{2}{l}{\textit{Documentation}} \\
-LaTeX Workshop & Compile LaTeX \\
-LTeX & Grammar/spell check \\
-Markdown All in One & Markdown preview \\
-\bottomrule
-\end{tabular}
-\end{column}
 
-\begin{column}{0.48\textwidth}
-\scriptsize
-\begin{tabular}{ll}
-\toprule
-\textbf{Extension} & \textbf{Purpose} \\
-\midrule
-\multicolumn{2}{l}{\textit{Project Management}} \\
-GitHub PR \& Issues & Manage PRs/issues \\
-GitLens & Git visualization \\
-Git History & View git log \\
-Project Manager & Organize projects \\
-Todo Tree & Track TODOs \\
-\midrule
-\multicolumn{2}{l}{\textit{Data \& Utilities}} \\
-Rainbow CSV & CSV colorization \\
-Excel Viewer & View Excel files \\
-PDF Viewer & Preview PDFs \\
-Code Snap & Code screenshots \\
-Auto Align & Align code formatting \\
-\midrule
-\multicolumn{2}{l}{\textit{Development Tools}} \\
-Remote SSH & Remote development \\
-Docker & Container support \\
-Error Lens & Inline diagnostics \\
-Live Server & Local web server \\
-\bottomrule
-\end{tabular}
-\end{column}
-\end{columns}
-\end{frame}
 
 \begin{frame}{VS Code Workspace Setup}
 \textbf{Recommended Workspace Structure:}
@@ -771,12 +769,55 @@ Live Server & Local web server \\
 \begin{itemize}\setlength{\itemsep}{2pt}
     \item Modular script bundles
     \item \textbf{Progressively loaded} when needed
+    \item Install/discover via \texttt{npx skills.sh} (install Node first)
 \end{itemize}
 \end{column}
 \end{columns}
 
 \vspace{0.4cm}
 \textbf{Demo:} \texttt{copilot-instructions.md} $\rightarrow$ \texttt{summarize.prompt.md} $\rightarrow$ \texttt{youtube-transcript/} skill
+\end{frame}
+
+\begin{frame}{Custom Agents in VS Code}
+\begin{columns}[t]
+\begin{column}{0.48\textwidth}
+\textbf{What Are Custom Agents?}
+\begin{itemize}\setlength{\itemsep}{3pt}
+    \item User-defined agent \textbf{personas} that control how the AI behaves
+    \item Appear in the chat mode dropdown alongside Ask / Edit / Agent
+    \item \textbf{Plan mode} is itself a built-in custom agent!
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{Structure of a Custom Agent:}
+\begin{itemize}\setlength{\itemsep}{3pt}
+    \item \textbf{Name} \& description
+    \item \textbf{Tools} it can access
+    \item \textbf{Handoffs} to other agents
+    \item Detailed \textbf{instructions} (system prompt)
+\end{itemize}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textbf{How to Create One:}
+\begin{enumerate}\setlength{\itemsep}{3pt}
+    \item Chat dropdown $\rightarrow$ \textit{Configure Custom Agents}
+    \item Choose scope: \textbf{User} (global) or \textbf{Workspace}
+    \item Define name, tools, and behavior
+    \item Save --- it appears in the dropdown instantly
+\end{enumerate}
+
+\vspace{0.3cm}
+\textbf{Community Gallery:}
+\begin{itemize}\setlength{\itemsep}{3pt}
+    \item Browse \& install agents shared on GitHub
+    \item Examples: code reviewer, research assistant, planner
+\end{itemize}
+\end{column}
+\end{columns}
+
+% \vspace{0.3cm}
+% \textbf{Demo:} Create a \textit{Research Agent} custom agent with domain-specific tools \& instructions
 \end{frame}
 
 \begin{frame}{Data Privacy \& Security Considerations}
@@ -1029,7 +1070,7 @@ git diff                 # See unstaged changes
 \begin{block}{What to Commit}
 \begin{itemize}
     \item \textcolor{green}{DO}: Source code, scripts, documentation
-    \item \textcolor{green}{DO}: Raw data (if reasonable size)
+    \item \textcolor{green}{DO}: Raw sample data (if reasonable size)
     \item \textcolor{red}{DON'T}: Generated outputs (rebuild from scripts)
     \item \textcolor{red}{DON'T}: Large binary files (use Git LFS if needed)
     \item \textcolor{red}{DON'T}: Passwords or API keys
@@ -1137,6 +1178,19 @@ Reproducibility & Use Makefile, document dependencies \\
 \end{table}
 \end{frame}
 
+\begin{frame}{Resolving Merge Conflicts in VS Code}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{figures/merge_conflict.png}
+\end{center}
+
+\vspace{0.2cm}
+\begin{itemize}\setlength{\itemsep}{2pt}
+    \item VS Code shows \textbf{conflict markers}: \texttt{<<<<<<< HEAD} (yours) vs \texttt{>>>>>>> theirs}
+    \item One-click options: \textit{Accept Current}, \textit{Accept Incoming}, \textit{Accept Both}, or \textit{Compare}
+    \item Use \textbf{Resolve in Merge Editor} for a side-by-side 3-way diff
+\end{itemize}
+\end{frame}
+
 % ============================================================
 % SECTION 4: GITHUB
 % ============================================================
@@ -1209,9 +1263,34 @@ Reproducibility & Use Makefile, document dependencies \\
     \item Merge and close: ``Closes \#42"
 \end{enumerate}
 
-\vspace{0.3cm}
-\textbf{Demo:} Creating and assigning an issue to Github Copilot
+% \vspace{0.3cm}
+% \textbf{Demo:} Creating and assigning an issue to Github Copilot
 \end{frame}
+
+\begin{frame}{GitHub Project Boards}
+\textbf{Organize Research Projects:}
+\begin{itemize}
+    \item Kanban-style boards
+    \item Columns: To Do, In Progress, Done
+    \item Link to issues and PRs
+    \item Automate card movement
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Example Workflow:}
+\begin{enumerate}
+    \item Create project board for paper
+    \item Add columns for analysis, writing, revisions
+    \item Create issues for each task
+    \item Move cards as work progresses
+    \item Track progress visually
+\end{enumerate}
+
+\vspace{0.3cm}
+\textbf{Demo:} Setting up a project board + Creating issue + Assigning to Copilot
+\end{frame}
+
 
 \begin{frame}{GitHub Workflow: Pull Requests}
 \textbf{What are Pull Requests (PRs)?}
@@ -1290,29 +1369,7 @@ Reproducibility & Use Makefile, document dependencies \\
 \textbf{Demo:} Creating and reviewing a PR, did Copilot finish working?
 \end{frame}
 
-\begin{frame}{GitHub Project Boards}
-\textbf{Organize Research Projects:}
-\begin{itemize}
-    \item Kanban-style boards
-    \item Columns: To Do, In Progress, Done
-    \item Link to issues and PRs
-    \item Automate card movement
-\end{itemize}
 
-\vspace{0.3cm}
-
-\textbf{Example Workflow:}
-\begin{enumerate}
-    \item Create project board for paper
-    \item Add columns for analysis, writing, revisions
-    \item Create issues for each task
-    \item Move cards as work progresses
-    \item Track progress visually
-\end{enumerate}
-
-\vspace{0.3cm}
-\textbf{Demo:} Setting up a project board + Creating issue
-\end{frame}
 
 
 
@@ -1347,6 +1404,8 @@ Reproducibility & Use Makefile, document dependencies \\
 \begin{itemize}
     \item \textbf{GitHub}: Create issues, PRs, manage boards
     \item \textbf{Playwright}: Browser automation and interaction
+    \item \textbf{Context7}: Up-to-date library documentation
+    \item \textbf{Firecrawl}: Web scraping and data extraction
     \item \textbf{Filesystem} \& \textbf{Fetch}: Built-in VS Code tools
 \end{itemize}
 
@@ -1634,9 +1693,9 @@ Reproducibility & Use Makefile, document dependencies \\
 \midrule
 \textbf{Elicit} & Literature discovery and synthesis \\
 & Extract data from papers \\
-\midrule
-\textbf{GPT/Claude/Gemini} & General research assistance \\
-& Draft writing, brainstorming \\
+% \midrule
+% \textbf{GPT/Claude/Gemini} & General research assistance \\
+% & Draft writing, brainstorming \\
 \bottomrule
 \end{tabular}
 \end{table}
