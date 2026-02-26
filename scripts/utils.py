@@ -165,10 +165,12 @@ def format_regression_table(results, output_path: str,
 
 
 def set_plot_style():
-    """Configure matplotlib style for consistent plots."""
+    """Configure matplotlib style with ASU + W. P. Carey brand colors."""
+    # ASU brand colors: Maroon #8C1D40, Gold #FFC627
+    asu_palette = ['#8C1D40', '#FFC627', '#484848', '#78BE20', '#00A3E0', '#FF7F32']
     sns.set_style("whitegrid")
     sns.set_context("paper", font_scale=1.5)
-    sns.set_palette("colorblind")
+    sns.set_palette(asu_palette)
     plt.rcParams['figure.figsize'] = (10, 6)
     plt.rcParams['savefig.dpi'] = 300
     plt.rcParams['savefig.bbox'] = 'tight'

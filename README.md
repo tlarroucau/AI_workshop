@@ -192,6 +192,18 @@ MIT License - Feel free to use this template for your research projects.
 
 Template created by Tomas Larroucau for ASU's AI Strategic Plan workshop series.
 
+## 🎨 Branding
+
+This template uses the **ASU + W. P. Carey School of Business** color palette:
+
+| Color | Hex | Usage |
+|-------|-----|-------|
+| ASU Maroon | `#8C1D40` | Headers, primary accents, control group |
+| ASU Gold | `#FFC627` | Highlights, footer accent, treatment group |
+| ASU Dark Gray | `#484848` | Body text, secondary elements |
+
+The Beamer slide theme and matplotlib figures apply these colors consistently across all generated artifacts.
+
 ---
 
 **Happy Researching! 🔬**

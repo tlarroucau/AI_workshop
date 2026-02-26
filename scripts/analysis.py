@@ -101,7 +101,8 @@ def main():
     
     # Figure 1: Distribution of outcome by treatment
     plt.figure(figsize=(10, 6))
-    sns.boxplot(data=df, x='treatment', y='outcome', palette='Set2')
+    sns.boxplot(data=df, x='treatment', y='outcome',
+                palette=['#8C1D40', '#FFC627'])  # ASU Maroon / ASU Gold
     plt.xlabel('Treatment Group')
     plt.ylabel('Outcome')
     plt.title('Distribution of Outcome by Treatment Status')
@@ -112,8 +113,8 @@ def main():
     # Figure 2: Scatter plot with regression line
     plt.figure(figsize=(10, 6))
     
-    # Define explicit colors for Control (0) and Treatment (1)
-    colors = {0: 'tab:blue', 1: 'tab:orange'}
+    # ASU brand colors: Maroon for Control, Gold for Treatment
+    colors = {0: '#8C1D40', 1: '#FFC627'}  # ASU Maroon / ASU Gold
     
     sns.scatterplot(data=df, x='income', y='outcome', hue='treatment', 
                     palette=colors, alpha=0.6)
@@ -136,24 +137,28 @@ def main():
     # Figure 3: Distribution of key variables
     fig, axes = plt.subplots(2, 2, figsize=(12, 10))
     
-    df['age'].hist(bins=30, ax=axes[0, 0], edgecolor='black', alpha=0.7)
+    df['age'].hist(bins=30, ax=axes[0, 0], edgecolor='black', alpha=0.7,
+                   color='#8C1D40')  # ASU Maroon
     axes[0, 0].set_title('Age Distribution')
     axes[0, 0].set_xlabel('Age')
     axes[0, 0].set_ylabel('Frequency')
     
-    df['income'].hist(bins=30, ax=axes[0, 1], edgecolor='black', alpha=0.7, color='green')
+    df['income'].hist(bins=30, ax=axes[0, 1], edgecolor='black', alpha=0.7,
+                      color='#FFC627')  # ASU Gold
     axes[0, 1].set_title('Income Distribution')
     axes[0, 1].set_xlabel('Income ($)')
     axes[0, 1].set_ylabel('Frequency')
     
     df['education_years'].value_counts().sort_index().plot(kind='bar', ax=axes[1, 0], 
-                                                            edgecolor='black', alpha=0.7, color='orange')
+                                                            edgecolor='black', alpha=0.7,
+                                                            color='#8C1D40')  # ASU Maroon
     axes[1, 0].set_title('Education Distribution')
     axes[1, 0].set_xlabel('Years of Education')
     axes[1, 0].set_ylabel('Frequency')
     axes[1, 0].tick_params(axis='x', rotation=0)
     
-    df['outcome'].hist(bins=30, ax=axes[1, 1], edgecolor='black', alpha=0.7, color='red')
+    df['outcome'].hist(bins=30, ax=axes[1, 1], edgecolor='black', alpha=0.7,
+                       color='#FFC627')  # ASU Gold
     axes[1, 1].set_title('Outcome Distribution')
     axes[1, 1].set_xlabel('Outcome')
     axes[1, 1].set_ylabel('Frequency')
