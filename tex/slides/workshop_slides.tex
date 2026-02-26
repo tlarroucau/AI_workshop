@@ -9,7 +9,6 @@
 \usepackage{booktabs}
 \usepackage{hyperref}
 \usepackage{tikz}
-\usepackage{twemojis}
 \usepackage{xcolor}
 \usetikzlibrary{shapes,arrows,positioning,shadows}
 
@@ -19,6 +18,7 @@
 \definecolor{ASUGold}{HTML}{FFC627}
 \definecolor{ASUDarkGray}{HTML}{484848}
 \definecolor{ASULightGray}{HTML}{F5F5F5}
+\definecolor{ASUSteel}{HTML}{3B6E8F}
 
 % Apply ASU color palette to Beamer theme
 \setbeamercolor{palette primary}{bg=ASUMaroon, fg=white}
@@ -163,7 +163,7 @@
                 \vspace{0.3cm}
                 % TODO: Replace with AI image: High-voltage electric fences
                 \begin{tikzpicture}
-                    \node[rectangle, draw=ASUDarkGray, fill=ASULightGray, very thick, minimum size=2.5cm, minimum width=2.5cm, align=center] {Safety\\System};
+                    \node[rectangle, draw=ASUSteel!80!black, fill=ASUSteel!12, very thick, minimum size=2.5cm, minimum width=2.5cm, align=center] {Safety\\System};
                 \end{tikzpicture}\\
                 \vspace{0.3cm}
                 \small{Keeps the chaos contained}
@@ -684,7 +684,7 @@ Makefile Tools & Makefile support \\
 \begin{columns}[t]
 \begin{column}{0.48\textwidth}
 \begin{minipage}[t][2.8cm][t]{\textwidth}
-\textbf{1. Ask Mode (Chat Panel)} \twemoji{t-rex}
+\textbf{1. Ask Mode (Chat Panel)} \tikz{\node[star, star points=5, draw=ASUMaroon!80!black, fill=ASUMaroon!15, very thick, minimum size=0.4cm, inner sep=0pt] {};}
 \begin{itemize}\setlength{\itemsep}{0pt}
     \item Answer questions about code
     \item Explain complex functions
@@ -693,7 +693,7 @@ Makefile Tools & Makefile support \\
 \end{minipage}
 
 \begin{minipage}[t][2.8cm][t]{\textwidth}
-\textbf{2. Edit Mode (+ Inline)} \scalebox{1.5}{\twemoji{t-rex}}
+\textbf{2. Edit Mode (+ Inline)} \tikz{\node[star, star points=5, draw=ASUMaroon!80!black, fill=ASUMaroon!25, very thick, minimum size=0.6cm, inner sep=0pt] {};}
 \begin{itemize}\setlength{\itemsep}{0pt}
     \item Modify existing code
     \item Refactor functions
@@ -704,7 +704,7 @@ Makefile Tools & Makefile support \\
 
 \begin{column}{0.48\textwidth}
 \begin{minipage}[t][2.8cm][t]{\textwidth}
-\textbf{3. Agent Mode} \smash{\scalebox{2.5}{\twemoji{t-rex}}}
+\textbf{3. Agent Mode} \tikz{\node[star, star points=5, draw=ASUMaroon!80!black, fill=ASUMaroon!40, very thick, minimum size=0.9cm, inner sep=0pt] {};}
 \begin{itemize}\setlength{\itemsep}{0pt}
     \item Multi-file operations
     \item Workspace-wide changes
@@ -713,7 +713,7 @@ Makefile Tools & Makefile support \\
 \end{minipage}
 
 \begin{minipage}[t][2.8cm][t]{\textwidth}
-\textbf{4. Plan Mode (New!)} \twemoji{t-rex}
+\textbf{4. Plan Mode (New!)} \tikz{\node[star, star points=5, draw=ASUMaroon!80!black, fill=ASUMaroon!30, very thick, minimum size=0.5cm, inner sep=0pt] {};}
 \begin{itemize}\setlength{\itemsep}{0pt}
     \item High-level reasoning
     \item Break down complex tasks
@@ -925,7 +925,7 @@ Makefile Tools & Makefile support \\
     
     \vspace{1.5cm}
     \begin{tikzpicture}
-        \node[rectangle, draw=ASUDarkGray, fill=ASULightGray, very thick, minimum size=3cm, minimum width=3cm, align=center] {\Large Local\\Safety};
+        \node[rectangle, draw=ASUSteel!80!black, fill=ASUSteel!12, very thick, minimum size=3cm, minimum width=3cm, align=center] {\Large Local\\Safety};
     \end{tikzpicture}
 \end{frame}
 
@@ -1242,7 +1242,7 @@ Reproducibility & Use Makefile, document dependencies \\
     
     \vspace{1.5cm}
     \begin{tikzpicture}
-        \node[rectangle, draw=ASUDarkGray, fill=ASULightGray, very thick, minimum size=3cm, minimum width=3cm, align=center] {\Large Cloud\\Memory};
+        \node[rectangle, draw=ASUSteel!80!black, fill=ASUSteel!12, very thick, minimum size=3cm, minimum width=3cm, align=center] {\Large Cloud\\Memory};
     \end{tikzpicture}
 \end{frame}
 
@@ -1471,7 +1471,7 @@ Reproducibility & Use Makefile, document dependencies \\
 \begin{tikzpicture}[node distance=1.5cm, auto, thick, scale=0.85, every node/.style={scale=0.65}]
     \tikzstyle{box} = [rectangle, draw, fill=ASUMaroon!15, text width=5.5em, text centered, rounded corners, minimum height=2.5em]
     \tikzstyle{agent} = [rectangle, draw, fill=ASUGold!20, text width=5.5em, text centered, rounded corners, minimum height=2.5em]
-    \tikzstyle{tool} = [rectangle, draw, fill=ASUDarkGray!15, text width=5.5em, text centered, rounded corners, minimum height=2.5em]
+    \tikzstyle{tool} = [rectangle, draw, fill=ASUSteel!15, text width=5.5em, text centered, rounded corners, minimum height=2.5em]
     \tikzstyle{arrow} = [->, >=stealth, thick]
     
     \node [box] (vscode) {VS Code\\Editor};
@@ -1595,7 +1595,7 @@ Reproducibility & Use Makefile, document dependencies \\
         \draw[->, ASUGold!70!black] (github.south west) to [bend left=20] node[below, font=\footnotesize] {5. Pull changes} (overleaf.south east);
         
         % 2. GitHub -> Local
-        \draw[->, ASUDarkGray] (github.south) -- node[right, font=\footnotesize] {2. Pull \texttt{main}} (local.north);
+        \draw[->, ASUMaroon!50] (github.south) -- node[right, font=\footnotesize] {2. Pull \texttt{main}} (local.north);
         
         % 4. Local -> GitHub
         \draw[->, purple!70!black] (local.east) to [bend right=60] node[right, font=\footnotesize] {4. Merge \& Push} (github.east);
