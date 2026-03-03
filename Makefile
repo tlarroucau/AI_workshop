@@ -31,7 +31,8 @@ FIGURES := $(FIGURES_DIR)/outcome_by_treatment.pdf \
 
 TABLES := $(TABLES_DIR)/summary_statistics.tex \
           $(TABLES_DIR)/balance_table.tex \
-          $(TABLES_DIR)/regression_results.tex
+          $(TABLES_DIR)/regression_results.tex \
+          $(TABLES_DIR)/regression_robustness.tex
 
 # LaTeX files
 PAPER_TEX := $(TEX_PAPER_DIR)/paper.tex
