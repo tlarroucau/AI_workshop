@@ -9,59 +9,21 @@
 \usepackage{booktabs}
 \usepackage{hyperref}
 \usepackage{tikz}
-\usepackage{xcolor}
+\usepackage{twemojis}
 \usetikzlibrary{shapes,arrows,positioning,shadows}
-
-% ASU + W. P. Carey Brand Colors
-% Primary Maroon: #8C1D40   Primary Gold: #FFC627
-\definecolor{ASUMaroon}{HTML}{8C1D40}
-\definecolor{ASUGold}{HTML}{FFC627}
-\definecolor{ASUDarkGray}{HTML}{484848}
-\definecolor{ASULightGray}{HTML}{F5F5F5}
-\definecolor{ASUSteel}{HTML}{3B6E8F}
-
-% Apply ASU color palette to Beamer theme
-\setbeamercolor{palette primary}{bg=ASUMaroon, fg=white}
-\setbeamercolor{palette secondary}{bg=ASUMaroon!80, fg=white}
-\setbeamercolor{palette tertiary}{bg=ASUMaroon!60, fg=white}
-\setbeamercolor{palette quaternary}{bg=ASUMaroon, fg=white}
-\setbeamercolor{structure}{fg=ASUMaroon}
-\setbeamercolor{frametitle}{bg=ASUMaroon, fg=white}
-\setbeamercolor{title}{bg=ASUMaroon, fg=white}
-\setbeamercolor{subtitle}{fg=ASUGold}
-\setbeamercolor{section in head/foot}{bg=ASUMaroon, fg=white}
-\setbeamercolor{subsection in head/foot}{bg=ASUMaroon!80, fg=white}
-\setbeamercolor{block title}{bg=ASUMaroon, fg=white}
-\setbeamercolor{block body}{bg=ASULightGray, fg=ASUDarkGray}
-\setbeamercolor{alerted text}{fg=ASUGold}
-\setbeamercolor{item}{fg=ASUMaroon}
 
 % Title information
 \title{Git, GitHub, and VS Code}
 \subtitle{Agentic AI for Project Management and Research Productivity}
 \author{Tomas Larroucau }
-\institute{W. P. Carey School of Business \\ Arizona State University}
+\institute{Arizona State University}
 \date{\today}
 
 % Remove navigation symbols
 \setbeamertemplate{navigation symbols}{}
 
-% Footer with ASU branding
-\setbeamertemplate{footline}{%
-  \leavevmode%
-  \hbox{%
-    \begin{beamercolorbox}[wd=.333\paperwidth,ht=2.25ex,dp=1ex,center]{palette secondary}%
-      \usebeamerfont{author in head/foot}\insertshortauthor
-    \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=.334\paperwidth,ht=2.25ex,dp=1ex,center]{palette primary}%
-      \usebeamerfont{title in head/foot}\color{ASUGold}\textbf{W. P. Carey $|$ ASU}
-    \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=.333\paperwidth,ht=2.25ex,dp=1ex,right]{palette secondary}%
-      \usebeamerfont{date in head/foot}\insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
-    \end{beamercolorbox}%
-  }%
-  \vskip0pt%
-}
+% Footer
+\setbeamertemplate{footline}[frame number]
 
 \begin{document}
 
@@ -131,7 +93,7 @@
                 \vspace{0.3cm}
                 % TODO: Replace with AI image: A lush digital jungle island
                 \begin{tikzpicture}
-                    \node[circle, draw=ASUGold!80!black, fill=ASUGold!15, very thick, minimum size=2.5cm, align=center] {The\\Environment};
+                    \node[circle, draw=green!60!black, fill=green!10, very thick, minimum size=2.5cm, align=center] {The\\Environment};
                 \end{tikzpicture}\\
                 \vspace{0.3cm}
                 \small{The island where everything lives}
@@ -147,7 +109,7 @@
                 \vspace{0.3cm}
                 % TODO: Replace with AI image: A T-Rex writing code or robot dinosaur
                 \begin{tikzpicture}
-                    \node[star, star points=5, draw=ASUMaroon!80!black, fill=ASUMaroon!15, very thick, minimum size=2.5cm, align=center] {Raw\\Power};
+                    \node[star, star points=5, draw=red!60!black, fill=red!10, very thick, minimum size=2.5cm, align=center] {Raw\\Power};
                 \end{tikzpicture}\\
                 \vspace{0.3cm}
                 \small{Powerful, fast, but chaotic}
@@ -163,7 +125,7 @@
                 \vspace{0.3cm}
                 % TODO: Replace with AI image: High-voltage electric fences
                 \begin{tikzpicture}
-                    \node[rectangle, draw=ASUSteel!80!black, fill=ASUSteel!12, very thick, minimum size=2.5cm, minimum width=2.5cm, align=center] {Safety\\System};
+                    \node[rectangle, draw=blue!60!black, fill=blue!10, very thick, minimum size=2.5cm, minimum width=2.5cm, align=center] {Safety\\System};
                 \end{tikzpicture}\\
                 \vspace{0.3cm}
                 \small{Keeps the chaos contained}
@@ -314,7 +276,7 @@ Repository available at: \url{https://github.com/tlarroucau/AI_workshop}
     
     \vspace{1.5cm}
     \begin{tikzpicture}
-        \node[circle, draw=ASUGold!80!black, fill=ASUGold!15, very thick, minimum size=3cm, align=center] {\Large The\\Park};
+        \node[circle, draw=green!60!black, fill=green!10, very thick, minimum size=3cm, align=center] {\Large The\\Park};
     \end{tikzpicture}
 \end{frame}
 
@@ -579,7 +541,7 @@ Makefile Tools & Makefile support \\
     
     \vspace{1.5cm}
     \begin{tikzpicture}
-        \node[star, star points=5, draw=ASUMaroon!80!black, fill=ASUMaroon!15, very thick, minimum size=3cm, align=center] {\Large Power};
+        \node[star, star points=5, draw=red!60!black, fill=red!10, very thick, minimum size=3cm, align=center] {\Large Power};
     \end{tikzpicture}
 \end{frame}
 
@@ -684,7 +646,7 @@ Makefile Tools & Makefile support \\
 \begin{columns}[t]
 \begin{column}{0.48\textwidth}
 \begin{minipage}[t][2.8cm][t]{\textwidth}
-\textbf{1. Ask Mode (Chat Panel)} \tikz{\node[star, star points=5, draw=ASUMaroon!80!black, fill=ASUMaroon!15, very thick, minimum size=0.4cm, inner sep=0pt] {};}
+\textbf{1. Ask Mode (Chat Panel)} \twemoji{t-rex}
 \begin{itemize}\setlength{\itemsep}{0pt}
     \item Answer questions about code
     \item Explain complex functions
@@ -693,7 +655,7 @@ Makefile Tools & Makefile support \\
 \end{minipage}
 
 \begin{minipage}[t][2.8cm][t]{\textwidth}
-\textbf{2. Edit Mode (+ Inline)} \tikz{\node[star, star points=5, draw=ASUMaroon!80!black, fill=ASUMaroon!25, very thick, minimum size=0.6cm, inner sep=0pt] {};}
+\textbf{2. Edit Mode (+ Inline)} \scalebox{1.5}{\twemoji{t-rex}}
 \begin{itemize}\setlength{\itemsep}{0pt}
     \item Modify existing code
     \item Refactor functions
@@ -704,7 +666,7 @@ Makefile Tools & Makefile support \\
 
 \begin{column}{0.48\textwidth}
 \begin{minipage}[t][2.8cm][t]{\textwidth}
-\textbf{3. Agent Mode} \tikz{\node[star, star points=5, draw=ASUMaroon!80!black, fill=ASUMaroon!40, very thick, minimum size=0.9cm, inner sep=0pt] {};}
+\textbf{3. Agent Mode} \smash{\scalebox{2.5}{\twemoji{t-rex}}}
 \begin{itemize}\setlength{\itemsep}{0pt}
     \item Multi-file operations
     \item Workspace-wide changes
@@ -713,7 +675,7 @@ Makefile Tools & Makefile support \\
 \end{minipage}
 
 \begin{minipage}[t][2.8cm][t]{\textwidth}
-\textbf{4. Plan Mode (New!)} \tikz{\node[star, star points=5, draw=ASUMaroon!80!black, fill=ASUMaroon!30, very thick, minimum size=0.5cm, inner sep=0pt] {};}
+\textbf{4. Plan Mode (New!)} \twemoji{t-rex}
 \begin{itemize}\setlength{\itemsep}{0pt}
     \item High-level reasoning
     \item Break down complex tasks
@@ -925,7 +887,7 @@ Makefile Tools & Makefile support \\
     
     \vspace{1.5cm}
     \begin{tikzpicture}
-        \node[rectangle, draw=ASUSteel!80!black, fill=ASUSteel!12, very thick, minimum size=3cm, minimum width=3cm, align=center] {\Large Local\\Safety};
+        \node[rectangle, draw=blue!60!black, fill=blue!10, very thick, minimum size=3cm, minimum width=3cm, align=center] {\Large Local\\Safety};
     \end{tikzpicture}
 \end{frame}
 
@@ -979,7 +941,7 @@ git push                 # Upload to remote
 \begin{frame}{The Git Workflow}
 \begin{center}
 \begin{tikzpicture}[node distance=2cm, auto, thick]
-    \tikzstyle{box} = [rectangle, draw, fill=ASUMaroon!15, text width=4em, text centered, rounded corners, minimum height=2em]
+    \tikzstyle{box} = [rectangle, draw, fill=blue!20, text width=4em, text centered, rounded corners, minimum height=2em]
     \tikzstyle{arrow} = [->, >=stealth]
     
     \node [box] (working) {Working\\Directory};
@@ -1051,10 +1013,10 @@ git diff                 # See unstaged changes
 \begin{center}
 \begin{tikzpicture}[node distance=1.5cm, auto, thick]
     % Styles
-    \tikzstyle{commit} = [circle, draw, fill=ASUMaroon!20, minimum size=0.8cm, font=\footnotesize]
-    \tikzstyle{commit_feature} = [circle, draw, fill=ASUGold!30, minimum size=0.8cm, font=\footnotesize]
+    \tikzstyle{commit} = [circle, draw, fill=blue!20, minimum size=0.8cm, font=\footnotesize]
+    \tikzstyle{commit_feature} = [circle, draw, fill=green!20, minimum size=0.8cm, font=\footnotesize]
     \tikzstyle{arrow} = [->, >=stealth, line width=1.5pt]
-    \tikzstyle{label_box} = [rectangle, draw, fill=ASUGold!20, rounded corners, font=\scriptsize]
+    \tikzstyle{label_box} = [rectangle, draw, fill=yellow!20, rounded corners, font=\scriptsize]
 
     % Main timeline
     \node [commit] (c1) {C1};
@@ -1107,11 +1069,11 @@ git diff                 # See unstaged changes
 
 \begin{block}{What to Commit}
 \begin{itemize}
-    \item \textcolor{ASUGold!70!black}{DO}: Source code, scripts, documentation
-    \item \textcolor{ASUGold!70!black}{DO}: Raw sample data (if reasonable size)
-    \item \textcolor{ASUMaroon}{DON'T}: Generated outputs (rebuild from scripts)
-    \item \textcolor{ASUMaroon}{DON'T}: Large binary files (use Git LFS if needed)
-    \item \textcolor{ASUMaroon}{DON'T}: Passwords or API keys
+    \item \textcolor{green}{DO}: Source code, scripts, documentation
+    \item \textcolor{green}{DO}: Raw sample data (if reasonable size)
+    \item \textcolor{red}{DON'T}: Generated outputs (rebuild from scripts)
+    \item \textcolor{red}{DON'T}: Large binary files (use Git LFS if needed)
+    \item \textcolor{red}{DON'T}: Passwords or API keys
 \end{itemize}
 \end{block}
 
@@ -1242,7 +1204,7 @@ Reproducibility & Use Makefile, document dependencies \\
     
     \vspace{1.5cm}
     \begin{tikzpicture}
-        \node[rectangle, draw=ASUSteel!80!black, fill=ASUSteel!12, very thick, minimum size=3cm, minimum width=3cm, align=center] {\Large Cloud\\Memory};
+        \node[rectangle, draw=blue!60!black, fill=blue!10, very thick, minimum size=3cm, minimum width=3cm, align=center] {\Large Cloud\\Memory};
     \end{tikzpicture}
 \end{frame}
 
@@ -1346,11 +1308,11 @@ Reproducibility & Use Makefile, document dependencies \\
 \begin{center}
 \begin{tikzpicture}[scale=0.6, transform shape, node distance=2.5cm, auto, thick]
     % Styles
-    \tikzstyle{commit} = [circle, draw, fill=ASUMaroon!20, minimum size=0.8cm, font=\footnotesize]
-    \tikzstyle{commit_feature} = [circle, draw, fill=ASUGold!30, minimum size=0.8cm, font=\footnotesize]
+    \tikzstyle{commit} = [circle, draw, fill=blue!20, minimum size=0.8cm, font=\footnotesize]
+    \tikzstyle{commit_feature} = [circle, draw, fill=green!20, minimum size=0.8cm, font=\footnotesize]
     \tikzstyle{arrow} = [->, >=stealth, line width=1.5pt]
-    \tikzstyle{label_box} = [rectangle, draw, fill=ASUGold!20, rounded corners, font=\scriptsize]
-    \tikzstyle{pr_box} = [rectangle, draw, fill=ASUGold!15, rounded corners, font=\scriptsize, align=center]
+    \tikzstyle{label_box} = [rectangle, draw, fill=yellow!20, rounded corners, font=\scriptsize]
+    \tikzstyle{pr_box} = [rectangle, draw, fill=red!10, rounded corners, font=\scriptsize, align=center]
 
     % Main timeline
     \node [commit] (c1) {C1};
@@ -1422,7 +1384,7 @@ Reproducibility & Use Makefile, document dependencies \\
     
     \vspace{1.5cm}
     \begin{tikzpicture}
-        \node[rectangle, draw=ASUGold!80!black, fill=ASUGold!15, very thick, minimum size=3cm, minimum width=3cm, align=center] {\Large MCP};
+        \node[rectangle, draw=orange!60!black, fill=orange!10, very thick, minimum size=3cm, minimum width=3cm, align=center] {\Large MCP};
     \end{tikzpicture}
 \end{frame}
 
@@ -1469,9 +1431,9 @@ Reproducibility & Use Makefile, document dependencies \\
 \begin{frame}{How AI Tools Connect: The Big Picture}
 \begin{center}
 \begin{tikzpicture}[node distance=1.5cm, auto, thick, scale=0.85, every node/.style={scale=0.65}]
-    \tikzstyle{box} = [rectangle, draw, fill=ASUMaroon!15, text width=5.5em, text centered, rounded corners, minimum height=2.5em]
-    \tikzstyle{agent} = [rectangle, draw, fill=ASUGold!20, text width=5.5em, text centered, rounded corners, minimum height=2.5em]
-    \tikzstyle{tool} = [rectangle, draw, fill=ASUSteel!15, text width=5.5em, text centered, rounded corners, minimum height=2.5em]
+    \tikzstyle{box} = [rectangle, draw, fill=blue!20, text width=5.5em, text centered, rounded corners, minimum height=2.5em]
+    \tikzstyle{agent} = [rectangle, draw, fill=green!20, text width=5.5em, text centered, rounded corners, minimum height=2.5em]
+    \tikzstyle{tool} = [rectangle, draw, fill=orange!20, text width=5.5em, text centered, rounded corners, minimum height=2.5em]
     \tikzstyle{arrow} = [->, >=stealth, thick]
     
     \node [box] (vscode) {VS Code\\Editor};
@@ -1581,21 +1543,21 @@ Reproducibility & Use Makefile, document dependencies \\
     \centering
     \begin{tikzpicture}[node distance=4cm, auto, >=stealth, thick]
         % Nodes
-        \node[rectangle, draw=ASUMaroon!80!black, fill=ASUMaroon!8, very thick, minimum width=3cm, minimum height=1.5cm, rounded corners, align=center] (overleaf) {\textbf{Overleaf}\\\textit{(Editor-in-Chief)}};
+        \node[rectangle, draw=blue!60!black, fill=blue!5, very thick, minimum width=3cm, minimum height=1.5cm, rounded corners, align=center] (overleaf) {\textbf{Overleaf}\\\textit{(Editor-in-Chief)}};
         
         \node[rectangle, draw=black!70, fill=black!5, very thick, minimum width=2.5cm, minimum height=1.5cm, rounded corners, align=center, right of=overleaf, node distance=6cm] (github) {\textbf{GitHub}\\\textit{(The Bridge)}};
         
-        \node[rectangle, draw=ASUGold!80!black, fill=ASUGold!10, very thick, minimum width=3cm, minimum height=1.5cm, rounded corners, align=center, below of=github, node distance=3.5cm] (local) {\textbf{VS Code}\\\textit{(Integrator)}};
+        \node[rectangle, draw=green!60!black, fill=green!5, very thick, minimum width=3cm, minimum height=1.5cm, rounded corners, align=center, below of=github, node distance=3.5cm] (local) {\textbf{VS Code}\\\textit{(Integrator)}};
 
         % Arrows
         % 1. Overleaf -> GitHub
-        \draw[->, ASUMaroon!70!black] (overleaf.north east) to [bend left=20] node[above, font=\footnotesize] {1. Push \texttt{main}} (github.north west);
+        \draw[->, red!70!black] (overleaf.north east) to [bend left=20] node[above, font=\footnotesize] {1. Push \texttt{main}} (github.north west);
         
         % 5. GitHub -> Overleaf
-        \draw[->, ASUGold!70!black] (github.south west) to [bend left=20] node[below, font=\footnotesize] {5. Pull changes} (overleaf.south east);
+        \draw[->, blue!70!black] (github.south west) to [bend left=20] node[below, font=\footnotesize] {5. Pull changes} (overleaf.south east);
         
         % 2. GitHub -> Local
-        \draw[->, ASUMaroon!50] (github.south) -- node[right, font=\footnotesize] {2. Pull \texttt{main}} (local.north);
+        \draw[->, orange!70!black] (github.south) -- node[right, font=\footnotesize] {2. Pull \texttt{main}} (local.north);
         
         % 4. Local -> GitHub
         \draw[->, purple!70!black] (local.east) to [bend right=60] node[right, font=\footnotesize] {4. Merge \& Push} (github.east);
