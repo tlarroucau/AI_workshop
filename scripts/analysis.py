@@ -238,6 +238,82 @@ def main():
     
     print("Saved regression results table")
     
+    # ---- Robustness: Cluster-robust standard errors by region ----
+    print("\nRunning cluster-robust SE estimation (clustering by region)...")
+    
+    # Re-estimate models with cluster-robust SEs
+    model1_cluster = smf.ols('outcome ~ treatment', data=df).fit(
+        cov_type='cluster', cov_kwds={'groups': df['region_id']}
+    )
+    model2_cluster = smf.ols('outcome ~ treatment + age + income + education_years', data=df).fit(
+        cov_type='cluster', cov_kwds={'groups': df['region_id']}
+    )
+    
+    print("Model 1 (Clustered):")
+    print(model1_cluster.summary())
+    print("\nModel 2 (Clustered):")
+    print(model2_cluster.summary())
+    
+    # Helper to format coefficient with significance stars
+    def _fmt_coef(model, var):
+        p = model.pvalues[var]
+        stars = '***' if p < 0.01 else ('**' if p < 0.05 else ('*' if p < 0.1 else ''))
+        return f"{model.params[var]:.3f}{stars}"
+    
+    def _fmt_se(model, var):
+        return f"({model.bse[var]:.3f})"
+    
+    # Build robustness table: Treatment coefficient row only, 4 columns
+    robustness_vars = ['treatment', 'age', 'income', 'education_years', 'Intercept']
+    display_names = ['Treatment', 'Age', 'Income', 'Education Years', 'Constant']
+    
+    with open('../output/tables/regression_robustness.tex', 'w') as f:
+        f.write("\\begin{table}[htbp]\n")
+        f.write("\\centering\n")
+        f.write("\\caption{Robustness Check: Cluster-Robust Standard Errors}\n")
+        f.write("\\label{tab:robustness}\n")
+        f.write("\\begin{tabular}{lcccc}\n")
+        f.write("\\toprule\n")
+        f.write(" & \\multicolumn{2}{c}{Model 1} & \\multicolumn{2}{c}{Model 2} \\\\\n")
+        f.write("\\cmidrule(lr){2-3} \\cmidrule(lr){4-5}\n")
+        f.write(" & Default & Clustered & Default & Clustered \\\\\n")
+        f.write("\\midrule\n")
+        
+        for var, name in zip(robustness_vars, display_names):
+            if var in model1.params.index:
+                m1_def = _fmt_coef(model1, var)
+                m1_se = _fmt_se(model1, var)
+                m1_cl = _fmt_coef(model1_cluster, var)
+                m1_cl_se = _fmt_se(model1_cluster, var)
+            else:
+                m1_def = '-'
+                m1_se = ''
+                m1_cl = '-'
+                m1_cl_se = ''
+            
+            m2_def = _fmt_coef(model2, var)
+            m2_se = _fmt_se(model2, var)
+            m2_cl = _fmt_coef(model2_cluster, var)
+            m2_cl_se = _fmt_se(model2_cluster, var)
+            
+            f.write(f"{name} & {m1_def} & {m1_cl} & {m2_def} & {m2_cl} \\\\\n")
+            f.write(f" & {m1_se} & {m1_cl_se} & {m2_se} & {m2_cl_se} \\\\\n")
+        
+        f.write("\\midrule\n")
+        f.write(f"N & \\multicolumn{{2}}{{c}}{{{int(model1.nobs)}}} & \\multicolumn{{2}}{{c}}{{{int(model2.nobs)}}} \\\\\n")
+        f.write(f"R-squared & \\multicolumn{{2}}{{c}}{{{model1.rsquared:.4f}}} & \\multicolumn{{2}}{{c}}{{{model2.rsquared:.4f}}} \\\\\n")
+        f.write("Clustering & No & Region & No & Region \\\\\n")
+        f.write("\\bottomrule\n")
+        f.write("\\end{tabular}\n")
+        f.write("\\begin{tablenotes}\n")
+        f.write("\\small\n")
+        f.write("\\item Notes: Standard errors in parentheses. Cluster-robust SEs clustered at the region level.\n")
+        f.write("\\item Significance: *** p<0.01, ** p<0.05, * p<0.1\n")
+        f.write("\\end{tablenotes}\n")
+        f.write("\\end{table}\n")
+    
+    print("Saved robustness table (cluster-robust SEs)")
+    
     print("\n" + "=" * 60)
     print("ANALYSIS COMPLETE!")
     print("=" * 60)

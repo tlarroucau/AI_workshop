@@ -158,7 +158,11 @@ Figure \ref{fig:scatter} examines the relationship between income and outcomes, 
 
 \subsection{Robustness}
 
-The consistency of results across specifications and the graphical evidence support the robustness of our findings. Additional sensitivity analyses (not shown) confirm results are not driven by outliers or functional form assumptions.
+To assess the sensitivity of our results to potential within-group correlation, we re-estimate both models using cluster-robust standard errors at the region level. Table \ref{tab:robustness} presents the comparison between default and clustered standard errors.
+
+\input{tables/regression_robustness.tex}
+
+The clustered standard errors are somewhat larger than the default OLS standard errors, reflecting within-region correlation in the outcome variable. Importantly, the treatment effect remains statistically significant under both approaches, confirming the robustness of our main findings.
 
 \subsubsection{Testing Overleaf integration}
 
